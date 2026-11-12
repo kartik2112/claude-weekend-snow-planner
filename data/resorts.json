@@ -1,0 +1,691 @@
+{
+ "checked": "2026-11-12",
+ "holidays": [
+  {
+   "sat": "2026-11-28",
+   "label": "Thanksgiving"
+  },
+  {
+   "sat": "2026-12-26",
+   "label": "Christmas"
+  },
+  {
+   "sat": "2027-01-02",
+   "label": "New Year"
+  },
+  {
+   "sat": "2027-01-16",
+   "label": "MLK Day"
+  },
+  {
+   "sat": "2027-02-13",
+   "label": "Presidents' Day"
+  }
+ ],
+ "peak": [
+  "2026-11-28",
+  "2026-11-29",
+  "2026-12-19",
+  "2026-12-20",
+  "2026-12-26",
+  "2026-12-27",
+  "2027-01-02",
+  "2027-01-03",
+  "2027-01-16",
+  "2027-01-17",
+  "2027-02-13",
+  "2027-02-14",
+  "2027-02-20",
+  "2027-02-21"
+ ],
+ "paBlackoutDefault": [
+  [
+   "2026-12-26",
+   "2027-01-03"
+  ],
+  [
+   "2027-01-16",
+   "2027-01-18"
+  ],
+  [
+   "2027-02-13",
+   "2027-02-15"
+  ]
+ ],
+ "groups": [
+  {
+   "id": "cali",
+   "label": "Cali Pass \u00b7 unlimited",
+   "note": "No blackouts. Included with your pass."
+  },
+  {
+   "id": "pa-ca",
+   "label": "Powder Alliance \u00b7 drivable",
+   "note": "3 free days each, Sun\u2013Fri, non-holiday. Saturdays are paid."
+  },
+  {
+   "id": "tahoe",
+   "label": "Tahoe add-ons \u00b7 paid",
+   "note": "Not on Cali Pass. Dynamic pricing: buy online early."
+  },
+  {
+   "id": "pa-far",
+   "label": "Powder Alliance \u00b7 fly-to",
+   "note": "3 free days each, Sun\u2013Fri, non-holiday."
+  }
+ ],
+ "resorts": [
+  {
+   "id": "dodge",
+   "name": "Dodge Ridge",
+   "st": "CA",
+   "group": "cali",
+   "pass": "cali",
+   "home": true,
+   "drive": "3h 15m",
+   "mi": 160,
+   "summit": 8200,
+   "vert": 1600,
+   "site": "https://dodgeridge.com/",
+   "tickets": "https://dodgeridge.com/lift-tickets/",
+   "price": {
+    "wk": 159,
+    "hol": 169,
+    "conf": "est",
+    "note": "Daily rates TBD online; 2-day pack $208 and 4-day pack $316 published, no blackouts"
+   },
+   "rental": {
+    "wk": 65,
+    "conf": "est"
+   },
+   "lat": 38.188,
+   "lon": -119.956,
+   "elev": 2250
+  },
+  {
+   "id": "bear",
+   "name": "Bear Valley",
+   "st": "CA",
+   "group": "cali",
+   "pass": "cali",
+   "drive": "3h 30m",
+   "mi": 175,
+   "summit": 8500,
+   "vert": 1900,
+   "site": "https://www.bearvalley.com/",
+   "tickets": "https://www.bearvalley.com/",
+   "price": {
+    "wk": 139,
+    "hol": 169,
+    "conf": "est",
+    "note": "Last published adult rate $139; peak around $169"
+   },
+   "rental": {
+    "wk": 65,
+    "conf": "est"
+   },
+   "lat": 38.469,
+   "lon": -120.04,
+   "elev": 2350
+  },
+  {
+   "id": "china",
+   "name": "China Peak",
+   "st": "CA",
+   "group": "cali",
+   "pass": "cali",
+   "drive": "3h 45m",
+   "mi": 200,
+   "summit": 8709,
+   "vert": 1679,
+   "site": "https://www.skichinapeak.com/",
+   "tickets": "https://skichinapeak.com/lift-tickets",
+   "price": {
+    "wk": 139,
+    "hol": 169,
+    "conf": "est",
+    "note": "Variable online pricing from $119"
+   },
+   "rental": {
+    "wk": 60,
+    "conf": "est"
+   },
+   "lat": 37.236,
+   "lon": -119.157,
+   "elev": 2380
+  },
+  {
+   "id": "mthigh",
+   "name": "Mountain High",
+   "st": "CA",
+   "group": "cali",
+   "pass": "cali",
+   "drive": "5h 45m",
+   "mi": 360,
+   "summit": 8200,
+   "vert": 1600,
+   "site": "https://www.mthigh.com/",
+   "tickets": "https://www.mthigh.com/",
+   "price": {
+    "wk": 119,
+    "hol": 129,
+    "conf": "est",
+    "note": "Last published adult 8-hr rate $119"
+   },
+   "rental": {
+    "wk": 65,
+    "conf": "est"
+   },
+   "lat": 34.375,
+   "lon": -117.69,
+   "elev": 2250
+  },
+  {
+   "id": "sierra",
+   "name": "Sierra-at-Tahoe",
+   "st": "CA",
+   "group": "pa-ca",
+   "pass": "pa",
+   "drive": "3h 45m",
+   "mi": 200,
+   "summit": 8852,
+   "vert": 2212,
+   "site": "https://sierraattahoe.com/",
+   "tickets": "https://sierraattahoe.com/lift-tickets/",
+   "pa": "https://www.powderalliance.com/resorts-details/sierra-at-tahoe",
+   "paBlackout": [
+    [
+     "2026-12-26",
+     "2026-12-30"
+    ],
+    [
+     "2027-01-16",
+     "2027-01-17"
+    ],
+    [
+     "2027-02-13",
+     "2027-02-14"
+    ]
+   ],
+   "price": {
+    "wk": 167,
+    "hol": 191,
+    "conf": "pub",
+    "note": "26/27 single-day: $167 non-peak, $191 peak. Online advance can be up to 45% less. Weekend parking reservations required"
+   },
+   "rental": {
+    "wk": 70,
+    "conf": "est"
+   },
+   "lat": 38.799,
+   "lon": -120.081,
+   "elev": 2290
+  },
+  {
+   "id": "shasta",
+   "name": "Mt. Shasta Ski Park",
+   "st": "CA",
+   "group": "pa-ca",
+   "pass": "pa",
+   "drive": "4h 30m",
+   "mi": 290,
+   "summit": 6890,
+   "vert": 1435,
+   "site": "https://www.skipark.com/",
+   "tickets": "https://www.skipark.com/ski-ride",
+   "pa": "https://www.powderalliance.com/resorts-details/skipark",
+   "price": {
+    "wk": 109,
+    "hol": 119,
+    "conf": "pub",
+    "note": "Last published weekend adult rate $109"
+   },
+   "rental": {
+    "wk": 55,
+    "conf": "est"
+   },
+   "lat": 41.32,
+   "lon": -122.204,
+   "elev": 1890
+  },
+  {
+   "id": "palisades",
+   "name": "Palisades Tahoe",
+   "st": "CA",
+   "group": "tahoe",
+   "pass": "none",
+   "drive": "3h 45m",
+   "mi": 215,
+   "summit": 9050,
+   "vert": 2850,
+   "site": "https://www.palisadestahoe.com/",
+   "tickets": "https://www.palisadestahoe.com/lift-tickets",
+   "price": {
+    "wk": 219,
+    "hol": 246,
+    "win": 289,
+    "conf": "range",
+    "note": "Advance online $103\u2013$246 by date; window up to $289. 4-day pack $110/day"
+   },
+   "rental": {
+    "wk": 89,
+    "conf": "est"
+   },
+   "lat": 39.197,
+   "lon": -120.235,
+   "elev": 2300
+  },
+  {
+   "id": "northstar",
+   "name": "Northstar",
+   "st": "CA",
+   "group": "tahoe",
+   "pass": "none",
+   "drive": "4h",
+   "mi": 225,
+   "summit": 8610,
+   "vert": 2280,
+   "site": "https://www.northstarcalifornia.com/",
+   "tickets": "https://www.northstarcalifornia.com/",
+   "price": {
+    "wk": 175,
+    "hol": 205,
+    "win": 284,
+    "conf": "range",
+    "note": "Advance online $131\u2013$205 by date; same-day $164\u2013$284. Epic Day Pass from ~$109/day"
+   },
+   "rental": {
+    "wk": 95,
+    "conf": "est"
+   },
+   "lat": 39.264,
+   "lon": -120.122,
+   "elev": 2290
+  },
+  {
+   "id": "heavenly",
+   "name": "Heavenly",
+   "st": "CA/NV",
+   "group": "tahoe",
+   "pass": "none",
+   "drive": "4h",
+   "mi": 215,
+   "summit": 10067,
+   "vert": 3500,
+   "site": "https://www.skiheavenly.com/",
+   "tickets": "https://www.skiheavenly.com/",
+   "price": {
+    "wk": 175,
+    "hol": 205,
+    "win": 284,
+    "conf": "range",
+    "note": "Advance online ~$139\u2013$205; window $219\u2013$284. Epic Day Pass from ~$109/day"
+   },
+   "rental": {
+    "wk": 95,
+    "conf": "est"
+   },
+   "lat": 38.935,
+   "lon": -119.906,
+   "elev": 2590
+  },
+  {
+   "id": "timberline",
+   "name": "Timberline",
+   "st": "OR",
+   "group": "pa-far",
+   "pass": "pa",
+   "drive": "PDX + 1h 30m",
+   "summit": 8540,
+   "vert": 4540,
+   "site": "https://www.timberlinelodge.com/",
+   "tickets": "https://www.timberlinelodge.com/",
+   "pa": "https://www.powderalliance.com/resorts-details/timberline",
+   "price": {
+    "wk": 134,
+    "hol": 144,
+    "conf": "est",
+    "note": "Last published adult rate $124"
+   },
+   "rental": {
+    "wk": 60,
+    "conf": "est"
+   },
+   "lat": 45.331,
+   "lon": -121.711,
+   "elev": 1830
+  },
+  {
+   "id": "skibowl",
+   "name": "Mt. Hood Skibowl",
+   "st": "OR",
+   "group": "pa-far",
+   "pass": "pa",
+   "drive": "PDX + 1h 15m",
+   "summit": 5026,
+   "vert": 1500,
+   "site": "https://www.skibowl.com/",
+   "tickets": "https://www.skibowl.com/",
+   "pa": "https://www.powderalliance.com/resorts-details/mt-hood-skibowl",
+   "price": {
+    "wk": 89,
+    "hol": 99,
+    "conf": "est",
+    "note": "Estimate"
+   },
+   "rental": {
+    "wk": 50,
+    "conf": "est"
+   },
+   "lat": 45.302,
+   "lon": -121.774,
+   "elev": 1370
+  },
+  {
+   "id": "mission",
+   "name": "Mission Ridge",
+   "st": "WA",
+   "group": "pa-far",
+   "pass": "pa",
+   "drive": "EAT + 20m",
+   "summit": 6820,
+   "vert": 2250,
+   "site": "https://www.missionridge.com/",
+   "tickets": "https://www.missionridge.com/",
+   "pa": "https://www.powderalliance.com/resorts-details/mission-ridge",
+   "price": {
+    "wk": 105,
+    "hol": 115,
+    "conf": "est",
+    "note": "Last published adult rate $95"
+   },
+   "rental": {
+    "wk": 55,
+    "conf": "est"
+   },
+   "lat": 47.293,
+   "lon": -120.399,
+   "elev": 1680
+  },
+  {
+   "id": "whitepass",
+   "name": "White Pass",
+   "st": "WA",
+   "group": "pa-far",
+   "pass": "pa",
+   "drive": "SEA + 2h 45m",
+   "summit": 6500,
+   "vert": 2000,
+   "site": "https://skiwhitepass.com/",
+   "tickets": "https://skiwhitepass.com/",
+   "pa": "https://www.powderalliance.com/resorts-details/white-pass",
+   "paBlackout": [
+    [
+     "2026-11-26",
+     "2026-11-29"
+    ],
+    [
+     "2026-12-19",
+     "2027-01-03"
+    ],
+    [
+     "2027-01-16",
+     "2027-01-18"
+    ],
+    [
+     "2027-02-13",
+     "2027-02-15"
+    ]
+   ],
+   "price": {
+    "wk": 95,
+    "hol": 105,
+    "conf": "est",
+    "note": "Last published adult rate $85"
+   },
+   "rental": {
+    "wk": 50,
+    "conf": "est"
+   },
+   "lat": 46.637,
+   "lon": -121.391,
+   "elev": 1520
+  },
+  {
+   "id": "eaglecrest",
+   "name": "Eaglecrest",
+   "st": "AK",
+   "group": "pa-far",
+   "pass": "pa",
+   "drive": "JNU + 30m",
+   "summit": 2620,
+   "vert": 1620,
+   "site": "https://www.skijuneau.com/",
+   "tickets": "https://www.skijuneau.com/",
+   "pa": "https://www.powderalliance.com/resorts-details/eaglecrest-ski-area",
+   "price": {
+    "wk": 75,
+    "hol": 75,
+    "conf": "est",
+    "note": "Last published adult rate $75. Open Wed\u2013Sun"
+   },
+   "rental": {
+    "wk": 45,
+    "conf": "est"
+   },
+   "lat": 58.271,
+   "lon": -134.517,
+   "elev": 550
+  },
+  {
+   "id": "blacktail",
+   "name": "Blacktail Mountain",
+   "st": "MT",
+   "group": "pa-far",
+   "pass": "pa",
+   "drive": "FCA + 45m",
+   "summit": 6780,
+   "vert": 1440,
+   "site": "https://www.blacktailmountain.com/",
+   "tickets": "https://www.blacktailmountain.com/",
+   "pa": "https://www.powderalliance.com/resorts-details/blacktail-mountain-ski-area",
+   "price": {
+    "wk": 70,
+    "hol": 75,
+    "conf": "est",
+    "note": "Estimate"
+   },
+   "rental": {
+    "wk": 45,
+    "conf": "est"
+   },
+   "lat": 48.012,
+   "lon": -114.355,
+   "elev": 1830
+  },
+  {
+   "id": "bogus",
+   "name": "Bogus Basin",
+   "st": "ID",
+   "group": "pa-far",
+   "pass": "pa",
+   "drive": "BOI + 45m",
+   "summit": 7582,
+   "vert": 1800,
+   "site": "https://bogusbasin.org/",
+   "tickets": "https://bogusbasin.org/",
+   "pa": "https://www.powderalliance.com/resorts-details/bogus-basin",
+   "price": {
+    "wk": 99,
+    "hol": 109,
+    "conf": "est",
+    "note": "Last published adult rate $84"
+   },
+   "rental": {
+    "wk": 55,
+    "conf": "est"
+   },
+   "lat": 43.764,
+   "lon": -116.103,
+   "elev": 2070
+  },
+  {
+   "id": "loveland",
+   "name": "Loveland",
+   "st": "CO",
+   "group": "pa-far",
+   "pass": "pa",
+   "drive": "DEN + 1h 15m",
+   "summit": 13010,
+   "vert": 2210,
+   "site": "https://skiloveland.com/",
+   "tickets": "https://skiloveland.com/",
+   "pa": "https://www.powderalliance.com/resorts-details/loveland-ski-area",
+   "price": {
+    "wk": 159,
+    "hol": 169,
+    "conf": "est",
+    "note": "Last published adult rate $149"
+   },
+   "rental": {
+    "wk": 60,
+    "conf": "est"
+   },
+   "lat": 39.68,
+   "lon": -105.898,
+   "elev": 3500
+  },
+  {
+   "id": "silver",
+   "name": "Silver Mountain",
+   "st": "ID",
+   "group": "pa-far",
+   "pass": "pa",
+   "drive": "GEG + 1h 15m",
+   "summit": 6300,
+   "vert": 2200,
+   "site": "https://silvermt.com/",
+   "tickets": "https://new.silvermt.com/ski-ride/tickets",
+   "pa": "https://www.powderalliance.com/resorts-details/silver-mountain-resort",
+   "paBlackout": [
+    [
+     "2026-12-19",
+     "2027-01-03"
+    ],
+    [
+     "2027-01-16",
+     "2027-01-18"
+    ],
+    [
+     "2027-02-13",
+     "2027-02-15"
+    ]
+   ],
+   "price": {
+    "wk": 76,
+    "hol": 86,
+    "conf": "pub",
+    "note": "Last published weekend adult rate $76"
+   },
+   "rental": {
+    "wk": 50,
+    "conf": "est"
+   },
+   "lat": 47.533,
+   "lon": -116.122,
+   "elev": 1680
+  },
+  {
+   "id": "cooper",
+   "name": "Ski Cooper",
+   "st": "CO",
+   "group": "pa-far",
+   "pass": "pa",
+   "drive": "DEN + 2h",
+   "summit": 11700,
+   "vert": 1200,
+   "site": "https://www.skicooper.com/",
+   "tickets": "https://www.skicooper.com/",
+   "pa": "https://www.powderalliance.com/resorts-details/ski-cooper",
+   "price": {
+    "wk": 79,
+    "hol": 89,
+    "conf": "est",
+    "note": "Estimate"
+   },
+   "rental": {
+    "wk": 50,
+    "conf": "est"
+   },
+   "lat": 39.361,
+   "lon": -106.301,
+   "elev": 3290
+  },
+  {
+   "id": "snowking",
+   "name": "Snow King",
+   "st": "WY",
+   "group": "pa-far",
+   "pass": "pa",
+   "drive": "JAC + 15m",
+   "summit": 7808,
+   "vert": 1571,
+   "site": "https://snowkingmountain.com/",
+   "tickets": "https://snowkingmountain.com/",
+   "pa": "https://www.powderalliance.com/resorts-details/snow-king-mountain-resort",
+   "paBlackout": [
+    [
+     "2026-12-19",
+     "2027-01-03"
+    ],
+    [
+     "2027-01-16",
+     "2027-01-18"
+    ],
+    [
+     "2027-02-13",
+     "2027-02-15"
+    ]
+   ],
+   "price": {
+    "wk": 100,
+    "hol": 110,
+    "conf": "est",
+    "note": "Last published adult rate $100"
+   },
+   "rental": {
+    "wk": 60,
+    "conf": "est"
+   },
+   "lat": 43.468,
+   "lon": -110.758,
+   "elev": 2130
+  },
+  {
+   "id": "angelfire",
+   "name": "Angel Fire",
+   "st": "NM",
+   "group": "pa-far",
+   "pass": "pa",
+   "drive": "ABQ + 2h 45m",
+   "summit": 10677,
+   "vert": 2077,
+   "site": "https://www.angelfireresort.com/",
+   "tickets": "https://www.angelfireresort.com/",
+   "pa": "https://www.powderalliance.com/resorts-details/angel-fire",
+   "price": {
+    "wk": 136,
+    "hol": 146,
+    "conf": "est",
+    "note": "Last published adult rate $122"
+   },
+   "rental": {
+    "wk": 60,
+    "conf": "est"
+   },
+   "lat": 36.385,
+   "lon": -105.278,
+   "elev": 2900
+  }
+ ]
+}

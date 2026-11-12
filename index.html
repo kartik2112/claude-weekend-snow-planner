@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Weekend Snow Planner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: a trail-sign header over a calm card grid — resorts down, weekends across. Each card is a tiny forecast plus what the day costs you. */
+:root{
+  --bg:#EDF2F6;
+  --panel:#FFFFFF;
+  --tile:#FFFFFF;
+  --well:#F4F7FA;
+  --ink:#102033;
+  --muted:#617386;
+  --faint:#94A3B3;
+  --line:#DDE5EC;
+  --accent:#0B63A8;
+  --accent-soft:#E4F0FA;
+  --holiday:#C2306B;
+  --holiday-soft:#FBEAF1;
+  --snow:#0A86AA;
+  --snow-soft:#DDF2F8;
+  --sun:#D99A0B;
+  --pass:#13795B;
+  --pass-soft:#DEF3EA;
+  --warn:#B45309;
+  --shadow:0 1px 2px rgba(16,32,51,.06),0 1px 1px rgba(16,32,51,.04);
+  --display:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;
+  --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --cellw:100px;
+  --namew:176px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0A121B;--panel:#111C28;--tile:#15212F;--well:#0E1823;--ink:#E6EEF6;--muted:#93A4B6;--faint:#5E6F80;--line:#223140;
+    --accent:#5EAAEE;--accent-soft:#15304A;--holiday:#F06C9F;--holiday-soft:#2F1623;
+    --snow:#52C9E8;--snow-soft:#11323F;--sun:#F2BE3C;--pass:#4ACB9C;--pass-soft:#113427;--warn:#F59E0B;
+    --shadow:0 1px 2px rgba(0,0,0,.35);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0A121B;--panel:#111C28;--tile:#15212F;--well:#0E1823;--ink:#E6EEF6;--muted:#93A4B6;--faint:#5E6F80;--line:#223140;
+  --accent:#5EAAEE;--accent-soft:#15304A;--holiday:#F06C9F;--holiday-soft:#2F1623;
+  --snow:#52C9E8;--snow-soft:#11323F;--sun:#F2BE3C;--pass:#4ACB9C;--pass-soft:#113427;--warn:#F59E0B;
+  --shadow:0 1px 2px rgba(0,0,0,.35);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0;overscroll-behavior-x:none}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:14px;line-height:1.4;-webkit-font-smoothing:antialiased}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:6px}
+.wrap{max-width:1640px;margin:0 auto;padding:18px 16px 40px;display:flex;flex-direction:column;gap:14px}
+
+/* header */
+header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px;position:relative}
+.brand{display:flex;align-items:center;gap:12px}
+.mark{width:44px;height:44px;border-radius:12px;background:var(--accent);display:grid;place-items:center;flex:none;box-shadow:var(--shadow)}
+.brand h1{font-family:var(--display);font-weight:700;font-size:30px;letter-spacing:.015em;line-height:1;margin:0;text-transform:uppercase;text-wrap:balance}
+.brand h1 span{color:var(--accent)}
+.brand p{margin:4px 0 0;color:var(--muted);font-size:13px}
+.fresh{display:flex;gap:6px;flex-wrap:wrap}
+.chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:4px 11px;font-size:12px;color:var(--muted);white-space:nowrap}
+.chip .dot{width:7px;height:7px;border-radius:50%;background:var(--pass)}
+.chip.stale .dot{background:var(--warn)}
+
+/* controls */
+.controls{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:10px 12px;box-shadow:var(--shadow)}
+.cg{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.ctl-label{font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--faint);font-weight:800}
+.seg{display:inline-flex;background:var(--well);border:1px solid var(--line);border-radius:10px;padding:3px;gap:2px}
+#unitSeg button{padding:4px 9px}
+.seg button{border:0;background:transparent;padding:5px 12px;border-radius:7px;cursor:pointer;font-weight:700;font-size:13px;color:var(--muted)}
+.seg button[aria-pressed="true"]{background:var(--panel);color:var(--ink);box-shadow:0 1px 3px rgba(16,32,51,.14)}
+.tog{display:inline-flex;align-items:center;gap:8px;cursor:pointer;font-weight:600;font-size:13px;user-select:none;white-space:nowrap}
+.tog input{position:absolute;opacity:0;width:1px;height:1px}
+.tog .sw{width:32px;height:18px;border-radius:999px;background:var(--line);position:relative;transition:background .15s;flex:none}
+.tog .sw::after{content:"";position:absolute;top:2px;left:2px;width:14px;height:14px;border-radius:50%;background:#fff;transition:transform .15s;box-shadow:0 1px 2px rgba(0,0,0,.25)}
+.tog input:checked + .sw{background:var(--accent)}
+.tog input:checked + .sw::after{transform:translateX(14px)}
+.tog input:focus-visible + .sw{outline:2px solid var(--accent);outline-offset:2px}
+.fchip{border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:4px 11px;font-size:12px;font-weight:700;cursor:pointer;color:var(--muted);display:inline-flex;align-items:center;gap:5px}
+.fchip::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--faint)}
+.fchip[aria-pressed="true"]{background:var(--accent-soft);border-color:transparent;color:var(--accent)}
+.fchip[aria-pressed="true"]::before{background:var(--accent)}
+.vdiv{width:1px;align-self:stretch;background:var(--line)}
+select{border:1px solid var(--line);background:var(--panel);border-radius:9px;padding:5px 8px;font-size:13px;font-weight:600}
+.spacer{flex:1}
+
+/* summary */
+.summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}
+.sum{all:unset;box-sizing:border-box;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px 14px;display:flex;gap:12px;align-items:center;cursor:pointer;box-shadow:var(--shadow)}
+.sum:hover{border-color:var(--accent)}
+.sum:focus-visible{outline:2px solid var(--accent)}
+.sum .ic{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;flex:none;background:var(--well)}
+.sum .k{font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--faint);font-weight:800}
+.sum .v{font-family:var(--display);font-size:21px;font-weight:600;line-height:1.1;margin-top:1px}
+.sum .s{font-size:12px;color:var(--muted)}
+.sum.static{cursor:default}
+
+/* grid */
+.gridwrap{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:auto;max-height:calc(100vh - 110px);position:relative;box-shadow:var(--shadow);overscroll-behavior-x:none;overscroll-behavior-y:auto}
+table.g{border-collapse:separate;border-spacing:0;font-variant-numeric:tabular-nums}
+.g th,.g td{padding:0}
+.g thead th{position:sticky;top:0;z-index:3;background:var(--panel);border-bottom:1px solid var(--line)}
+.g thead th.corner{left:0;z-index:5;text-align:left;padding:10px 14px;vertical-align:bottom}
+.g .rh{position:sticky;left:0;z-index:2;background:var(--panel);border-right:1px solid var(--line);width:var(--namew);min-width:var(--namew);max-width:var(--namew)}
+.colh{width:var(--cellw);min-width:var(--cellw);padding:9px 6px 7px;text-align:center;vertical-align:bottom}
+.mode-wk .colh{width:calc(var(--cellw)*1.52);min-width:calc(var(--cellw)*1.52)}
+.colh .d{font-family:var(--display);font-size:17px;font-weight:600;line-height:1;white-space:nowrap}
+.colh .m{font-size:10px;color:var(--faint);text-transform:uppercase;letter-spacing:.08em;font-weight:800;margin-bottom:2px}
+.colh .tag{display:inline-block;margin-top:5px;font-size:10px;font-weight:800;padding:1px 7px;border-radius:999px;line-height:1.55;white-space:nowrap}
+.colh .tag.hol{background:var(--holiday);color:#fff}
+.colh .tag.pk{background:var(--holiday-soft);color:var(--holiday)}
+.colh .tag.fc{background:var(--accent-soft);color:var(--accent)}
+.colh .tag.av{color:var(--faint);border:1px dashed var(--line)}
+.colh .sd{display:grid;grid-template-columns:1fr 1fr;margin:6px 6px 0;font-size:9.5px;font-weight:800;letter-spacing:.08em;color:var(--faint)}
+.colh.is-hol{background:linear-gradient(var(--holiday-soft),var(--holiday-soft)) , var(--panel)!important;box-shadow:inset 0 3px 0 var(--holiday)}
+
+tr.group td{position:sticky;left:0;background:var(--well);padding:0;border-bottom:1px solid var(--line);border-top:1px solid var(--line)}
+tr.group .gl{position:sticky;left:0;width:max-content;max-width:calc(100vw - 40px);padding:9px 14px}
+tr.group button{all:unset;cursor:pointer;display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
+tr.group button:focus-visible{outline:2px solid var(--accent);border-radius:4px}
+tr.group .gt{font-family:var(--display);font-weight:700;font-size:15px;text-transform:uppercase;letter-spacing:.05em}
+tr.group .gn{font-size:12px;color:var(--muted)}
+tr.group .cnt{font-size:11px;font-weight:800;color:var(--muted);background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:0 7px}
+tr.group .car{display:inline-block;transition:transform .15s;color:var(--muted);font-size:11px}
+tr.group.collapsed .car{transform:rotate(-90deg)}
+
+.rh{padding:10px 12px 10px 14px;border-bottom:1px solid var(--line);vertical-align:middle;text-align:left}
+.rname{display:flex;flex-wrap:wrap;align-items:center;gap:4px 6px;font-weight:700;font-size:14px;line-height:1.2}
+.rname a{color:inherit;text-decoration:none}
+.rname a:hover{color:var(--accent)}
+.home{font-size:9px;font-weight:800;letter-spacing:.07em;background:var(--accent);color:#fff;border-radius:4px;padding:1px 5px}
+.rmeta{font-size:11.5px;color:var(--muted);margin-top:5px;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.passb{font-size:9.5px;font-weight:800;letter-spacing:.05em;padding:1px 6px;border-radius:5px;line-height:1.5}
+.passb.cali{background:var(--pass-soft);color:var(--pass)}
+.passb.pa{background:var(--accent-soft);color:var(--accent)}
+.passb.none{background:var(--well);color:var(--muted);border:1px solid var(--line)}
+.gearbtn{border:1px dashed var(--line);background:transparent;border-radius:6px;font-size:10.5px;font-weight:700;padding:1px 6px;cursor:pointer;color:var(--muted);display:inline-flex;align-items:center;gap:3px}
+.gearbtn:hover{border-color:var(--accent);color:var(--accent)}
+.gearbtn[aria-pressed="true"]{background:var(--ink);color:var(--panel);border:1px solid var(--ink)}
+
+td.c{padding:4px;border-bottom:1px solid var(--line);vertical-align:top;background:var(--well)}
+td.c.hol{background:var(--holiday-soft)}
+.tile{all:unset;box-sizing:border-box;display:flex;flex-direction:column;gap:5px;width:100%;height:100%;min-height:62px;padding:8px 9px;cursor:pointer;position:relative;background:var(--tile);border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow);transition:border-color .12s,transform .12s}
+.tile:hover{border-color:var(--accent);transform:translateY(-1px)}
+.tile:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.tile.sel{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent)}
+.tile.pow{border-color:var(--sun);box-shadow:0 0 0 1px var(--sun)}
+.tile.clim{background:transparent;border-style:dashed;box-shadow:none}
+.tile.far .wxrow{opacity:.85}
+.days{display:grid;gap:6px}
+.mode-wk .day .t{font-size:12.5px;padding-left:1px}
+.mode-wk .day .wxrow .sl{font-size:11px}
+.mode-wk .day .wxrow .sl svg{display:none}
+.mode-wk .day .wxrow{gap:4px}
+.mode-wk .day + .day{border-left:1px solid var(--line);padding-left:7px}
+.mode-wk .tile{padding:8px 8px}
+.mode-wk .days{grid-template-columns:1fr 1fr}
+.day{display:flex;flex-direction:column;gap:3px;min-width:0}
+.wxrow{display:flex;align-items:center;gap:5px;min-height:20px}
+.wxrow svg{flex:none}
+.t{font-weight:700;font-size:13px;white-space:nowrap;line-height:1}
+.t .lo{color:var(--muted);font-weight:500}
+.t .lo.solo{color:var(--muted)}
+.sl{font-size:11.5px;font-weight:700;white-space:nowrap;display:flex;align-items:center;gap:3px;line-height:1.2}
+.sl.sn{color:var(--snow)}
+.sl.dry{color:var(--faint);font-weight:600}
+.sl.sun{color:var(--sun)}
+.sl svg{flex:none}
+.clim .t{color:var(--muted);font-weight:600}
+.clim .wxrow svg{opacity:.7}
+.fb{position:absolute;top:-8px;right:8px;z-index:1;font-size:10px;font-weight:800;color:#fff;background:var(--snow);border-radius:999px;padding:0 6px;line-height:1.6;box-shadow:0 1px 2px rgba(0,0,0,.2)}
+.pl{margin-top:auto;padding-top:5px;border-top:1px solid var(--line);display:flex;align-items:center;gap:4px;flex-wrap:wrap;font-size:11.5px;font-weight:700;white-space:nowrap}
+.clim .pl{border-top-style:dashed}
+.pp{border-radius:5px;padding:0 5px;line-height:1.6}
+.pp.pass{background:var(--pass-soft);color:var(--pass)}
+.pp.pa{background:var(--accent-soft);color:var(--accent)}
+.pp.pay{color:var(--ink);padding:0 2px}
+.pp.est::after{content:"~";color:var(--faint);margin-left:1px}
+.pp.gear{color:var(--muted);font-weight:600;padding:0 1px}
+.sep{color:var(--faint);font-weight:500}
+tr.hidden{display:none}
+.no-hi .t .hi,.no-lo .t .lo,.no-hi .t .slash{display:none}
+.no-hi.no-lo .t{display:none}
+
+/* legend + notes */
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:12px;color:var(--muted);align-items:center;padding:2px 2px}
+.legend .li{display:inline-flex;gap:7px;align-items:center}
+.sw-box{width:14px;height:14px;border-radius:4px;display:inline-block}
+.notes{font-size:12px;color:var(--muted);max-width:115ch;display:flex;flex-direction:column;gap:5px;padding:0 2px}
+
+/* drawer */
+.scrim{position:fixed;inset:0;background:rgba(5,12,20,.38);opacity:0;pointer-events:none;transition:opacity .15s;z-index:20}
+.scrim.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;height:100%;width:min(410px,100%);background:var(--panel);border-left:1px solid var(--line);z-index:21;transform:translateX(102%);transition:transform .2s ease;display:flex;flex-direction:column;box-shadow:-12px 0 30px rgba(0,0,0,.15)}
+.drawer.on{transform:none}
+.dh{padding:16px 18px 12px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.dh h2{margin:0;font-family:var(--display);font-size:26px;font-weight:700;line-height:1.05;text-wrap:balance}
+.dh .sub{font-size:12.5px;color:var(--muted);margin-top:4px}
+.x{border:1px solid var(--line);background:transparent;border-radius:9px;width:34px;height:34px;cursor:pointer;font-size:18px;line-height:1;flex:none}
+.db{padding:14px 18px 28px;overflow:auto;display:flex;flex-direction:column;gap:16px}
+.daycards{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.dc{border:1px solid var(--line);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:5px;background:var(--well)}
+.dc.only{grid-column:1/-1}
+.dc .dn{font-size:10.5px;font-weight:800;letter-spacing:.07em;color:var(--faint);text-transform:uppercase}
+.dc .big{display:flex;align-items:center;gap:8px;font-family:var(--display);font-size:28px;font-weight:600;line-height:1}
+.dc .big .lo{color:var(--muted);font-size:21px}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:3px 10px;font-size:12.5px;margin:4px 0 0}
+.kv dt{color:var(--muted)}
+.kv dd{margin:0;font-weight:700;text-align:right}
+.sec h3{margin:0 0 8px;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
+.cost{border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.cost .row{display:flex;justify-content:space-between;gap:10px;padding:9px 12px;border-bottom:1px solid var(--line);font-size:13px;align-items:center}
+.cost .row:last-child{border-bottom:0}
+.cost .row.tot{font-weight:800;background:var(--well)}
+.cost .why{font-size:11.5px;color:var(--muted);font-weight:500}
+.links{display:flex;flex-wrap:wrap;gap:6px}
+.links a{font-size:12.5px;font-weight:700;color:var(--accent);text-decoration:none;border:1px solid var(--line);border-radius:9px;padding:6px 10px}
+.links a:hover{border-color:var(--accent)}
+.muted{color:var(--muted)}
+.small{font-size:12px}
+.err{background:var(--holiday-soft);color:var(--holiday);padding:12px;border-radius:10px;margin:12px}
+
+@media (max-width:640px){
+  :root{--cellw:86px;--namew:122px}
+  .brand h1{font-size:23px}
+  .mark{width:36px;height:36px}
+  .brand p{display:none}
+  .rmeta .dr{display:none}
+  .rname{font-size:12.5px}
+  .rh{padding:8px 8px 8px 10px}
+  .vdiv{display:none}
+  .drawer{top:auto;bottom:0;height:86%;width:100%;border-left:0;border-top:1px solid var(--line);border-radius:18px 18px 0 0;transform:translateY(102%)}
+  .summary{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:2px}
+  .summary .sum{flex:0 0 74%;scroll-snap-align:start}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <div class="mark" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24"><path d="M2 19l6.5-10 3.5 5 2.5-3.5L22 19z" fill="#fff"/><path d="M8.5 9l1.8 2.7-1.8-.9-1.6 1z" fill="#0B63A8" opacity=".35"/></svg></div>
+      <div>
+        <h1>Weekend <span>Snow</span> Planner</h1>
+        <p>Cali Pass, Powder Alliance and Tahoe · forecast, typical conditions and what each day costs you</p>
+      </div>
+    </div>
+    <div class="fresh" id="fresh"></div>
+  </header>
+
+  <div class="controls" role="toolbar" aria-label="View options">
+    <div class="seg" role="group" aria-label="Days to show" id="modeSeg">
+      <button type="button" data-mode="sat" id="m-sat">Saturdays</button>
+      <button type="button" data-mode="sun" id="m-sun">Sundays</button>
+      <button type="button" data-mode="wk" id="m-wk">Weekend</button>
+    </div>
+    <div class="cg">
+      <label class="tog" for="cali"><input type="checkbox" id="cali" checked><span class="sw"></span>I have a Cali Pass</label>
+      <label class="tog" for="gearAll"><input type="checkbox" id="gearAll"><span class="sw"></span>Board rental</label>
+    </div>
+    <span class="vdiv"></span>
+    <div class="cg" role="group" aria-label="Temperatures"><span class="ctl-label">Temps</span>
+      <button type="button" class="fchip" id="tHi" aria-pressed="true">High</button>
+      <button type="button" class="fchip" id="tLo" aria-pressed="true">Low</button>
+      <div class="seg" role="group" aria-label="Temperature unit" id="unitSeg"><button type="button" data-u="F">°F</button><button type="button" data-u="C">°C</button></div>
+    </div>
+    <span class="vdiv"></span>
+    <div class="cg"><span class="ctl-label">Resorts</span><span class="cg" id="filters"></span></div>
+    <div class="spacer"></div>
+    <div class="cg"><label class="ctl-label" for="sort">Sort</label>
+      <select id="sort">
+        <option value="drive">Drive time</option>
+        <option value="snow">New snow, next weekend</option>
+        <option value="cost">Your cost, next weekend</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="summary" id="summary"></div>
+
+  <div class="gridwrap" id="gridwrap"><div class="muted" style="padding:16px">Loading forecast…</div></div>
+
+  <div class="legend" id="legend">
+    <span class="li"><span class="sw-box" style="background:var(--holiday)"></span>Holiday weekend</span>
+    <span class="li"><span class="sw-box" style="background:var(--holiday-soft);border:1px solid var(--holiday)"></span>Peak pricing</span>
+    <span class="li"><span class="fb" style="position:static;box-shadow:none">+12″</span>New snow in the 3 days before</span>
+    <span class="li"><span class="sw-box" style="border:2px solid var(--sun)"></span>Sunny day after a storm</span>
+    <span class="li"><span class="pp pass">Pass</span>On your Cali Pass</span>
+    <span class="li"><span class="pp pa">Free</span>Powder Alliance day (3 per resort)</span>
+    <span class="li"><span class="sw-box" style="border:1px dashed var(--faint)"></span>10-year average (beyond 16 days)</span>
+    <span class="li">$~ estimated price</span>
+  </div>
+  <div class="notes" id="notes"></div>
+</div>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="dTitle">
+  <div class="dh"><div><h2 id="dTitle"></h2><div class="sub" id="dSub"></div></div><button class="x" id="dClose" type="button" aria-label="Close details">×</button></div>
+  <div class="db" id="dBody"></div>
+</aside>
+
+<script>
+(function(){
+"use strict";
+const $=s=>document.querySelector(s);
+const S={mode:"wk",cali:true,gearAll:false,gear:{},groups:{cali:true,"pa-ca":true,tahoe:true,"pa-far":true},collapsed:{"pa-far":true},sort:"drive",showHi:true,showLo:true,unit:"F"};
+try{const saved=JSON.parse(localStorage.getItem("snowplanner")||"null");if(saved)Object.assign(S,saved);}catch(e){}
+function save(){try{localStorage.setItem("snowplanner",JSON.stringify(S));}catch(e){}}
+
+let R,F,C,dayIdx={},weekends=[];
+const DOW=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+const MON=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+const iso=d=>d.toISOString().slice(0,10);
+const addD=(s,n)=>{const d=new Date(s+"T12:00:00Z");d.setUTCDate(d.getUTCDate()+n);return iso(d)};
+const pd=s=>new Date(s+"T12:00:00Z");
+const fmtD=s=>{const d=pd(s);return MON[d.getUTCMonth()]+" "+d.getUTCDate()};
+const inR=(s,ranges)=>(ranges||[]).some(([a,b])=>s>=a&&s<=b);
+const today=(()=>{const n=new Date();return new Date(n.getTime()-n.getTimezoneOffset()*6e4).toISOString().slice(0,10)})();
+
+/* ---------- icons ---------- */
+function ico(kind,sz){sz=sz||18;const s=`width="${sz}" height="${sz}" viewBox="0 0 24 24" aria-hidden="true"`;
+ const sun=`<circle cx="12" cy="12" r="4.2" fill="var(--sun)"/><g stroke="var(--sun)" stroke-width="1.8" stroke-linecap="round"><path d="M12 2.5v2.3M12 19.2v2.3M2.5 12h2.3M19.2 12h2.3M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></g>`;
+ const cloud=(x,y,f)=>`<path transform="translate(${x||0} ${y||0})" d="M7 18h10.2a3.8 3.8 0 0 0 .5-7.6A5.5 5.5 0 0 0 7.2 9.3 4.4 4.4 0 0 0 7 18z" fill="${f||"var(--faint)"}"/>`;
+ const flakes=`<g fill="var(--snow)"><circle cx="8" cy="21" r="1.3"/><circle cx="12.5" cy="22.3" r="1.3"/><circle cx="17" cy="21" r="1.3"/></g>`;
+ const drops=`<g stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round"><path d="M8.5 20l-1 2.5M13 20l-1 2.5M17.5 20l-1 2.5"/></g>`;
+ switch(kind){
+  case"sun":return`<svg ${s}>${sun}</svg>`;
+  case"part":return`<svg ${s}><g transform="translate(-3 -3) scale(.8)">${sun}</g>${cloud(2,1)}</svg>`;
+  case"cloud":return`<svg ${s}>${cloud(0,-1)}</svg>`;
+  case"fog":return`<svg ${s}>${cloud(0,-3)}<g stroke="var(--faint)" stroke-width="1.8" stroke-linecap="round"><path d="M5 19h14M7 22h10"/></g></svg>`;
+  case"flurry":return`<svg ${s}>${cloud(0,-3)}<g fill="var(--snow)"><circle cx="9" cy="21" r="1.2"/><circle cx="15" cy="21.5" r="1.2"/></g></svg>`;
+  case"snow":return`<svg ${s}>${cloud(0,-3,"var(--snow)")}${flakes}</svg>`;
+  case"heavy":return`<svg ${s}>${cloud(0,-4,"var(--snow)")}${flakes}<g fill="var(--snow)"><circle cx="10" cy="18.2" r="1.1"/><circle cx="15" cy="18.2" r="1.1"/></g></svg>`;
+  case"rain":return`<svg ${s}>${cloud(0,-3)}${drops}</svg>`;
+  case"storm":return`<svg ${s}>${cloud(0,-3)}<path d="M12.5 15l-2.5 4h3l-2 4" stroke="var(--sun)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+  case"flake":return`<svg ${s}><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v18M4.2 7.5l15.6 9M4.2 16.5l15.6-9"/></g></svg>`;
+  case"drop":return`<svg ${s}><path d="M12 3.5c3 4 5.5 7 5.5 10a5.5 5.5 0 0 1-11 0c0-3 2.5-6 5.5-10z" fill="currentColor" opacity=".8"/></svg>`;
+  case"money":return`<svg ${s}><rect x="3" y="6" width="18" height="12" rx="2.5" fill="none" stroke="var(--pass)" stroke-width="1.8"/><circle cx="12" cy="12" r="2.6" fill="var(--pass)"/></svg>`;
+  case"cal":return`<svg ${s}><rect x="3" y="5" width="18" height="16" rx="3" fill="none" stroke="var(--holiday)" stroke-width="1.8"/><path d="M3 10h18M8 3v4M16 3v4" stroke="var(--holiday)" stroke-width="1.8" stroke-linecap="round"/></svg>`;
+  case"board":return`<svg ${s}><rect x="9" y="2" width="6" height="20" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9.5 9h5M9.5 15h5" stroke="currentColor" stroke-width="2"/></svg>`;
+ }
+ return"";}
+function wxKind(code,sn){
+ if(code==null)return"cloud";
+ if([71,73,75,77,85,86].includes(code))return sn>=6?"heavy":sn<0.3?"flurry":"snow";
+ if(code>=95)return"storm";
+ if((code>=51&&code<=67)||(code>=80&&code<=82))return(sn>=0.5)?"snow":"rain";
+ if(code===45||code===48)return"fog";
+ if(code===0||code===1)return"sun";
+ if(code===2)return"part";
+ return"cloud";}
+const wxText={sun:"Sunny",part:"Partly cloudy",cloud:"Cloudy",fog:"Fog",snow:"Snow",flurry:"Flurries",heavy:"Heavy snow",rain:"Rain / mixed",storm:"Thunderstorms"};
+
+/* ---------- data access ---------- */
+function fc(rid,date){const i=dayIdx[date];const r=F.r[rid];if(i==null||!r||r.c[i]==null)return null;
+ return{code:r.c[i],hi:r.hi[i],lo:r.lo[i],sn:r.sn[i]||0,pp:r.pp[i],w:r.w[i],g:r.g[i]};}
+function fresh(rid,date){let t=0,n=0;for(let k=1;k<=3;k++){const i=dayIdx[addD(date,-k)];const r=F.r[rid];if(i!=null&&r&&r.sn[i]!=null){t+=r.sn[i];n++;}}return n?Math.round(t*10)/10:null;}
+function clim(rid,sat){const wi=C.sats.indexOf(sat);const r=C.r[rid];if(wi<0||!r)return null;return{hi:r.hi[wi],lo:r.lo[wi],sp:r.sp[wi],sa:r.sa[wi]};}
+function daysOut(date){return Math.round((pd(date)-pd(today))/864e5);}
+const isPeak=d=>R.peak.includes(d);
+function holOf(sat){return R.holidays.find(h=>h.sat===sat);}
+function ticket(r,date){
+ const dow=pd(date).getUTCDay();
+ if(S.cali&&r.pass==="cali")return{type:"pass",amt:0,why:"Unlimited on Cali Pass, no blackouts"};
+ if(S.cali&&r.pass==="pa"){
+   const bl=r.paBlackout||R.paBlackoutDefault;
+   if(dow===6)return{type:"pay",amt:isPeak(date)?r.price.hol:r.price.wk,conf:r.price.conf,why:"Powder Alliance days are Sun–Fri only"};
+   if(inR(date,bl))return{type:"pay",amt:r.price.hol,conf:r.price.conf,why:"Powder Alliance holiday blackout"};
+   return{type:"pa",amt:0,why:"Free Powder Alliance day (3 per season here)"};
+ }
+ return{type:"pay",amt:isPeak(date)?r.price.hol:r.price.wk,conf:r.price.conf,why:isPeak(date)?"Peak / holiday rate":"Weekend rate"};
+}
+const gearOn=r=>S.gearAll||!!S.gear[r.id];
+function dayCost(r,date){const t=ticket(r,date);const g=gearOn(r)?r.rental.wk:0;return{t,g,total:t.amt+g};}
+function datesFor(sat){return S.mode==="sat"?[sat]:S.mode==="sun"?[addD(sat,1)]:[sat,addD(sat,1)];}
+
+/* ---------- rendering ---------- */
+function T(x){return S.unit==="C"?Math.round((x-32)*5/9):x;}
+function temps(hi,lo){return`<span class="t"><span class="hi">${T(hi)}°</span><span class="lo"><span class="slash">/</span>${T(lo)}°</span></span>`;}
+function snowLine(f,kind){
+ if(f.sn>=0.1)return`<div class="sl sn">${ico("flake",10)}${f.sn>=10?Math.round(f.sn):f.sn.toFixed(1)}″</div>`;
+ if(kind==="sun"&&f.pp<20)return`<div class="sl sun">Sunny</div>`;
+ return`<div class="sl dry">${ico("drop",10)}${f.pp!=null?f.pp+"%":"—"}</div>`;}
+function oneDay(r,date,sat){
+ const f=fc(r.id,date);
+ if(f){const k=wxKind(f.code,f.sn);
+  if(S.mode==="wk")return{fc:true,html:`<div class="day"><div class="wxrow">${ico(k,17)}${snowLine(f,k)}</div>${temps(f.hi,f.lo)}</div>`};
+  return{fc:true,html:`<div class="day"><div class="wxrow">${ico(k,18)}${temps(f.hi,f.lo)}</div>${snowLine(f,k)}</div>`};}
+ const c=clim(r.id,sat);
+ if(!c)return{fc:false,html:`<div class="day"><div class="sl dry">—</div></div>`};
+ const k=c.sp>=30?"snow":c.sp>=18?"cloud":"part";
+ return{fc:false,c,html:`<div class="day"><div class="wxrow">${ico(k,17)}${temps(c.hi,c.lo)}</div><div class="sl dry">${ico("flake",10)}${c.sp}% snow days</div></div>`};
+}
+function priceHTML(r,dates){
+ const cs=dates.map(d=>dayCost(r,d));
+ const tok=c=>c.t.type==="pass"?`<span class="pp pass">Pass</span>`:c.t.type==="pa"?`<span class="pp pa">Free</span>`:`<span class="pp pay${c.t.conf!=="pub"?" est":""}">$${c.t.amt}</span>`;
+ let parts;
+ if(cs.length===2&&cs[0].t.type===cs[1].t.type&&cs[0].t.amt===cs[1].t.amt){
+   parts=[tok(cs[0])+(cs[0].t.type==="pay"?`<span class="sep">×2</span>`:"")];
+ }else parts=[cs.map(tok).join(`<span class="sep">·</span>`)];
+ const gear=cs.reduce((a,c)=>a+c.g,0);
+ if(gear)parts.push(`<span class="pp gear">+$${gear}</span>`);
+ return`<div class="pl">${parts.join("")}</div>`;}
+function cellHTML(r,sat){
+ const dates=datesFor(sat);
+ const hol=holOf(sat);
+ let cls="tile",badge="";
+ const days=dates.map(d=>oneDay(r,d,sat));
+ const anyFc=days.some(d=>d.fc);
+ if(!anyFc)cls+=" clim";else if(daysOut(dates[0])>7)cls+=" far";
+ if(anyFc){
+  const tot=(fresh(r.id,dates[0])||0)+(S.mode==="wk"?((fc(r.id,dates[0])||{}).sn||0):0);
+  if(tot>=4)badge=`<span class="fb" title="New snow in the 3 days before">+${Math.round(tot)}″</span>`;
+  if(dates.some(d=>{const f=fc(r.id,d);if(!f)return false;const k=wxKind(f.code,f.sn);return(k==="sun"||k==="part")&&(fresh(r.id,d)||0)>=6;}))cls+=" pow";
+ }
+ const body=(S.mode==="wk"&&!anyFc)?`<div class="days" style="grid-template-columns:1fr">${days[0].html}</div>`:`<div class="days">${days.map(d=>d.html).join("")}</div>`;
+ const label=`${r.name}, ${dates.map(fmtD).join(" and ")}`;
+ return`<td class="c${hol?" hol":""}"><button type="button" class="${cls}" data-r="${r.id}" data-s="${sat}" aria-label="${label}">${badge}${body}${priceHTML(r,dates)}</button></td>`;
+}
+function sortVal(r){
+ const sat=weekends[0];
+ if(S.sort==="snow"){let t=fresh(r.id,sat)||0;[sat,addD(sat,1)].forEach(d=>{const f=fc(r.id,d);if(f)t+=f.sn;});return -t;}
+ if(S.sort==="cost")return datesFor(sat).reduce((a,d)=>a+dayCost(r,d).total,0);
+ return 0;}
+function render(){
+ const wrap=$("#gridwrap");const mode=S.mode;
+ document.querySelectorAll("#modeSeg button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.mode===mode)));
+ $("#cali").checked=S.cali;$("#gearAll").checked=S.gearAll;$("#sort").value=S.sort;
+ document.querySelectorAll("#unitSeg button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.u===S.unit)));
+ $("#tHi").setAttribute("aria-pressed",String(S.showHi));$("#tLo").setAttribute("aria-pressed",String(S.showLo));
+ renderFilters();
+ const cls=["g",mode==="wk"?"mode-wk":"",S.showHi?"":"no-hi",S.showLo?"":"no-lo"].join(" ");
+ let h=`<table class="${cls}"><thead><tr><th class="corner rh"><span class="ctl-label">Resort</span><div class="small muted" style="font-weight:600;margin-top:2px">${mode==="sat"?"Saturdays":mode==="sun"?"Sundays":"Saturday + Sunday"}</div></th>`;
+ weekends.forEach(sat=>{
+  const hol=holOf(sat);const sun=addD(sat,1);const shown=mode==="sun"?sun:sat;
+  const d=pd(shown);const out=daysOut(shown);
+  const inFc=!!fc("dodge",shown);
+  let tag="";
+  if(hol)tag=`<span class="tag hol">${hol.label}</span>`;
+  else if(isPeak(sat)||isPeak(sun))tag=`<span class="tag pk">Peak</span>`;
+  else if(inFc)tag=`<span class="tag fc">${out<=2?"This weekend":"In "+out+" days"}</span>`;
+  else tag=`<span class="tag av">Average</span>`;
+  const dateLbl=mode==="wk"?`${MON[pd(sat).getUTCMonth()]} ${pd(sat).getUTCDate()}–${pd(sun).getUTCDate()}`:`${MON[d.getUTCMonth()]} ${d.getUTCDate()}`;
+  const sd=mode==="wk"&&inFc?`<div class="sd"><span>SAT</span><span>SUN</span></div>`:"";
+  h+=`<th class="colh${hol?" is-hol":""}" scope="col"><div class="m">${mode==="wk"?"Weekend":DOW[d.getUTCDay()]}</div><div class="d">${dateLbl}</div>${tag}${sd}</th>`;
+ });
+ h+=`</tr></thead><tbody>`;
+ R.groups.forEach(g=>{
+  if(!S.groups[g.id])return;
+  let rs=R.resorts.filter(r=>r.group===g.id);
+  if(S.sort!=="drive")rs=rs.slice().sort((a,b)=>sortVal(a)-sortVal(b));
+  const col=!!S.collapsed[g.id];
+  const label=!S.cali&&g.id!=="tahoe"?g.label.split(" · ")[0]+" resorts":g.label;
+  const note=!S.cali&&g.id!=="tahoe"?"Showing day-ticket prices.":g.note;
+  h+=`<tr class="group${col?" collapsed":""}"><td colspan="${weekends.length+1}"><div class="gl"><button type="button" data-g="${g.id}" aria-expanded="${!col}"><span class="car">▼</span><span class="gt">${label}</span><span class="cnt">${rs.length}</span><span class="gn">${note}</span></button></div></td></tr>`;
+  rs.forEach(r=>{
+   const pb=r.pass==="cali"?`<span class="passb cali">CALI</span>`:r.pass==="pa"?`<span class="passb pa">PA</span>`:`<span class="passb none">PAID</span>`;
+   h+=`<tr class="${col?"hidden":""}"><th class="rh" scope="row"><div class="rname">${r.home?'<span class="home">HOME</span>':""}<a href="${r.site}" target="_blank" rel="noopener">${r.name}</a></div><div class="rmeta">${pb}<span class="dr">${r.drive}</span>${gearOn(r)?`<button type="button" class="gearbtn" data-gear="${r.id}" aria-pressed="true" title="Remove snowboard rental for ${r.name}">${ico("board",11)}$${r.rental.wk}</button>`:""}</div></th>`;
+   weekends.forEach(sat=>h+=cellHTML(r,sat));
+   h+=`</tr>`;
+  });
+ });
+ h+=`</tbody></table>`;
+ const sx=wrap.scrollLeft,sy=wrap.scrollTop;
+ wrap.innerHTML=h;wrap.scrollLeft=sx;wrap.scrollTop=sy;
+ renderSummary();save();
+}
+function renderFilters(){
+ const labels={cali:"Cali Pass","pa-ca":"PA drivable",tahoe:"Tahoe paid","pa-far":"PA fly-to"};
+ $("#filters").innerHTML=Object.keys(labels).map(k=>`<button type="button" class="fchip" data-f="${k}" aria-pressed="${!!S.groups[k]}">${labels[k]}</button>`).join("");
+}
+function renderSummary(){
+ const sat=weekends[0],sun=addD(sat,1);
+ const vis=R.resorts.filter(r=>S.groups[r.group]&&r.group!=="pa-far");
+ const pool=vis.length?vis:R.resorts;
+ const ds=datesFor(sat);
+ let best=null,bestV=-1;
+ pool.forEach(r=>{let t=fresh(r.id,ds[0])||0;ds.forEach(d=>{const f=fc(r.id,d);if(f)t+=f.sn;});if(t>bestV){bestV=t;best=r;}});
+ let blue=null,blueV=1e9;
+ pool.forEach(r=>ds.forEach(d=>{const f=fc(r.id,d);if(!f)return;const k=wxKind(f.code,f.sn);const score=f.pp+(k==="sun"?0:k==="part"?15:k==="cloud"||k==="fog"?40:90)-(fresh(r.id,d)||0)*2;if(score<blueV){blueV=score;blue={r,d,f,k};}}));
+ let cheap=null,cheapV=1e9;
+ pool.forEach(r=>{const v=ds.reduce((a,d)=>a+dayCost(r,d).total,0);if(v<cheapV||(v===cheapV&&cheap&&(r.mi||999)<(cheap.mi||999))){cheapV=v;cheap=r;}});
+ const dlab=S.mode==="wk"?`${fmtD(sat)}–${pd(sun).getUTCDate()}`:fmtD(ds[0]);
+ const card=(ic,k,v,s,r)=>`<button type="button" class="sum" ${r?`data-r="${r}" data-s="${sat}"`:""}><span class="ic">${ic}</span><span><span class="k" style="display:block">${k}</span><span class="v" style="display:block">${v}</span><span class="s" style="display:block">${s}</span></span></button>`;
+ const h=[];
+ h.push(card(`<span style="color:var(--snow)">${ico("flake",22)}</span>`,`Most new snow · ${dlab}`,best.name,bestV>=0.1?Math.round(bestV)+"″ over the 3 days before + forecast":"No new snow forecast",best.id));
+ if(blue)h.push(card(ico(blue.k,24),`Driest day · ${DOW[pd(blue.d).getUTCDay()]} ${fmtD(blue.d)}`,blue.r.name,`${wxText[blue.k]}, ${T(blue.f.hi)}°/${T(blue.f.lo)}° · ${blue.f.pp}% precip`,blue.r.id));
+ h.push(card(ico("money",24),`Cheapest for you · ${dlab}`,cheap.name,cheapV===0?"$0 · covered by your pass":"$"+cheapV+(gearOn(cheap)?" incl. gear":" in tickets"),cheap.id));
+ const hol=R.holidays.find(x=>x.sat>=today);
+ if(hol)h.push(`<div class="sum static"><span class="ic">${ico("cal",24)}</span><span><span class="k" style="display:block">Next holiday weekend</span><span class="v" style="display:block">${hol.label}</span><span class="s" style="display:block">${fmtD(hol.sat)}–${pd(addD(hol.sat,1)).getUTCDate()} · PA blackouts, peak prices, crowds</span></span></div>`);
+ $("#summary").innerHTML=h.join("");
+}
+function renderFresh(){
+ const gen=new Date(F.generated);const hrs=(Date.now()-gen)/36e5;
+ const gl=gen.toLocaleString("en-US",{month:"short",day:"numeric",hour:"numeric",minute:"2-digit"});
+ $("#fresh").innerHTML=`<span class="chip${hrs>36?" stale":""}"><span class="dot"></span>${F.live?"Live forecast · loaded "+gl:"Forecast "+gl+(hrs>36?" · needs refresh":"")}</span><span class="chip">Prices checked ${fmtD(R.checked)}</span><span class="chip">${weekends.length} weekends · ${R.resorts.length} resorts</span>`;
+ $("#notes").innerHTML=`<div>Forecast from Open-Meteo at each resort's mid-mountain elevation, 16 days out; days 8–16 are less reliable. Dashed tiles show the 2015–2025 average for that week: typical high/low and the share of days with 1″+ of new snow.</div>
+ <div>Prices are adult single-day weekend rates; "$~" is estimated from the last published or reported rate. Palisades, Northstar and Heavenly price by date, so their tiles show a typical advance-online price (window rates run higher). Powder Alliance gives Cali Pass holders 3 free days per partner resort, Sunday–Friday, non-holiday. Confirm on the resort site before you drive.</div>`;
+}
+
+/* ---------- drawer ---------- */
+let lastFocus=null;
+function openDrawer(rid,sat){
+ const r=R.resorts.find(x=>x.id===rid);if(!r)return;
+ lastFocus=document.activeElement;
+ const dates=S.mode==="wk"?[sat,addD(sat,1)]:datesFor(sat);
+ const hol=holOf(sat);
+ $("#dTitle").textContent=r.name;
+ $("#dSub").textContent=`${dates.map(d=>DOW[pd(d).getUTCDay()]+" "+fmtD(d)).join(" + ")}${hol?" · "+hol.label+" weekend":""} · ${r.st} · ${r.drive}${r.mi?" ("+r.mi+" mi)":""}`;
+ let b=`<div class="daycards">`;
+ dates.forEach(d=>{
+  const f=fc(r.id,d);const c=clim(r.id,sat);const fr=fresh(r.id,d);
+  b+=`<div class="dc${dates.length===1?" only":""}"><div class="dn">${DOW[pd(d).getUTCDay()]} ${fmtD(d)}${f?(daysOut(d)>7?" · low confidence":""):" · 10-yr avg"}</div>`;
+  if(f){const k=wxKind(f.code,f.sn);
+   b+=`<div class="big">${ico(k,30)}${T(f.hi)}°<span class="lo">/${T(f.lo)}°${S.unit}</span></div><div class="small muted">${wxText[k]}</div><dl class="kv"><dt>New snow</dt><dd>${f.sn.toFixed(1)}″</dd><dt>3 days before</dt><dd>${fr!=null?fr.toFixed(1)+"″":"—"}</dd><dt>Precip chance</dt><dd>${f.pp}%</dd><dt>Wind / gusts</dt><dd>${f.w} / ${f.g} mph${f.g>=40?" ⚠":""}</dd></dl>`;
+  }else if(c){b+=`<div class="big">${ico(c.sp>=30?"snow":"cloud",30)}${T(c.hi)}°<span class="lo">/${T(c.lo)}°${S.unit}</span></div><dl class="kv"><dt>Days with 1″+ snow</dt><dd>${c.sp}%</dd><dt>Avg daily snowfall</dt><dd>${c.sa}″</dd></dl>`;}
+  b+=`</div>`;
+ });
+ b+=`</div>`;
+ b+=`<div class="sec"><h3>What it costs you${S.cali?" · Cali Pass":" · no pass"}</h3><div class="cost">`;
+ let tot=0;
+ dates.forEach(d=>{const c=dayCost(r,d);tot+=c.t.amt;
+  const lbl=c.t.type==="pass"?"Included":c.t.type==="pa"?"Free (PA)":"$"+c.t.amt+(c.t.conf!=="pub"?" est.":"");
+  b+=`<div class="row"><div>${DOW[pd(d).getUTCDay()]} lift ticket<div class="why">${c.t.why}</div></div><div>${lbl}</div></div>`;});
+ const g=dates.length*r.rental.wk;
+ b+=`<div class="row"><div><label class="tog" for="dGear"><input type="checkbox" id="dGear" ${gearOn(r)?"checked":""}><span class="sw"></span>Snowboard rental</label><div class="why">Board + boots, adult, $${r.rental.wk}/day (estimate)</div></div><div>${gearOn(r)?"$"+g:"—"}</div></div>`;
+ if(gearOn(r))tot+=g;
+ b+=`<div class="row tot"><div>Total for ${dates.length===1?"the day":"the weekend"}</div><div>$${tot}</div></div></div>`;
+ b+=`<p class="small muted" style="margin:8px 0 0">${r.price.note}.${r.price.win?" Window rate up to $"+r.price.win+".":""}</p></div>`;
+ b+=`<div class="sec"><h3>Mountain</h3><dl class="kv"><dt>Summit</dt><dd>${r.summit.toLocaleString()} ft</dd><dt>Vertical</dt><dd>${r.vert.toLocaleString()} ft</dd><dt>Access</dt><dd>${r.pass==="cali"?"Cali Pass, unlimited":r.pass==="pa"?"Powder Alliance, 3 days":"Not on Cali Pass"}</dd></dl></div>`;
+ b+=`<div class="sec"><h3>Check before you go</h3><div class="links"><a href="${r.tickets}" target="_blank" rel="noopener">Lift tickets ↗</a><a href="${r.site}" target="_blank" rel="noopener">Resort site ↗</a>${r.pa?`<a href="${r.pa}" target="_blank" rel="noopener">PA redemption ↗</a>`:""}</div></div>`;
+ $("#dBody").innerHTML=b;
+ $("#dGear").addEventListener("change",e=>{if(S.gearAll&&!e.target.checked){S.gearAll=false;R.resorts.forEach(x=>S.gear[x.id]=x.id!==r.id);}else S.gear[r.id]=e.target.checked;render();openDrawer(rid,sat);});
+ document.querySelectorAll(".tile.sel").forEach(x=>x.classList.remove("sel"));
+ const t=document.querySelector(`.tile[data-r="${rid}"][data-s="${sat}"]`);if(t)t.classList.add("sel");
+ $("#scrim").classList.add("on");$("#drawer").classList.add("on");$("#dClose").focus();
+}
+function closeDrawer(){$("#scrim").classList.remove("on");$("#drawer").classList.remove("on");document.querySelectorAll(".tile.sel").forEach(x=>x.classList.remove("sel"));if(lastFocus&&lastFocus.focus)lastFocus.focus();}
+
+/* ---------- events ---------- */
+document.addEventListener("click",e=>{
+ const m=e.target.closest("#modeSeg button");if(m){S.mode=m.dataset.mode;render();return;}
+ const u=e.target.closest("#unitSeg button");if(u){S.unit=u.dataset.u;render();return;}
+ if(e.target.closest("#tHi")){S.showHi=!S.showHi;render();return;}
+ if(e.target.closest("#tLo")){S.showLo=!S.showLo;render();return;}
+ const f=e.target.closest(".fchip[data-f]");if(f){S.groups[f.dataset.f]=!S.groups[f.dataset.f];if(S.groups[f.dataset.f])S.collapsed[f.dataset.f]=false;render();return;}
+ const g=e.target.closest("tr.group button");if(g){S.collapsed[g.dataset.g]=!S.collapsed[g.dataset.g];render();return;}
+ const gb=e.target.closest(".gearbtn");if(gb){const id=gb.dataset.gear;if(S.gearAll){S.gearAll=false;R.resorts.forEach(x=>S.gear[x.id]=x.id!==id);}else S.gear[id]=!S.gear[id];render();return;}
+ const t=e.target.closest(".tile,.sum[data-r]");if(t){openDrawer(t.dataset.r,t.dataset.s);return;}
+});
+$("#cali").addEventListener("change",e=>{S.cali=e.target.checked;render();});
+$("#gearAll").addEventListener("change",e=>{S.gearAll=e.target.checked;if(!S.gearAll)S.gear={};render();});
+$("#sort").addEventListener("change",e=>{S.sort=e.target.value;render();});
+$("#scrim").addEventListener("click",closeDrawer);$("#dClose").addEventListener("click",closeDrawer);
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeDrawer();});
+
+/* ---------- load ---------- */
+const getJ=u=>fetch(u,{cache:"no-store"}).then(x=>{if(!x.ok)throw new Error(u+" "+x.status);return x.json();});
+function liveForecast(rs){
+ const q=k=>rs.map(r=>r[k]).join(",");
+ const u=`https://api.open-meteo.com/v1/forecast?latitude=${q("lat")}&longitude=${q("lon")}&elevation=${q("elev")}&daily=weather_code,temperature_2m_max,temperature_2m_min,snowfall_sum,precipitation_probability_max,wind_speed_10m_max,wind_gusts_10m_max&temperature_unit=fahrenheit&precipitation_unit=inch&wind_speed_unit=mph&forecast_days=16&past_days=3&timezone=auto`;
+ const ctl=new AbortController();setTimeout(()=>ctl.abort(),8000);
+ return fetch(u,{signal:ctl.signal}).then(x=>{if(!x.ok)throw new Error("open-meteo "+x.status);return x.json();}).then(j=>{
+  const arr=Array.isArray(j)?j:[j];
+  const out={generated:new Date().toISOString(),live:true,days:arr[0].daily.time,r:{}};
+  rs.forEach((r,i)=>{const d=arr[i].daily;const rd=a=>a.map(x=>x==null?null:Math.round(x));
+   out.r[r.id]={c:d.weather_code,hi:rd(d.temperature_2m_max),lo:rd(d.temperature_2m_min),sn:d.snowfall_sum.map(x=>x==null?null:Math.round(x*10)/10),pp:d.precipitation_probability_max,w:rd(d.wind_speed_10m_max),g:rd(d.wind_gusts_10m_max)};});
+  return out;});
+}
+Promise.all([getJ("data/resorts.json"),getJ("data/climate.json")])
+.then(([r,c])=>liveForecast(r.resorts).catch(()=>getJ("data/forecast.json")).then(f=>[r,f,c]))
+.then(([r,f,c])=>{
+ R=r;F=f;C=c;F.days.forEach((d,i)=>dayIdx[d]=i);
+ weekends=C.sats.filter(s=>addD(s,1)>=today);
+ renderFresh();render();
+}).catch(err=>{$("#gridwrap").innerHTML=`<div class="err">Couldn't load the planner data (${err.message}). Reload the page to try again.</div>`;});
+})();
+</script>
+</body>
+</html>
