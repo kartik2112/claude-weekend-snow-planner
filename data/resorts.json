@@ -69,6 +69,11 @@
    "note": "Not on Cali Pass. Dynamic pricing: buy online early."
   },
   {
+   "id": "dest",
+   "label": "Destination trips \u00b7 paid",
+   "note": "Fly or road-trip mountains. Not on Cali Pass."
+  },
+  {
    "id": "pa-far",
    "label": "Powder Alliance \u00b7 fly-to",
    "note": "3 free days each, Sun\u2013Fri, non-holiday."
@@ -106,7 +111,8 @@
     "hol": 79,
     "conf": "est",
     "note": "Adult Beginner Ticket covers the conveyors, Chair 6 and Chair 1. Dodge Ridge lists it but hasn't posted the 26/27 price yet; estimate"
-   }
+   },
+   "sio": false
   },
   {
    "id": "bear",
@@ -138,7 +144,8 @@
     "hol": 79,
     "conf": "est",
     "note": "Beginner Area Ticket (ages 13+) covers Cub and Super Cub chairs and the Panda Carpet. Last published at $69 off-peak / $79 peak"
-   }
+   },
+   "sio": false
   },
   {
    "id": "china",
@@ -165,7 +172,8 @@
    "lat": 37.236,
    "lon": -119.157,
    "elev": 2380,
-   "begNote": "No beginner-only ticket on sale. Carpet-only access comes only with lesson packages"
+   "begNote": "No beginner-only ticket on sale. Carpet-only access comes only with lesson packages",
+   "sio": true
   },
   {
    "id": "mthigh",
@@ -192,7 +200,8 @@
    "lat": 34.375,
    "lon": -117.69,
    "elev": 2250,
-   "begNote": "No beginner-only ticket listed. Beginner access comes with lesson packages"
+   "begNote": "No beginner-only ticket listed. Beginner access comes with lesson packages",
+   "sio": false
   },
   {
    "id": "sierra",
@@ -234,7 +243,8 @@
    "lat": 38.799,
    "lon": -120.081,
    "elev": 2290,
-   "begNote": "No beginner-only ticket on sale. The Easy Street beginner ticket comes only with lesson packages"
+   "begNote": "No beginner-only ticket on sale. The Easy Street beginner ticket comes only with lesson packages",
+   "sio": false
   },
   {
    "id": "shasta",
@@ -262,7 +272,8 @@
    "lat": 41.32,
    "lon": -122.204,
    "elev": 1890,
-   "begNote": "No beginner ticket price published"
+   "begNote": "No beginner ticket price published",
+   "sio": false
   },
   {
    "id": "palisades",
@@ -295,7 +306,8 @@
     "hol": 0,
     "conf": "est",
     "note": "The SnoVentures learning area has a free magic carpet. Beginner lift tickets are otherwise sold only with lessons"
-   }
+   },
+   "sio": true
   },
   {
    "id": "northstar",
@@ -323,7 +335,9 @@
    "lat": 39.264,
    "lon": -120.122,
    "elev": 2290,
-   "begNote": "No beginner-only ticket on sale"
+   "begNote": "No beginner-only ticket on sale",
+   "epicGroup": "epic-tahoe",
+   "sio": true
   },
   {
    "id": "heavenly",
@@ -351,7 +365,9 @@
    "lat": 38.935,
    "lon": -119.906,
    "elev": 2590,
-   "begNote": "No beginner-only ticket on sale"
+   "begNote": "No beginner-only ticket on sale",
+   "epicGroup": "epic-tahoe",
+   "sio": true
   },
   {
    "id": "timberline",
@@ -378,7 +394,8 @@
    "lat": 45.331,
    "lon": -121.711,
    "elev": 1830,
-   "begNote": "Beginner ticket not checked for this resort"
+   "begNote": "Beginner ticket not checked for this resort",
+   "sio": true
   },
   {
    "id": "skibowl",
@@ -405,7 +422,8 @@
    "lat": 45.302,
    "lon": -121.774,
    "elev": 1370,
-   "begNote": "Beginner ticket not checked for this resort"
+   "begNote": "Beginner ticket not checked for this resort",
+   "sio": false
   },
   {
    "id": "mission",
@@ -432,7 +450,8 @@
    "lat": 47.293,
    "lon": -120.399,
    "elev": 1680,
-   "begNote": "Beginner ticket not checked for this resort"
+   "begNote": "Beginner ticket not checked for this resort",
+   "sio": false
   },
   {
    "id": "whitepass",
@@ -477,7 +496,8 @@
    "lat": 46.637,
    "lon": -121.391,
    "elev": 1520,
-   "begNote": "Beginner ticket not checked for this resort"
+   "begNote": "Beginner ticket not checked for this resort",
+   "sio": true
   },
   {
    "id": "eaglecrest",
@@ -504,7 +524,8 @@
    "lat": 58.271,
    "lon": -134.517,
    "elev": 550,
-   "begNote": "Beginner ticket not checked for this resort"
+   "begNote": "Beginner ticket not checked for this resort",
+   "sio": false
   },
   {
    "id": "blacktail",
@@ -531,7 +552,8 @@
    "lat": 48.012,
    "lon": -114.355,
    "elev": 1830,
-   "begNote": "Beginner ticket not checked for this resort"
+   "begNote": "Beginner ticket not checked for this resort",
+   "sio": false
   },
   {
    "id": "bogus",
@@ -558,7 +580,8 @@
    "lat": 43.764,
    "lon": -116.103,
    "elev": 2070,
-   "begNote": "Beginner ticket not checked for this resort"
+   "begNote": "Beginner ticket not checked for this resort",
+   "sio": true
   },
   {
    "id": "loveland",
@@ -585,7 +608,8 @@
    "lat": 39.68,
    "lon": -105.898,
    "elev": 3500,
-   "begNote": "Beginner ticket not checked for this resort"
+   "begNote": "Beginner ticket not checked for this resort",
+   "sio": false
   },
   {
    "id": "silver",
@@ -626,7 +650,8 @@
    "lat": 47.533,
    "lon": -116.122,
    "elev": 1680,
-   "begNote": "Beginner ticket not checked for this resort"
+   "begNote": "Beginner ticket not checked for this resort",
+   "sio": false
   },
   {
    "id": "cooper",
@@ -653,7 +678,8 @@
    "lat": 39.361,
    "lon": -106.301,
    "elev": 3290,
-   "begNote": "Beginner ticket not checked for this resort"
+   "begNote": "Beginner ticket not checked for this resort",
+   "sio": false
   },
   {
    "id": "snowking",
@@ -694,7 +720,8 @@
    "lat": 43.468,
    "lon": -110.758,
    "elev": 2130,
-   "begNote": "Beginner ticket not checked for this resort"
+   "begNote": "Beginner ticket not checked for this resort",
+   "sio": true
   },
   {
    "id": "angelfire",
@@ -721,7 +748,1301 @@
    "lat": 36.385,
    "lon": -105.278,
    "elev": 2900,
-   "begNote": "Beginner ticket not checked for this resort"
+   "begNote": "Beginner ticket not checked for this resort",
+   "sio": true
+  },
+  {
+   "id": "kirkwood",
+   "name": "Kirkwood",
+   "st": "CA",
+   "epicGroup": "epic-tahoe",
+   "pass": "epic",
+   "drive": "3h 30m",
+   "summit": 9876,
+   "vert": 2000,
+   "lat": 38.684,
+   "lon": -120.065,
+   "elev": 2560,
+   "site": "https://www.kirkwood.com/",
+   "tickets": "https://www.kirkwood.com/",
+   "price": {
+    "wk": null,
+    "hol": null,
+    "conf": "est",
+    "note": "Included with the full Epic Pass"
+   },
+   "rental": {
+    "wk": 95,
+    "conf": "est"
+   },
+   "begNote": "Covered by your Epic Pass",
+   "mi": 185,
+   "sio": true
+  },
+  {
+   "id": "parkcity",
+   "name": "Park City",
+   "st": "UT",
+   "epicGroup": "epic-west",
+   "pass": "epic",
+   "drive": "SLC + 40m",
+   "summit": 10026,
+   "vert": 3226,
+   "lat": 40.651,
+   "lon": -111.508,
+   "elev": 2600,
+   "site": "https://www.parkcitymountain.com/",
+   "tickets": "https://www.parkcitymountain.com/",
+   "price": {
+    "wk": 288,
+    "hol": 369,
+    "conf": "range",
+    "note": "Published adult ~$288; peak-day window $369 for 26/27"
+   },
+   "rental": {
+    "wk": 100,
+    "conf": "est"
+   },
+   "begNote": "No beginner-only ticket checked",
+   "group": "dest",
+   "ord": 1,
+   "sio": true
+  },
+  {
+   "id": "vail",
+   "name": "Vail",
+   "st": "CO",
+   "epicGroup": "epic-west",
+   "pass": "epic",
+   "drive": "EGE + 35m",
+   "summit": 11570,
+   "vert": 3450,
+   "lat": 39.606,
+   "lon": -106.355,
+   "elev": 3100,
+   "site": "https://www.vail.com/",
+   "tickets": "https://www.vail.com/",
+   "price": {
+    "wk": 239,
+    "hol": 259,
+    "win": 374,
+    "conf": "range",
+    "note": "26/27 advance $202\u2013$259 by date; window $239\u2013$374"
+   },
+   "rental": {
+    "wk": 110,
+    "conf": "est"
+   },
+   "begNote": "No beginner-only ticket checked",
+   "group": "dest",
+   "ord": 4,
+   "sio": true
+  },
+  {
+   "id": "beavercreek",
+   "name": "Beaver Creek",
+   "st": "CO",
+   "epicGroup": "epic-west",
+   "pass": "epic",
+   "drive": "EGE + 25m",
+   "summit": 11440,
+   "vert": 4040,
+   "lat": 39.604,
+   "lon": -106.517,
+   "elev": 3050,
+   "site": "https://www.beavercreek.com/",
+   "tickets": "https://www.beavercreek.com/",
+   "price": {
+    "wk": null,
+    "hol": null,
+    "conf": "est",
+    "note": "Included with the full Epic Pass"
+   },
+   "rental": {
+    "wk": 110,
+    "conf": "est"
+   },
+   "begNote": "Covered by your Epic Pass",
+   "sio": true
+  },
+  {
+   "id": "breck",
+   "name": "Breckenridge",
+   "st": "CO",
+   "epicGroup": "epic-west",
+   "pass": "epic",
+   "drive": "DEN + 1h 45m",
+   "summit": 12998,
+   "vert": 3398,
+   "lat": 39.48,
+   "lon": -106.067,
+   "elev": 3300,
+   "site": "https://www.breckenridge.com/",
+   "tickets": "https://www.breckenridge.com/",
+   "price": {
+    "wk": 260,
+    "hol": 332,
+    "conf": "range",
+    "note": "Weekday ~$241; peak window $332 for 26/27"
+   },
+   "rental": {
+    "wk": 105,
+    "conf": "est"
+   },
+   "begNote": "No beginner-only ticket checked",
+   "group": "dest",
+   "ord": 5,
+   "sio": true
+  },
+  {
+   "id": "keystone",
+   "name": "Keystone",
+   "st": "CO",
+   "epicGroup": "epic-west",
+   "pass": "epic",
+   "drive": "DEN + 1h 30m",
+   "summit": 12408,
+   "vert": 3128,
+   "lat": 39.605,
+   "lon": -105.954,
+   "elev": 3200,
+   "site": "https://www.keystoneresort.com/",
+   "tickets": "https://www.keystoneresort.com/",
+   "price": {
+    "wk": null,
+    "hol": null,
+    "conf": "est",
+    "note": "Included with the full Epic Pass"
+   },
+   "rental": {
+    "wk": 100,
+    "conf": "est"
+   },
+   "begNote": "Covered by your Epic Pass",
+   "sio": true
+  },
+  {
+   "id": "crestedbutte",
+   "name": "Crested Butte",
+   "st": "CO",
+   "epicGroup": "epic-west",
+   "pass": "epic",
+   "drive": "GUC + 35m",
+   "summit": 12162,
+   "vert": 2775,
+   "lat": 38.899,
+   "lon": -106.965,
+   "elev": 3200,
+   "site": "https://www.skicb.com/",
+   "tickets": "https://www.skicb.com/",
+   "price": {
+    "wk": null,
+    "hol": null,
+    "conf": "est",
+    "note": "Included with the full Epic Pass"
+   },
+   "rental": {
+    "wk": 95,
+    "conf": "est"
+   },
+   "begNote": "Covered by your Epic Pass",
+   "sio": true
+  },
+  {
+   "id": "telluride",
+   "name": "Telluride",
+   "st": "CO",
+   "epicGroup": "epic-west",
+   "pass": "epic",
+   "drive": "TEX + 15m",
+   "summit": 13150,
+   "vert": 4425,
+   "lat": 37.936,
+   "lon": -107.846,
+   "elev": 3200,
+   "site": "https://tellurideskiresort.com/",
+   "tickets": "https://tellurideskiresort.com/",
+   "price": {
+    "wk": null,
+    "hol": null,
+    "conf": "est",
+    "note": "7 days on the full Epic Pass (physical pass card required), then 50% off"
+   },
+   "rental": {
+    "wk": 100,
+    "conf": "est"
+   },
+   "begNote": "Covered by your Epic Pass",
+   "epicLimit": "7d",
+   "sio": true
+  },
+  {
+   "id": "stevens",
+   "name": "Stevens Pass",
+   "st": "WA",
+   "epicGroup": "epic-west",
+   "pass": "epic",
+   "drive": "SEA + 1h 45m",
+   "summit": 5845,
+   "vert": 1800,
+   "lat": 47.745,
+   "lon": -121.089,
+   "elev": 1500,
+   "site": "https://www.stevenspass.com/",
+   "tickets": "https://www.stevenspass.com/",
+   "price": {
+    "wk": null,
+    "hol": null,
+    "conf": "est",
+    "note": "Included with the full Epic Pass"
+   },
+   "rental": {
+    "wk": 80,
+    "conf": "est"
+   },
+   "begNote": "Covered by your Epic Pass",
+   "sio": false
+  },
+  {
+   "id": "whistler",
+   "name": "Whistler Blackcomb",
+   "st": "BC",
+   "epicGroup": "epic-canada",
+   "pass": "epic",
+   "drive": "YVR + 2h",
+   "summit": 7494,
+   "vert": 5280,
+   "lat": 50.107,
+   "lon": -122.943,
+   "elev": 1400,
+   "site": "https://www.whistlerblackcomb.com/",
+   "tickets": "https://www.whistlerblackcomb.com/",
+   "price": {
+    "wk": null,
+    "hol": null,
+    "conf": "est",
+    "note": "Included with the full Epic Pass"
+   },
+   "rental": {
+    "wk": 105,
+    "conf": "est"
+   },
+   "begNote": "Covered by your Epic Pass",
+   "sio": true
+  },
+  {
+   "id": "fernie",
+   "name": "Fernie",
+   "st": "BC",
+   "epicGroup": "epic-canada",
+   "pass": "epic",
+   "drive": "YYC + 3h",
+   "summit": 6316,
+   "vert": 3550,
+   "lat": 49.463,
+   "lon": -115.087,
+   "elev": 1500,
+   "site": "https://skifernie.com/",
+   "tickets": "https://skifernie.com/",
+   "price": {
+    "wk": null,
+    "hol": null,
+    "conf": "est",
+    "note": "7 days total across the 6 Resorts of the Canadian Rockies on the full Epic Pass, then 50% off"
+   },
+   "rental": {
+    "wk": 75,
+    "conf": "est"
+   },
+   "begNote": "Covered by your Epic Pass",
+   "epicLimit": "7d",
+   "sio": true
+  },
+  {
+   "id": "kickinghorse",
+   "name": "Kicking Horse",
+   "st": "BC",
+   "epicGroup": "epic-canada",
+   "pass": "epic",
+   "drive": "YYC + 3h",
+   "summit": 8033,
+   "vert": 4314,
+   "lat": 51.297,
+   "lon": -117.048,
+   "elev": 1800,
+   "site": "https://kickinghorseresort.com/",
+   "tickets": "https://kickinghorseresort.com/",
+   "price": {
+    "wk": null,
+    "hol": null,
+    "conf": "est",
+    "note": "7 days total across the 6 Resorts of the Canadian Rockies on the full Epic Pass, then 50% off"
+   },
+   "rental": {
+    "wk": 75,
+    "conf": "est"
+   },
+   "begNote": "Covered by your Epic Pass",
+   "epicLimit": "7d",
+   "sio": true
+  },
+  {
+   "id": "kimberley",
+   "name": "Kimberley",
+   "st": "BC",
+   "epicGroup": "epic-canada",
+   "pass": "epic",
+   "drive": "YXC + 30m",
+   "summit": 6500,
+   "vert": 2465,
+   "lat": 49.683,
+   "lon": -116.0,
+   "elev": 1600,
+   "site": "https://skikimberley.com/",
+   "tickets": "https://skikimberley.com/",
+   "price": {
+    "wk": null,
+    "hol": null,
+    "conf": "est",
+    "note": "7 days total across the 6 Resorts of the Canadian Rockies on the full Epic Pass, then 50% off"
+   },
+   "rental": {
+    "wk": 65,
+    "conf": "est"
+   },
+   "begNote": "Covered by your Epic Pass",
+   "epicLimit": "7d",
+   "sio": true
+  },
+  {
+   "id": "nakiska",
+   "name": "Nakiska",
+   "st": "AB",
+   "epicGroup": "epic-canada",
+   "pass": "epic",
+   "drive": "YYC + 1h",
+   "summit": 7415,
+   "vert": 2412,
+   "lat": 50.943,
+   "lon": -115.151,
+   "elev": 1900,
+   "site": "https://skinakiska.com/",
+   "tickets": "https://skinakiska.com/",
+   "price": {
+    "wk": null,
+    "hol": null,
+    "conf": "est",
+    "note": "7 days total across the 6 Resorts of the Canadian Rockies on the full Epic Pass, then 50% off"
+   },
+   "rental": {
+    "wk": 65,
+    "conf": "est"
+   },
+   "begNote": "Covered by your Epic Pass",
+   "epicLimit": "7d",
+   "sio": false
+  },
+  {
+   "id": "msa",
+   "name": "Mont-Sainte-Anne",
+   "st": "QC",
+   "epicGroup": "epic-canada",
+   "pass": "epic",
+   "drive": "YQB + 40m",
+   "summit": 2625,
+   "vert": 2050,
+   "lat": 47.075,
+   "lon": -70.905,
+   "elev": 450,
+   "site": "https://mont-sainte-anne.com/en/",
+   "tickets": "https://mont-sainte-anne.com/en/",
+   "price": {
+    "wk": null,
+    "hol": null,
+    "conf": "est",
+    "note": "7 days total across the 6 Resorts of the Canadian Rockies on the full Epic Pass, then 50% off"
+   },
+   "rental": {
+    "wk": 65,
+    "conf": "est"
+   },
+   "begNote": "Covered by your Epic Pass",
+   "epicLimit": "7d",
+   "sio": true
+  },
+  {
+   "id": "stoneham",
+   "name": "Stoneham",
+   "st": "QC",
+   "epicGroup": "epic-canada",
+   "pass": "epic",
+   "drive": "YQB + 30m",
+   "summit": 2075,
+   "vert": 1380,
+   "lat": 47.032,
+   "lon": -71.375,
+   "elev": 450,
+   "site": "https://ski-stoneham.com/en/",
+   "tickets": "https://ski-stoneham.com/en/",
+   "price": {
+    "wk": null,
+    "hol": null,
+    "conf": "est",
+    "note": "7 days total across the 6 Resorts of the Canadian Rockies on the full Epic Pass, then 50% off"
+   },
+   "rental": {
+    "wk": 60,
+    "conf": "est"
+   },
+   "begNote": "Covered by your Epic Pass",
+   "epicLimit": "7d",
+   "sio": true
+  },
+  {
+   "id": "stowe",
+   "name": "Stowe",
+   "st": "VT",
+   "epicGroup": "epic-ne",
+   "pass": "epic",
+   "drive": "BTV + 45m",
+   "summit": 3719,
+   "vert": 2360,
+   "lat": 44.53,
+   "lon": -72.781,
+   "elev": 800,
+   "site": "https://www.stowe.com/",
+   "tickets": "https://www.stowe.com/",
+   "price": {
+    "wk": null,
+    "hol": null,
+    "conf": "est",
+    "note": "Included with the full Epic Pass"
+   },
+   "rental": {
+    "wk": 95,
+    "conf": "est"
+   },
+   "begNote": "Covered by your Epic Pass",
+   "sio": true
+  },
+  {
+   "id": "okemo",
+   "name": "Okemo",
+   "st": "VT",
+   "epicGroup": "epic-ne",
+   "pass": "epic",
+   "drive": "MHT + 1h 45m",
+   "summit": 3344,
+   "vert": 2200,
+   "lat": 43.401,
+   "lon": -72.717,
+   "elev": 700,
+   "site": "https://www.okemo.com/",
+   "tickets": "https://www.okemo.com/",
+   "price": {
+    "wk": null,
+    "hol": null,
+    "conf": "est",
+    "note": "Included with the full Epic Pass"
+   },
+   "rental": {
+    "wk": 85,
+    "conf": "est"
+   },
+   "begNote": "Covered by your Epic Pass",
+   "sio": true
+  },
+  {
+   "id": "mountsnow",
+   "name": "Mount Snow",
+   "st": "VT",
+   "epicGroup": "epic-ne",
+   "pass": "epic",
+   "drive": "ALB + 1h 30m",
+   "summit": 3600,
+   "vert": 1700,
+   "lat": 42.96,
+   "lon": -72.92,
+   "elev": 800,
+   "site": "https://www.mountsnow.com/",
+   "tickets": "https://www.mountsnow.com/",
+   "price": {
+    "wk": null,
+    "hol": null,
+    "conf": "est",
+    "note": "Included with the full Epic Pass"
+   },
+   "rental": {
+    "wk": 85,
+    "conf": "est"
+   },
+   "begNote": "Covered by your Epic Pass",
+   "sio": true
+  },
+  {
+   "id": "hunter",
+   "name": "Hunter",
+   "st": "NY",
+   "epicGroup": "epic-ne",
+   "pass": "epic",
+   "drive": "ALB + 1h",
+   "summit": 3200,
+   "vert": 1600,
+   "lat": 42.202,
+   "lon": -74.23,
+   "elev": 700,
+   "site": "https://www.huntermtn.com/",
+   "tickets": "https://www.huntermtn.com/",
+   "price": {
+    "wk": null,
+    "hol": null,
+    "conf": "est",
+    "note": "Included with the full Epic Pass"
+   },
+   "rental": {
+    "wk": 75,
+    "conf": "est"
+   },
+   "begNote": "Covered by your Epic Pass",
+   "sio": true
+  },
+  {
+   "id": "attitash",
+   "name": "Attitash",
+   "st": "NH",
+   "epicGroup": "epic-ne",
+   "pass": "epic",
+   "drive": "PWM + 1h 30m",
+   "summit": 2350,
+   "vert": 1750,
+   "lat": 44.083,
+   "lon": -71.229,
+   "elev": 500,
+   "site": "https://www.attitash.com/",
+   "tickets": "https://www.attitash.com/",
+   "price": {
+    "wk": null,
+    "hol": null,
+    "conf": "est",
+    "note": "Included with the full Epic Pass"
+   },
+   "rental": {
+    "wk": 70,
+    "conf": "est"
+   },
+   "begNote": "Covered by your Epic Pass",
+   "sio": true
+  },
+  {
+   "id": "wildcat",
+   "name": "Wildcat",
+   "st": "NH",
+   "epicGroup": "epic-ne",
+   "pass": "epic",
+   "drive": "PWM + 1h 45m",
+   "summit": 4062,
+   "vert": 2112,
+   "lat": 44.264,
+   "lon": -71.239,
+   "elev": 900,
+   "site": "https://www.skiwildcat.com/",
+   "tickets": "https://www.skiwildcat.com/",
+   "price": {
+    "wk": null,
+    "hol": null,
+    "conf": "est",
+    "note": "Included with the full Epic Pass"
+   },
+   "rental": {
+    "wk": 70,
+    "conf": "est"
+   },
+   "begNote": "Covered by your Epic Pass",
+   "sio": false
+  },
+  {
+   "id": "sunapee",
+   "name": "Mount Sunapee",
+   "st": "NH",
+   "epicGroup": "epic-ne",
+   "pass": "epic",
+   "drive": "MHT + 1h",
+   "summit": 2743,
+   "vert": 1510,
+   "lat": 43.332,
+   "lon": -72.08,
+   "elev": 600,
+   "site": "https://www.mountsunapee.com/",
+   "tickets": "https://www.mountsunapee.com/",
+   "price": {
+    "wk": null,
+    "hol": null,
+    "conf": "est",
+    "note": "Included with the full Epic Pass"
+   },
+   "rental": {
+    "wk": 70,
+    "conf": "est"
+   },
+   "begNote": "Covered by your Epic Pass",
+   "sio": false
+  },
+  {
+   "id": "crotched",
+   "name": "Crotched",
+   "st": "NH",
+   "epicGroup": "epic-ne",
+   "pass": "epic",
+   "drive": "MHT + 40m",
+   "summit": 2066,
+   "vert": 1000,
+   "lat": 42.998,
+   "lon": -71.874,
+   "elev": 500,
+   "site": "https://www.crotchedmtn.com/",
+   "tickets": "https://www.crotchedmtn.com/",
+   "price": {
+    "wk": null,
+    "hol": null,
+    "conf": "est",
+    "note": "Included with the full Epic Pass"
+   },
+   "rental": {
+    "wk": 60,
+    "conf": "est"
+   },
+   "begNote": "Covered by your Epic Pass",
+   "sio": false
+  },
+  {
+   "id": "liberty",
+   "name": "Liberty",
+   "st": "PA",
+   "epicGroup": "epic-ma",
+   "pass": "epic",
+   "drive": "IAD + 1h 15m",
+   "summit": 1190,
+   "vert": 620,
+   "lat": 39.763,
+   "lon": -77.375,
+   "elev": 250,
+   "site": "https://www.libertymountainresort.com/",
+   "tickets": "https://www.libertymountainresort.com/",
+   "price": {
+    "wk": null,
+    "hol": null,
+    "conf": "est",
+    "note": "Included with the full Epic Pass"
+   },
+   "rental": {
+    "wk": 60,
+    "conf": "est"
+   },
+   "begNote": "Covered by your Epic Pass",
+   "sio": true
+  },
+  {
+   "id": "roundtop",
+   "name": "Roundtop",
+   "st": "PA",
+   "epicGroup": "epic-ma",
+   "pass": "epic",
+   "drive": "MDT + 30m",
+   "summit": 1355,
+   "vert": 600,
+   "lat": 40.11,
+   "lon": -76.927,
+   "elev": 300,
+   "site": "https://www.skiroundtop.com/",
+   "tickets": "https://www.skiroundtop.com/",
+   "price": {
+    "wk": null,
+    "hol": null,
+    "conf": "est",
+    "note": "Included with the full Epic Pass"
+   },
+   "rental": {
+    "wk": 60,
+    "conf": "est"
+   },
+   "begNote": "Covered by your Epic Pass",
+   "sio": false
+  },
+  {
+   "id": "whitetail",
+   "name": "Whitetail",
+   "st": "PA",
+   "epicGroup": "epic-ma",
+   "pass": "epic",
+   "drive": "IAD + 1h 30m",
+   "summit": 1800,
+   "vert": 935,
+   "lat": 39.741,
+   "lon": -77.933,
+   "elev": 400,
+   "site": "https://www.skiwhitetail.com/",
+   "tickets": "https://www.skiwhitetail.com/",
+   "price": {
+    "wk": null,
+    "hol": null,
+    "conf": "est",
+    "note": "Included with the full Epic Pass"
+   },
+   "rental": {
+    "wk": 60,
+    "conf": "est"
+   },
+   "begNote": "Covered by your Epic Pass",
+   "sio": false
+  },
+  {
+   "id": "jackfrost",
+   "name": "Jack Frost",
+   "st": "PA",
+   "epicGroup": "epic-ma",
+   "pass": "epic",
+   "drive": "AVP + 25m",
+   "summit": 2000,
+   "vert": 600,
+   "lat": 41.105,
+   "lon": -75.652,
+   "elev": 600,
+   "site": "https://www.jfbb.com/",
+   "tickets": "https://www.jfbb.com/",
+   "price": {
+    "wk": null,
+    "hol": null,
+    "conf": "est",
+    "note": "Included with the full Epic Pass"
+   },
+   "rental": {
+    "wk": 55,
+    "conf": "est"
+   },
+   "begNote": "Covered by your Epic Pass",
+   "sio": false
+  },
+  {
+   "id": "bigboulder",
+   "name": "Big Boulder",
+   "st": "PA",
+   "epicGroup": "epic-ma",
+   "pass": "epic",
+   "drive": "AVP + 30m",
+   "summit": 2175,
+   "vert": 475,
+   "lat": 41.043,
+   "lon": -75.597,
+   "elev": 550,
+   "site": "https://www.jfbb.com/",
+   "tickets": "https://www.jfbb.com/",
+   "price": {
+    "wk": null,
+    "hol": null,
+    "conf": "est",
+    "note": "Included with the full Epic Pass"
+   },
+   "rental": {
+    "wk": 55,
+    "conf": "est"
+   },
+   "begNote": "Covered by your Epic Pass",
+   "sio": false
+  },
+  {
+   "id": "sevensprings",
+   "name": "Seven Springs",
+   "st": "PA",
+   "epicGroup": "epic-ma",
+   "pass": "epic",
+   "drive": "PIT + 1h 15m",
+   "summit": 2994,
+   "vert": 750,
+   "lat": 40.023,
+   "lon": -79.297,
+   "elev": 800,
+   "site": "https://www.7springs.com/",
+   "tickets": "https://www.7springs.com/",
+   "price": {
+    "wk": null,
+    "hol": null,
+    "conf": "est",
+    "note": "Included with the full Epic Pass"
+   },
+   "rental": {
+    "wk": 65,
+    "conf": "est"
+   },
+   "begNote": "Covered by your Epic Pass",
+   "sio": true
+  },
+  {
+   "id": "hiddenvalleypa",
+   "name": "Hidden Valley",
+   "st": "PA",
+   "epicGroup": "epic-ma",
+   "pass": "epic",
+   "drive": "PIT + 1h 20m",
+   "summit": 3000,
+   "vert": 610,
+   "lat": 40.064,
+   "lon": -79.252,
+   "elev": 850,
+   "site": "https://www.hiddenvalleyresort.com/",
+   "tickets": "https://www.hiddenvalleyresort.com/",
+   "price": {
+    "wk": null,
+    "hol": null,
+    "conf": "est",
+    "note": "Included with the full Epic Pass"
+   },
+   "rental": {
+    "wk": 55,
+    "conf": "est"
+   },
+   "begNote": "Covered by your Epic Pass",
+   "sio": true
+  },
+  {
+   "id": "laurel",
+   "name": "Laurel Mountain",
+   "st": "PA",
+   "epicGroup": "epic-ma",
+   "pass": "epic",
+   "drive": "PIT + 1h 15m",
+   "summit": 2766,
+   "vert": 900,
+   "lat": 40.122,
+   "lon": -79.17,
+   "elev": 850,
+   "site": "https://www.laurelmountainski.com/",
+   "tickets": "https://www.laurelmountainski.com/",
+   "price": {
+    "wk": null,
+    "hol": null,
+    "conf": "est",
+    "note": "Included with the full Epic Pass"
+   },
+   "rental": {
+    "wk": 55,
+    "conf": "est"
+   },
+   "begNote": "Covered by your Epic Pass",
+   "sio": false
+  },
+  {
+   "id": "wilmot",
+   "name": "Wilmot",
+   "st": "WI",
+   "epicGroup": "epic-mw",
+   "pass": "epic",
+   "drive": "ORD + 1h",
+   "summit": 1000,
+   "vert": 230,
+   "lat": 42.498,
+   "lon": -88.188,
+   "elev": 280,
+   "site": "https://www.wilmotmountain.com/",
+   "tickets": "https://www.wilmotmountain.com/",
+   "price": {
+    "wk": null,
+    "hol": null,
+    "conf": "est",
+    "note": "Included with the full Epic Pass"
+   },
+   "rental": {
+    "wk": 55,
+    "conf": "est"
+   },
+   "begNote": "Covered by your Epic Pass",
+   "sio": false
+  },
+  {
+   "id": "afton",
+   "name": "Afton Alps",
+   "st": "MN",
+   "epicGroup": "epic-mw",
+   "pass": "epic",
+   "drive": "MSP + 35m",
+   "summit": 1110,
+   "vert": 350,
+   "lat": 44.857,
+   "lon": -92.786,
+   "elev": 280,
+   "site": "https://www.aftonalps.com/",
+   "tickets": "https://www.aftonalps.com/",
+   "price": {
+    "wk": null,
+    "hol": null,
+    "conf": "est",
+    "note": "Included with the full Epic Pass"
+   },
+   "rental": {
+    "wk": 55,
+    "conf": "est"
+   },
+   "begNote": "Covered by your Epic Pass",
+   "sio": false
+  },
+  {
+   "id": "mtbrighton",
+   "name": "Mt. Brighton",
+   "st": "MI",
+   "epicGroup": "epic-mw",
+   "pass": "epic",
+   "drive": "DTW + 45m",
+   "summit": 1210,
+   "vert": 230,
+   "lat": 42.546,
+   "lon": -83.808,
+   "elev": 300,
+   "site": "https://www.mtbrighton.com/",
+   "tickets": "https://www.mtbrighton.com/",
+   "price": {
+    "wk": null,
+    "hol": null,
+    "conf": "est",
+    "note": "Included with the full Epic Pass"
+   },
+   "rental": {
+    "wk": 55,
+    "conf": "est"
+   },
+   "begNote": "Covered by your Epic Pass",
+   "sio": false
+  },
+  {
+   "id": "bostonmills",
+   "name": "Boston Mills",
+   "st": "OH",
+   "epicGroup": "epic-mw",
+   "pass": "epic",
+   "drive": "CLE + 30m",
+   "summit": 1000,
+   "vert": 240,
+   "lat": 41.264,
+   "lon": -81.565,
+   "elev": 270,
+   "site": "https://www.bmbw.com/",
+   "tickets": "https://www.bmbw.com/",
+   "price": {
+    "wk": null,
+    "hol": null,
+    "conf": "est",
+    "note": "Included with the full Epic Pass"
+   },
+   "rental": {
+    "wk": 55,
+    "conf": "est"
+   },
+   "begNote": "Covered by your Epic Pass",
+   "sio": false
+  },
+  {
+   "id": "brandywine",
+   "name": "Brandywine",
+   "st": "OH",
+   "epicGroup": "epic-mw",
+   "pass": "epic",
+   "drive": "CLE + 30m",
+   "summit": 1000,
+   "vert": 240,
+   "lat": 41.258,
+   "lon": -81.555,
+   "elev": 270,
+   "site": "https://www.bmbw.com/",
+   "tickets": "https://www.bmbw.com/",
+   "price": {
+    "wk": null,
+    "hol": null,
+    "conf": "est",
+    "note": "Included with the full Epic Pass"
+   },
+   "rental": {
+    "wk": 55,
+    "conf": "est"
+   },
+   "begNote": "Covered by your Epic Pass",
+   "sio": false
+  },
+  {
+   "id": "madriver",
+   "name": "Mad River Mountain",
+   "st": "OH",
+   "epicGroup": "epic-mw",
+   "pass": "epic",
+   "drive": "CMH + 1h",
+   "summit": 1460,
+   "vert": 300,
+   "lat": 40.319,
+   "lon": -83.682,
+   "elev": 400,
+   "site": "https://www.skimadriver.com/",
+   "tickets": "https://www.skimadriver.com/",
+   "price": {
+    "wk": null,
+    "hol": null,
+    "conf": "est",
+    "note": "Included with the full Epic Pass"
+   },
+   "rental": {
+    "wk": 55,
+    "conf": "est"
+   },
+   "begNote": "Covered by your Epic Pass",
+   "sio": false
+  },
+  {
+   "id": "alpinevalley",
+   "name": "Alpine Valley",
+   "st": "OH",
+   "epicGroup": "epic-mw",
+   "pass": "epic",
+   "drive": "CLE + 40m",
+   "summit": 1500,
+   "vert": 240,
+   "lat": 41.528,
+   "lon": -81.244,
+   "elev": 380,
+   "site": "https://www.alpinevalleyohio.com/",
+   "tickets": "https://www.alpinevalleyohio.com/",
+   "price": {
+    "wk": null,
+    "hol": null,
+    "conf": "est",
+    "note": "Included with the full Epic Pass"
+   },
+   "rental": {
+    "wk": 55,
+    "conf": "est"
+   },
+   "begNote": "Covered by your Epic Pass",
+   "sio": false
+  },
+  {
+   "id": "hiddenvalleymo",
+   "name": "Hidden Valley",
+   "st": "MO",
+   "epicGroup": "epic-mw",
+   "pass": "epic",
+   "drive": "STL + 40m",
+   "summit": 800,
+   "vert": 282,
+   "lat": 38.551,
+   "lon": -90.665,
+   "elev": 230,
+   "site": "https://www.hiddenvalleyski.com/",
+   "tickets": "https://www.hiddenvalleyski.com/",
+   "price": {
+    "wk": null,
+    "hol": null,
+    "conf": "est",
+    "note": "Included with the full Epic Pass"
+   },
+   "rental": {
+    "wk": 55,
+    "conf": "est"
+   },
+   "begNote": "Covered by your Epic Pass",
+   "sio": false
+  },
+  {
+   "id": "snowcreek",
+   "name": "Snow Creek",
+   "st": "MO",
+   "epicGroup": "epic-mw",
+   "pass": "epic",
+   "drive": "MCI + 30m",
+   "summit": 1000,
+   "vert": 300,
+   "lat": 39.437,
+   "lon": -94.886,
+   "elev": 300,
+   "site": "https://www.skisnowcreek.com/",
+   "tickets": "https://www.skisnowcreek.com/",
+   "price": {
+    "wk": null,
+    "hol": null,
+    "conf": "est",
+    "note": "Included with the full Epic Pass"
+   },
+   "rental": {
+    "wk": 55,
+    "conf": "est"
+   },
+   "begNote": "Covered by your Epic Pass",
+   "sio": false
+  },
+  {
+   "id": "paoli",
+   "name": "Paoli Peaks",
+   "st": "IN",
+   "epicGroup": "epic-mw",
+   "pass": "epic",
+   "drive": "SDF + 1h 15m",
+   "summit": 900,
+   "vert": 300,
+   "lat": 38.567,
+   "lon": -86.512,
+   "elev": 280,
+   "site": "https://www.paolipeaks.com/",
+   "tickets": "https://www.paolipeaks.com/",
+   "price": {
+    "wk": null,
+    "hol": null,
+    "conf": "est",
+    "note": "Included with the full Epic Pass"
+   },
+   "rental": {
+    "wk": 55,
+    "conf": "est"
+   },
+   "begNote": "Covered by your Epic Pass",
+   "sio": false
+  },
+  {
+   "id": "mammoth",
+   "name": "Mammoth",
+   "st": "CA",
+   "group": "dest",
+   "pass": "none",
+   "drive": "7h (winter route)",
+   "summit": 11053,
+   "vert": 3100,
+   "lat": 37.63,
+   "lon": -119.032,
+   "elev": 2900,
+   "site": "https://www.mammothmountain.com/",
+   "tickets": "https://www.mammothmountain.com/lift-tickets",
+   "price": {
+    "wk": 219,
+    "hol": 269,
+    "conf": "range",
+    "note": "Peak window $269 for 26/27; advance online lower. On the Ikon Pass"
+   },
+   "rental": {
+    "wk": 85,
+    "conf": "est"
+   },
+   "begNote": "No beginner-only ticket checked",
+   "ord": 0,
+   "sio": true
+  },
+  {
+   "id": "snowbird",
+   "name": "Snowbird",
+   "st": "UT",
+   "group": "dest",
+   "pass": "none",
+   "drive": "SLC + 45m",
+   "summit": 11000,
+   "vert": 3240,
+   "lat": 40.581,
+   "lon": -111.657,
+   "elev": 2900,
+   "site": "https://www.snowbird.com/",
+   "tickets": "https://www.snowbird.com/",
+   "price": {
+    "wk": 209,
+    "hol": 239,
+    "conf": "range",
+    "note": "Peak ticket $239 for 26/27. On the Ikon Pass"
+   },
+   "rental": {
+    "wk": 85,
+    "conf": "est"
+   },
+   "begNote": "No beginner-only ticket checked",
+   "ord": 2,
+   "sio": true
+  },
+  {
+   "id": "deervalley",
+   "name": "Deer Valley",
+   "st": "UT",
+   "group": "dest",
+   "pass": "none",
+   "drive": "SLC + 45m",
+   "summit": 9570,
+   "vert": 3000,
+   "lat": 40.62,
+   "lon": -111.49,
+   "elev": 2600,
+   "site": "https://www.deervalley.com/",
+   "tickets": "https://www.deervalley.com/",
+   "price": {
+    "wk": 269,
+    "hol": 349,
+    "conf": "range",
+    "note": "26/27 window up to $349 ($309 online); weekday ~$219. Ski only \u2014 no snowboarding at Deer Valley"
+   },
+   "rental": {
+    "wk": 100,
+    "conf": "est"
+   },
+   "begNote": "No beginner-only ticket checked",
+   "ord": 3,
+   "sio": true
+  },
+  {
+   "id": "aspen",
+   "name": "Aspen Snowmass",
+   "st": "CO",
+   "group": "dest",
+   "pass": "none",
+   "drive": "ASE + 15m",
+   "summit": 12510,
+   "vert": 4406,
+   "lat": 39.209,
+   "lon": -106.95,
+   "elev": 3000,
+   "site": "https://www.aspensnowmass.com/",
+   "tickets": "https://www.aspensnowmass.com/",
+   "price": {
+    "wk": 279,
+    "hol": 309,
+    "conf": "range",
+    "note": "Dynamic pricing; sample 26/27 adult $279 weekday, $309 holiday weekend. On the Ikon Pass"
+   },
+   "rental": {
+    "wk": 110,
+    "conf": "est"
+   },
+   "begNote": "No beginner-only ticket checked",
+   "ord": 6,
+   "sio": true
+  }
+ ],
+ "epicGroups": [
+  {
+   "id": "epic-tahoe",
+   "label": "Epic \u00b7 Tahoe",
+   "note": "Drivable. Unlimited on Epic Pass."
+  },
+  {
+   "id": "epic-west",
+   "label": "Epic \u00b7 Rockies & West",
+   "note": "Unlimited, except Telluride (7 days)."
+  },
+  {
+   "id": "epic-canada",
+   "label": "Epic \u00b7 Canada",
+   "note": "Whistler unlimited; 6 Canadian Rockies partners share 7 days."
+  },
+  {
+   "id": "epic-ne",
+   "label": "Epic \u00b7 Northeast",
+   "note": "Unlimited on Epic Pass."
+  },
+  {
+   "id": "epic-ma",
+   "label": "Epic \u00b7 Mid-Atlantic",
+   "note": "Unlimited on Epic Pass."
+  },
+  {
+   "id": "epic-mw",
+   "label": "Epic \u00b7 Midwest",
+   "note": "Unlimited on Epic Pass."
   }
  ]
 }
