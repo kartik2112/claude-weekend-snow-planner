@@ -563,7 +563,10 @@ document.addEventListener("click",e=>{
  const gb=e.target.closest(".gearbtn");if(gb){const id=gb.dataset.gear;if(S.gearAll){S.gearAll=false;R.resorts.forEach(x=>S.gear[x.id]=x.id!==id);}else S.gear[id]=!S.gear[id];render();return;}
  const t=e.target.closest(".tile,.sum[data-r]");if(t){openDrawer(t.dataset.r,t.dataset.s);return;}
 });
-$("#cali").addEventListener("change",e=>{S.cali=e.target.checked;render();});
+$("#cali").addEventListener("change",e=>{S.cali=e.target.checked;
+ if(!S.cali){S.gearPrev=S.gearAll;S.gearAll=true;}
+ else if(S.gearPrev!==undefined){S.gearAll=S.gearPrev;if(!S.gearAll)S.gear={};delete S.gearPrev;}
+ render();});
 $("#gearAll").addEventListener("change",e=>{S.gearAll=e.target.checked;if(!S.gearAll)S.gear={};render();});
 $("#sort").addEventListener("change",e=>{S.sort=e.target.value;render();});
 $("#scrim").addEventListener("click",closeDrawer);$("#dClose").addEventListener("click",closeDrawer);
