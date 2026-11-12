@@ -213,7 +213,7 @@ tr.hidden{display:none}
 .legend{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:12px;color:var(--muted);align-items:center;padding:2px 2px}
 .legend .li{display:inline-flex;gap:7px;align-items:center}
 .sw-box{width:14px;height:14px;border-radius:4px;display:inline-block}
-.mapwrap{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;position:relative}
+.mapwrap{isolation:isolate;z-index:0;background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;position:relative}
 .tiles-dark{filter:invert(1) hue-rotate(180deg) brightness(.85) contrast(.9)}
 #map{height:min(72vh,680px);width:100%;background:var(--well)}
 .mapnote{position:absolute;left:10px;bottom:10px;z-index:500;font-size:11px;color:var(--muted);background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:4px 8px;max-width:70%}
@@ -270,9 +270,9 @@ table.be td{text-align:right;padding:7px 6px;border-bottom:1px solid var(--line)
 .notes{font-size:12px;color:var(--muted);max-width:115ch;display:flex;flex-direction:column;gap:5px;padding:0 2px}
 
 /* drawer */
-.scrim{position:fixed;inset:0;background:rgba(5,12,20,.38);opacity:0;pointer-events:none;transition:opacity .15s;z-index:20}
+.scrim{position:fixed;inset:0;background:rgba(5,12,20,.38);opacity:0;pointer-events:none;transition:opacity .15s;z-index:2000}
 .scrim.on{opacity:1;pointer-events:auto}
-.drawer{position:fixed;top:0;right:0;height:100%;width:min(410px,100%);background:var(--panel);border-left:1px solid var(--line);z-index:21;transform:translateX(102%);transition:transform .2s ease;display:flex;flex-direction:column;box-shadow:-12px 0 30px rgba(0,0,0,.15)}
+.drawer{position:fixed;top:0;right:0;height:100%;width:min(410px,100%);background:var(--panel);border-left:1px solid var(--line);z-index:2001;transform:translateX(102%);transition:transform .2s ease;display:flex;flex-direction:column;box-shadow:-12px 0 30px rgba(0,0,0,.15)}
 .drawer.on{transform:none}
 .dh{padding:16px 18px 12px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
 .dh h2{margin:0;font-family:var(--display);font-size:26px;font-weight:700;line-height:1.05;text-wrap:balance}
@@ -670,7 +670,7 @@ function renderMap(){
    const tl=L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:12,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',className:dark?"tiles-dark":""}).addTo(LMAP);
    let tileErr=0;tl.on("tileerror",()=>{if(++tileErr===3)$("#mapnote").textContent="Map background can't load here; the GitHub Pages version shows it. Resort pins still work.";});
    LLAYER=L.layerGroup().addTo(LMAP);
-   LMAP.on("popupopen",e=>{const b=e.popup.getElement().querySelector("[data-open]");if(b)b.onclick=()=>openDrawer(b.dataset.open,weekends[0]);});
+   LMAP.on("popupopen",e=>{const b=e.popup.getElement().querySelector("[data-open]");if(b)b.onclick=()=>{LMAP.closePopup();openDrawer(b.dataset.open,weekends[0]);};});
    L.circleMarker([37.33,-121.89],{radius:5,color:"#fff",weight:2,fillColor:"#102033",fillOpacity:1}).bindTooltip("Home · San Jose").addTo(LMAP);
   }
   setTimeout(()=>LMAP.invalidateSize(),0);
