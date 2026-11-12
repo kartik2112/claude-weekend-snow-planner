@@ -157,10 +157,13 @@ td.c.hol{background:var(--holiday-soft)}
 .tile:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
 .tile.sel{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent)}
 .tile.pow{border-color:var(--sun);box-shadow:0 0 0 1px var(--sun)}
-.tile.closedt{background:repeating-linear-gradient(135deg,transparent 0 6px,color-mix(in srgb,var(--line) 55%,transparent) 6px 7px);border-style:dashed;justify-content:center;align-items:flex-start;gap:1px}
+.tile.closedt{background:repeating-linear-gradient(135deg,transparent 0 6px,color-mix(in srgb,var(--line) 55%,transparent) 6px 7px);border-style:dashed}
+.tile.closedt .days,.day.cl{opacity:.6;filter:grayscale(.6)}
+.cll{white-space:nowrap}
+.tile.closedt .pl{border-top-style:dashed}
 .cll{font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--faint)}
 .cld{font-size:12.5px;font-weight:700;color:var(--muted)}
-.day.cl{justify-content:center;opacity:.9}
+
 .pp.cl{color:var(--faint)}
 .opn{font-size:9px;font-weight:800;letter-spacing:.05em;border-radius:5px;padding:0 4px;line-height:1.5}
 .opn.yes{color:var(--pass);background:var(--pass-soft)}
@@ -450,7 +453,6 @@ function snowLine(f,kind){
  return`<div class="sl dry">${ico("drop",10)}${f.pp!=null?f.pp+"%":"—"}</div>`;}
 function closedLbl(r,date){return date<r.open?"Opens "+fmtD(r.open):"Closed for season";}
 function oneDay(r,date,sat){
- if(!isOpen(r,date))return{closed:true,html:`<div class="day cl"><span class="cll">${S.mode==="wk"?(date<r.open?"Opens":"Closed"):closedLbl(r,date)}</span>${S.mode==="wk"&&date<r.open?`<span class="cld">${fmtD(r.open)}</span>`:""}</div>`};
  const f=fc(r.id,date);
  if(f){const k=wxKind(f.code,f.sn);
   if(S.mode==="wk")return{fc:true,html:`<div class="day"><div class="wxrow">${ico(k,17)}${snowLine(f,k)}</div>${temps(f.hi,f.lo)}</div>`};
@@ -474,19 +476,19 @@ function cellHTML(r,sat){
  const dates=datesFor(sat);
  const hol=holOf(sat);
  let cls="tile",badge="";
- if(dates.every(d=>!isOpen(r,d))){const lbl=closedLbl(r,dates[0]);
-  return`<td class="c${hol?" hol":""}"><button type="button" class="tile closedt" data-r="${r.id}" data-s="${sat}" aria-label="${r.name}, ${lbl}"><span class="cll">${dates[0]<r.open?"Opens":"Closed"}</span><span class="cld">${dates[0]<r.open?fmtD(r.open)+(r.openEst?" (est.)":""):"for the season"}</span></button></td>`;}
- const days=dates.map(d=>oneDay(r,d,sat));
+ const allClosed=dates.every(d=>!isOpen(r,d));
+ const days=dates.map(d=>{const o=oneDay(r,d,sat);if(!isOpen(r,d)){o.closed=true;o.html=o.html.replace('<div class="day"','<div class="day cl"');}return o;});
  const anyFc=days.some(d=>d.fc);
  if(!anyFc)cls+=" clim";else if(daysOut(dates[0])>7)cls+=" far";
+ if(allClosed)cls+=" closedt";
  if(anyFc){
   const tot=(fresh(r.id,dates[0])||0)+(S.mode==="wk"?((fc(r.id,dates[0])||{}).sn||0):0);
   if(tot>=4)badge=`<span class="fb" title="New snow in the 3 days before">+${Math.round(tot)}″</span>`;
   if(dates.some(d=>{const f=fc(r.id,d);if(!f)return false;const k=wxKind(f.code,f.sn);return(k==="sun"||k==="part")&&(fresh(r.id,d)||0)>=6;}))cls+=" pow";
  }
- const body=(S.mode==="wk"&&!anyFc&&!days.some(d=>d.closed))?`<div class="days" style="grid-template-columns:1fr">${days[0].html}</div>`:`<div class="days">${days.map(d=>d.html).join("")}</div>`;
+ const body=(S.mode==="wk"&&!anyFc)?`<div class="days" style="grid-template-columns:1fr">${days.every(d=>d.closed)||!days[0].closed?days[0].html:days[1].html}</div>`:`<div class="days">${days.map(d=>d.html).join("")}</div>`;
  const label=`${r.name}, ${dates.map(fmtD).join(" and ")}`;
- return`<td class="c${hol?" hol":""}"><button type="button" class="${cls}" data-r="${r.id}" data-s="${sat}" aria-label="${label}">${body}${priceHTML(r,dates,badge)}</button></td>`;
+ return`<td class="c${hol?" hol":""}"><button type="button" class="${cls}" data-r="${r.id}" data-s="${sat}" aria-label="${label}${allClosed?", "+closedLbl(r,dates[0]):""}">${body}${allClosed?`<div class="pl"><span class="cll">${dates[0]<r.open?"Opens "+fmtD(r.open)+(r.openEst?" (est.)":""):"Closed for season"}</span>${badge}</div>`:priceHTML(r,dates,badge)}</button></td>`;
 }
 function sortVal(r){
  const sat=weekends[0];
