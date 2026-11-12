@@ -115,7 +115,17 @@
    "sio": false,
    "open": "2026-12-26",
    "close": "2027-03-14",
-   "openEst": false
+   "openEst": false,
+   "packs": [
+    [
+     2,
+     208
+    ],
+    [
+     4,
+     316
+    ]
+   ]
   },
   {
    "id": "bear",
@@ -151,7 +161,17 @@
    "sio": false,
    "open": "2026-11-21",
    "close": "2027-03-28",
-   "openEst": false
+   "openEst": false,
+   "packs": [
+    [
+     2,
+     208
+    ],
+    [
+     4,
+     316
+    ]
+   ]
   },
   {
    "id": "china",

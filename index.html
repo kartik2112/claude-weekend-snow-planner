@@ -53,6 +53,7 @@
   color-scheme:dark;
 }
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 html,body{margin:0;overscroll-behavior-x:none}
 body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:14px;line-height:1.4;-webkit-font-smoothing:antialiased}
 button,input,select{font:inherit;color:inherit}
@@ -225,6 +226,45 @@ tr.hidden{display:none}
 .pop .pd b{font-size:11px;color:var(--faint)}
 .pop button{margin-top:8px;border:1px solid var(--line);background:var(--accent);color:#fff;border-radius:8px;padding:5px 10px;font-weight:700;cursor:pointer}
 .leaflet-tooltip{font-family:var(--body);font-weight:700;font-size:11.5px}
+.controls.calc-mode > :not(#viewSeg){display:none}
+.calcwrap{display:grid;grid-template-columns:minmax(300px,420px) 1fr;gap:14px;align-items:start}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow)}
+.card h2{margin:0 0 4px;font-family:var(--display);font-size:20px;font-weight:700;text-transform:uppercase;letter-spacing:.03em}
+.card .lede{margin:0 0 12px;color:var(--muted);font-size:12.5px;max-width:60ch}
+.fld{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid var(--line)}
+.fld:last-child{border-bottom:0}
+.fld label{font-weight:600;font-size:13px}
+.fld .hint{display:block;font-size:11px;color:var(--muted);font-weight:500}
+.money{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:9px;background:var(--well);padding:0 8px}
+.money span{color:var(--muted);font-weight:700}
+.money input{width:64px;border:0;background:transparent;padding:6px 4px;font-weight:700;font-size:14px;text-align:right;font-variant-numeric:tabular-nums}
+.money input:focus{outline:none}
+.money:focus-within{outline:2px solid var(--accent)}
+.step{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:9px;overflow:hidden;background:var(--well)}
+.step button{border:0;background:transparent;width:30px;height:30px;font-size:16px;font-weight:700;cursor:pointer;color:var(--accent)}
+.step output{min-width:28px;text-align:center;font-weight:800;font-variant-numeric:tabular-nums}
+.rrow{display:grid;grid-template-columns:1fr auto auto;gap:8px 10px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}
+.rrow .nm{font-weight:700;font-size:13px}
+.rrow .nm small{display:block;font-weight:500;color:var(--muted);font-size:11px}
+.subh{margin:14px 0 2px;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);font-weight:800}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin-bottom:12px}
+.tile2{border:1px solid var(--line);border-radius:12px;padding:12px;background:var(--well)}
+.tile2 .k{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);font-weight:800}
+.tile2 .big{font-family:var(--display);font-size:34px;font-weight:600;line-height:1.05;margin-top:2px}
+.tile2 .big small{font-size:16px;color:var(--muted);font-weight:500}
+.tile2 .s{font-size:12px;color:var(--muted)}
+.tile2.good{background:var(--pass-soft);border-color:transparent}
+.tile2.good .big{color:var(--pass)}
+.tile2.warn .big{color:var(--warn)}
+.chart svg{width:100%;height:auto;display:block}
+.chart .ax{stroke:var(--line)}
+.chart text{fill:var(--muted);font-size:11px;font-family:var(--body)}
+table.be{width:100%;border-collapse:collapse;font-size:12.5px;font-variant-numeric:tabular-nums}
+table.be th{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);text-align:right;padding:6px 6px;border-bottom:1px solid var(--line)}
+table.be th:first-child,table.be td:first-child{text-align:left}
+table.be td{text-align:right;padding:7px 6px;border-bottom:1px solid var(--line)}
+.calc-note{font-size:11.5px;color:var(--muted);margin:10px 0 0;max-width:80ch}
+@media (max-width:900px){.calcwrap{grid-template-columns:1fr}}
 .disc{margin:-6px 2px -4px;font-size:11px;color:var(--faint);line-height:1.45}
 .disc b{color:var(--muted);font-weight:700}
 .notes{font-size:12px;color:var(--muted);max-width:115ch;display:flex;flex-direction:column;gap:5px;padding:0 2px}
@@ -294,6 +334,7 @@ tr.hidden{display:none}
     <div class="seg" role="group" aria-label="View" id="viewSeg">
       <button type="button" data-view="grid">Grid</button>
       <button type="button" data-view="map">Map</button>
+      <button type="button" data-view="calc">Pass value</button>
     </div>
     <div class="seg" role="group" aria-label="Days to show" id="modeSeg">
       <button type="button" data-mode="sat" id="m-sat">Saturdays</button>
@@ -329,6 +370,7 @@ tr.hidden{display:none}
   <div class="summary" id="summary"></div>
 
   <p class="disc" id="disc"></p>
+  <section class="calcwrap" id="calcwrap" hidden aria-label="Cali Pass break-even calculator"></section>
   <div class="mapwrap" id="mapwrap" hidden><div id="map"></div><div class="mapnote" id="mapnote"></div></div>
   <div class="gridwrap" id="gridwrap"><div class="muted" style="padding:16px">Loading forecast…</div></div>
 
@@ -539,9 +581,75 @@ function render(){
  wrap.innerHTML=h;wrap.scrollLeft=sx;wrap.scrollTop=sy;
  renderSummary();save();ensureForecast();
  document.querySelectorAll("#viewSeg button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.view===S.view)));
- $("#gridwrap").hidden=S.view==="map";$("#mapwrap").hidden=S.view!=="map";
+ $("#gridwrap").hidden=S.view!=="grid";$("#mapwrap").hidden=S.view!=="map";$("#calcwrap").hidden=S.view!=="calc";
+ $("#summary").hidden=S.view==="calc";document.querySelector(".controls").classList.toggle("calc-mode",S.view==="calc");$("#legend").hidden=S.view==="calc";$("#notes").hidden=S.view==="calc";$("#disc").hidden=S.view==="calc";
  if(S.view==="map")renderMap();
+ if(S.view==="calc")renderCalc();
 }
+/* ---------- pass calculator ---------- */
+const CALC_DEF={pass:629,tax:0,packs:true,perWk:2,price:{},days:{dodge:10,bear:2,china:0,mthigh:0},pa:{sierra:0,shasta:0}};
+function calcState(){if(!S.calc)S.calc=JSON.parse(JSON.stringify(CALC_DEF));const c=S.calc;
+ ["dodge","bear","china","mthigh","sierra","shasta"].forEach(id=>{const r=R.resorts.find(x=>x.id===id);if(c.price[id]==null&&r)c.price[id]=r.price.wk;});return c;}
+function buyCost(r,n,c){const p=c.price[r.id]*(1+c.tax/100);if(n<=0)return 0;let best=n*p;
+ if(c.packs&&r.packs){const P=r.packs.map(([k,v])=>[k,v*(1+c.tax/100)]);
+  const dp=[0];for(let i=1;i<=n;i++){let m=dp[i-1]+p;P.forEach(([k,v])=>{m=Math.min(m,(i>=k?dp[i-k]:0)+v);});dp[i]=m;}best=dp[n];}
+ return best;}
+function beDays(r,c,usePacks){const cc=Object.assign({},c,{packs:usePacks});for(let n=1;n<=80;n++)if(buyCost(r,n,cc)>=c.pass)return n;return null;}
+function openWeekends(r){let n=0;weekends.forEach(sat=>{if(isOpen(r,sat)||isOpen(r,addD(sat,1)))n++;});return n;}
+const money=v=>"$"+Math.round(v).toLocaleString();
+function renderCalc(){
+ const c=calcState();const cali=["dodge","bear","china","mthigh"].map(id=>R.resorts.find(r=>r.id===id));
+ const pa=["sierra","shasta"].map(id=>R.resorts.find(r=>r.id===id));const dodge=cali[0];
+ const daysTot=cali.reduce((a,r)=>a+(c.days[r.id]||0),0);
+ const buyTot=cali.reduce((a,r)=>a+buyCost(r,c.days[r.id]||0,c),0);
+ const paVal=pa.reduce((a,r)=>a+(c.pa[r.id]||0)*c.price[r.id]*(1+c.tax/100),0);
+ const value=buyTot+paVal;const net=value-c.pass;
+ const beW=beDays(dodge,c,false),beP=beDays(dodge,c,true);const wkOpen=openWeekends(dodge);
+ const fld=(id,label,hint,val,step)=>`<div class="fld"><label for="${id}">${label}${hint?`<span class="hint">${hint}</span>`:""}</label><span class="money"><span>${step==="%"?"":"$"}</span><input id="${id}" type="number" inputmode="decimal" min="0" step="${step==="%"?"0.25":"1"}" value="${val}"><span>${step==="%"?"%":""}</span></span></div>`;
+ const stepper=(key,id,val,max)=>`<span class="step"><button type="button" data-step="${key}" data-id="${id}" data-d="-1" aria-label="Fewer days">−</button><output>${val}</output><button type="button" data-step="${key}" data-id="${id}" data-d="1" aria-label="More days" ${val>=max?"disabled":""}>+</button></span>`;
+ let left=`<div class="card"><h2>Your numbers</h2><p class="lede">Edit anything; it's saved on this device.</p>
+  ${fld("cPass","Cali Pass cost","What you paid this season",c.pass,"$")}
+  ${fld("cTax","Taxes & fees on day tickets","California generally doesn't add sales tax to lift tickets; add any resort fee you pay",c.tax,"%")}
+  <div class="fld"><label for="cPacks">Use 2- and 4-day packs when cheaper<span class="hint">Dodge Ridge and Bear Valley sell them: 2 days $208, 4 days $316, no blackouts</span></label><label class="tog" for="cPacks"><input type="checkbox" id="cPacks" ${c.packs?"checked":""}><span class="sw"></span></label></div>
+  <div class="fld"><label for="cWk">Days per trip</label><select id="cWk"><option value="2" ${c.perWk==2?"selected":""}>2 (Sat + Sun)</option><option value="1" ${c.perWk==1?"selected":""}>1</option></select></div>
+  <div class="subh">Days you expect to ride · Cali Pass resorts</div>
+  ${cali.map(r=>`<div class="rrow"><div class="nm">${r.name}<small>${r.drive} · open ~${openWeekends(r)} weekends</small></div><span class="money"><span>$</span><input type="number" min="0" data-price="${r.id}" value="${c.price[r.id]}" aria-label="${r.name} day ticket price"></span>${stepper("days",r.id,c.days[r.id]||0,60)}</div>`).join("")}
+  <div class="subh">Free Powder Alliance days you'll use (max 3 each, Sun–Fri)</div>
+  ${pa.map(r=>`<div class="rrow"><div class="nm">${r.name}<small>${r.drive}</small></div><span class="money"><span>$</span><input type="number" min="0" data-price="${r.id}" value="${c.price[r.id]}" aria-label="${r.name} day ticket price"></span>${stepper("pa",r.id,c.pa[r.id]||0,3)}</div>`).join("")}
+  <p class="calc-note">Day prices start from the planner's weekend rates, most of them estimates. Dodge Ridge hasn't published 26/27 day rates yet.</p></div>`;
+ const tiles=`<div class="tiles">
+  <div class="tile2"><div class="k">Break-even · Dodge day tickets</div><div class="big">${beW} <small>days</small></div><div class="s">${Math.ceil(beW/c.perWk)} ${c.perWk==2?"weekends":"trips"} at ${money(c.price.dodge*(1+c.tax/100))}/day</div></div>
+  <div class="tile2"><div class="k">Break-even · vs Dodge packs</div><div class="big">${beP} <small>days</small></div><div class="s">${Math.ceil(beP/c.perWk)} ${c.perWk==2?"weekends":"trips"} if you'd otherwise buy 4-day packs ($79/day)</div></div>
+  <div class="tile2 ${net>=0?"good":"warn"}"><div class="k">Your plan · ${daysTot+((c.pa.sierra||0)+(c.pa.shasta||0))} days</div><div class="big">${net>=0?"+":"−"}${money(Math.abs(net))}</div><div class="s">${net>=0?"saved vs buying tickets":"short of break-even"} · tickets would cost ${money(value)}</div></div>
+  <div class="tile2"><div class="k">Dodge Ridge this season</div><div class="big">${wkOpen} <small>weekends</small></div><div class="s">open ${fmtD(dodge.open)} – ${fmtD(dodge.close)} (projected); break-even uses ${Math.round(100*Math.ceil(beP/c.perWk)/Math.max(1,wkOpen))}% of them</div></div></div>`;
+ // chart
+ const N=Math.max(24,beW+4,beP+4,daysTot+2);const W=640,H=230,pl=46,pr=12,pt=14,pb=28;
+ const ccW=Object.assign({},c,{packs:false}),ccP=Object.assign({},c,{packs:true});
+ const ymax=Math.max(c.pass*1.4,buyCost(dodge,N,ccW));const x=n=>pl+(W-pl-pr)*n/N,y=v=>pt+(H-pt-pb)*(1-v/ymax);
+ const line=cc=>{let d="";for(let n=0;n<=N;n++)d+=(n?"L":"M")+x(n).toFixed(1)+","+y(buyCost(dodge,n,cc)).toFixed(1);return d;};
+ const yt=[0,ymax/4,ymax/2,ymax*3/4].map(v=>Math.round(v/50)*50);
+ const chart=`<div class="chart"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Cumulative ticket cost at Dodge Ridge versus Cali Pass cost">
+  ${yt.map(v=>`<line class="ax" x1="${pl}" x2="${W-pr}" y1="${y(v)}" y2="${y(v)}"/><text x="${pl-6}" y="${y(v)+4}" text-anchor="end">$${v}</text>`).join("")}
+  ${[0,5,10,15,20,25,30,35,40].filter(n=>n<=N).map(n=>`<text x="${x(n)}" y="${H-8}" text-anchor="middle">${n}</text>`).join("")}
+  <text x="${W-pr}" y="${H-8}" text-anchor="end">days</text>
+  <line x1="${pl}" x2="${W-pr}" y1="${y(c.pass)}" y2="${y(c.pass)}" stroke="var(--pass)" stroke-width="2.5"/>
+  <text x="${W-pr}" y="${y(c.pass)-6}" text-anchor="end" style="fill:var(--pass);font-weight:700">Cali Pass ${money(c.pass)}</text>
+  <path d="${line(ccW)}" fill="none" stroke="var(--holiday)" stroke-width="2.5"/>
+  ${c.packs?`<path d="${line(ccP)}" fill="none" stroke="var(--accent)" stroke-width="2.5"/>`:""}
+  <circle cx="${x(beW)}" cy="${y(c.pass)}" r="5" fill="var(--holiday)"/>
+  ${c.packs?`<circle cx="${x(beP)}" cy="${y(c.pass)}" r="5" fill="var(--accent)"/>`:""}
+  ${daysTot?`<line x1="${x(daysTot)}" x2="${x(daysTot)}" y1="${pt}" y2="${H-pb}" stroke="var(--ink)" stroke-dasharray="4 4"/><text x="${x(daysTot)+4}" y="${pt+10}" style="fill:var(--ink);font-weight:700">your plan</text>`:""}
+ </svg><div class="legend" style="margin-top:6px"><span class="li"><span class="sw-box" style="background:var(--holiday)"></span>Dodge day tickets</span>${c.packs?`<span class="li"><span class="sw-box" style="background:var(--accent)"></span>Dodge 2/4-day packs</span>`:""}<span class="li"><span class="sw-box" style="background:var(--pass)"></span>Cali Pass</span></div></div>`;
+ const table=`<table class="be"><thead><tr><th>Only at…</th><th>Day ticket</th><th>Days to break even</th><th>${c.perWk==2?"Weekends":"Trips"}</th><th>Weekends open</th></tr></thead><tbody>
+  ${cali.map(r=>{const d1=beDays(r,c,c.packs);return`<tr><td>${r.name}</td><td>${money(c.price[r.id]*(1+c.tax/100))}${c.packs&&r.packs?" · packs":""}</td><td>${d1}</td><td>${Math.ceil(d1/c.perWk)}</td><td>${openWeekends(r)}</td></tr>`;}).join("")}</tbody></table>`;
+ const right=`<div class="card"><h2>Is the Cali Pass worth it?</h2><p class="lede">Break-even is the number of days where buying tickets would have cost as much as the pass. Comparing against Dodge Ridge's 4-day pack ($79/day) is the fairer test, because that's what you'd buy instead.</p>${tiles}${chart}<div class="subh">Break-even by resort</div>${table}
+  <p class="calc-note">Mixing resorts: each day at Bear Valley, China Peak or Mountain High counts at that resort's price, so a plan mixing them breaks even at the same dollar total (${money(c.pass)}). Free Powder Alliance days add value only if you'd have paid to ride there.</p></div>`;
+ $("#calcwrap").innerHTML=left+right;
+}
+document.addEventListener("input",e=>{const c=S.calc;if(!c||!e.target.closest("#calcwrap"))return;const v=parseFloat(e.target.value);if(isNaN(v)||v<0)return;
+ if(e.target.id==="cPass")c.pass=v;else if(e.target.id==="cTax")c.tax=v;else if(e.target.dataset.price)c.price[e.target.dataset.price]=v;else return;
+ clearTimeout(window.__ct);window.__ct=setTimeout(()=>{const f=document.activeElement&&document.activeElement.id,fp=document.activeElement&&document.activeElement.dataset&&document.activeElement.dataset.price;save();renderCalc();const el=f?document.getElementById(f):fp?document.querySelector(`[data-price="${fp}"]`):null;if(el){el.focus();const L=el.value.length;try{el.setSelectionRange(L,L);}catch(_){}}},350);});
+document.addEventListener("change",e=>{const c=S.calc;if(!c)return;if(e.target.id==="cPacks"){c.packs=e.target.checked;save();renderCalc();}if(e.target.id==="cWk"){c.perWk=+e.target.value;save();renderCalc();}});
 /* ---------- map ---------- */
 let LMAP=null,LLAYER=null,leafletP=null,lastBoundsKey="";
 function loadLeaflet(){if(window.L)return Promise.resolve();if(leafletP)return leafletP;
@@ -655,6 +763,7 @@ function closeDrawer(){$("#scrim").classList.remove("on");$("#drawer").classList
 
 /* ---------- events ---------- */
 document.addEventListener("click",e=>{
+ const st=e.target.closest("[data-step]");if(st){const c=S.calc,k=st.dataset.step,id=st.dataset.id;const max=k==="pa"?3:60;c[k][id]=Math.max(0,Math.min(max,(c[k][id]||0)+(+st.dataset.d)));save();renderCalc();return;}
  const vw=e.target.closest("#viewSeg button");if(vw){S.view=vw.dataset.view;render();return;}
  const m=e.target.closest("#modeSeg button");if(m){S.mode=m.dataset.mode;render();return;}
  const u=e.target.closest("#unitSeg button");if(u){S.unit=u.dataset.u;render();return;}
