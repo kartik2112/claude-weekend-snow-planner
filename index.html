@@ -195,6 +195,8 @@ tr.hidden{display:none}
 .legend{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:12px;color:var(--muted);align-items:center;padding:2px 2px}
 .legend .li{display:inline-flex;gap:7px;align-items:center}
 .sw-box{width:14px;height:14px;border-radius:4px;display:inline-block}
+.disc{margin:-6px 2px -4px;font-size:11px;color:var(--faint);line-height:1.45}
+.disc b{color:var(--muted);font-weight:700}
 .notes{font-size:12px;color:var(--muted);max-width:115ch;display:flex;flex-direction:column;gap:5px;padding:0 2px}
 
 /* drawer */
@@ -288,6 +290,7 @@ tr.hidden{display:none}
 
   <div class="summary" id="summary"></div>
 
+  <p class="disc" id="disc"></p>
   <div class="gridwrap" id="gridwrap"><div class="muted" style="padding:16px">Loading forecast…</div></div>
 
   <div class="legend" id="legend">
@@ -504,6 +507,8 @@ function renderFresh(){
  const gen=new Date(F.generated);const hrs=(Date.now()-gen)/36e5;
  const gl=gen.toLocaleString("en-US",{month:"short",day:"numeric",hour:"numeric",minute:"2-digit"});
  $("#fresh").innerHTML=`<span class="chip${hrs>36?" stale":""}"><span class="dot"></span>${F.live?"Live forecast · loaded "+gl:"Forecast "+gl+(hrs>36?" · needs refresh":"")}</span><span class="chip">Prices checked ${fmtD(R.checked)}</span><span class="chip">${weekends.length} weekends · ${R.resorts.length} resorts</span>`;
+ const pc=pd(R.checked).toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric",timeZone:"UTC"});
+ $("#disc").innerHTML=F.live?`<b>Weather</b> is the latest Open-Meteo forecast, fetched when you opened this page (${gl}). <b>Prices</b> are as fetched on ${pc} and many are estimates; confirm on the resort's site before buying.`:`<b>Weather</b> is the Open-Meteo forecast as of ${gl}. <b>Prices</b> are as fetched on ${pc} and many are estimates; confirm on the resort's site before buying.`;
  $("#notes").innerHTML=`<div>Forecast from Open-Meteo at each resort's mid-mountain elevation, 16 days out; days 8–16 are less reliable. Dashed tiles show the 2015–2025 average for that week: typical high/low and the share of days with 1″+ of new snow.</div>
  <div>Prices are adult single-day weekend rates; "$~" is estimated from the last published or reported rate. Palisades, Northstar and Heavenly price by date, so their tiles show a typical advance-online price (window rates run higher). Powder Alliance gives Cali Pass holders 3 free days per partner resort, Sunday–Friday, non-holiday. Confirm on the resort site before you drive.</div>`;
 }
