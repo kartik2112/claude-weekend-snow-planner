@@ -80,6 +80,7 @@ header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:spac
 #unitSeg button{padding:4px 9px}
 .seg button{border:0;background:transparent;padding:5px 12px;border-radius:7px;cursor:pointer;font-weight:700;font-size:13px;color:var(--muted)}
 .seg button[aria-pressed="true"]{background:var(--panel);color:var(--ink);box-shadow:0 1px 3px rgba(16,32,51,.14)}
+#viewSeg button[aria-pressed="true"]{background:var(--accent);color:#fff;box-shadow:0 1px 4px color-mix(in srgb,var(--accent) 45%,transparent)}
 .tog{display:inline-flex;align-items:center;gap:8px;cursor:pointer;font-weight:600;font-size:13px;user-select:none;white-space:nowrap}
 .tog input{position:absolute;opacity:0;width:1px;height:1px}
 .tog .sw{width:32px;height:18px;border-radius:999px;background:var(--line);position:relative;transition:background .15s;flex:none}
@@ -215,6 +216,13 @@ tr.hidden{display:none}
 .sw-box{width:14px;height:14px;border-radius:4px;display:inline-block}
 .mapwrap{isolation:isolate;z-index:0;background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;position:relative}
 .tiles-dark{filter:invert(1) hue-rotate(180deg) brightness(.85) contrast(.9)}
+.routebar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:10px 12px;border-bottom:1px solid var(--line)}
+.routebar input{flex:1 1 240px;min-width:0;border:1px solid var(--line);background:var(--well);border-radius:9px;padding:7px 10px;font-size:13px;font-weight:600}
+.rbtn{border:0;background:var(--accent);color:#fff;font-weight:700;font-size:13px;border-radius:9px;padding:7px 12px;cursor:pointer}
+.rbtn.ghost{background:transparent;color:var(--accent);border:1px solid var(--line)}
+.rbtn:disabled{opacity:.6;cursor:wait}
+.rstat{font-size:12px;color:var(--muted)}
+.rtip{font-weight:700}
 #map{height:min(72vh,680px);width:100%;background:var(--well)}
 .mapnote{position:absolute;left:10px;bottom:10px;z-index:500;font-size:11px;color:var(--muted);background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:4px 8px;max-width:70%}
 .mapnote:empty{display:none}
@@ -332,7 +340,7 @@ table.be td{text-align:right;padding:7px 6px;border-bottom:1px solid var(--line)
 
   <div class="controls" role="toolbar" aria-label="View options">
     <div class="seg" role="group" aria-label="View" id="viewSeg">
-      <button type="button" data-view="grid">Grid</button>
+      <button type="button" data-view="grid">List</button>
       <button type="button" data-view="map">Map</button>
       <button type="button" data-view="calc">Pass value</button>
     </div>
@@ -371,7 +379,15 @@ table.be td{text-align:right;padding:7px 6px;border-bottom:1px solid var(--line)
 
   <p class="disc" id="disc"></p>
   <section class="calcwrap" id="calcwrap" hidden aria-label="Cali Pass break-even calculator"></section>
-  <div class="mapwrap" id="mapwrap" hidden><div id="map"></div><div class="mapnote" id="mapnote"></div></div>
+  <div class="mapwrap" id="mapwrap" hidden>
+    <form class="routebar" id="routeForm" autocomplete="on">
+      <label for="startAddr" class="ctl-label">Start</label>
+      <input id="startAddr" name="startAddr" type="text" placeholder="Starting address">
+      <button type="submit" class="rbtn" id="roadsBtn">Show roads</button>
+      <button type="button" class="rbtn ghost" id="roadsOff" hidden>Hide roads</button>
+      <span class="rstat" id="routeStat" aria-live="polite"></span>
+    </form>
+    <div id="map"></div><div class="mapnote" id="mapnote"></div></div>
   <div class="gridwrap" id="gridwrap"><div class="muted" style="padding:16px">Loading forecast…</div></div>
 
   <div class="legend" id="legend">
@@ -398,7 +414,7 @@ table.be td{text-align:right;padding:7px 6px;border-bottom:1px solid var(--line)
 (function(){
 "use strict";
 const $=s=>document.querySelector(s);
-const S={mode:"wk",cali:true,gearAll:false,gear:{},v:3,epic:false,groups:{cali:true,"pa-ca":true,tahoe:true,dest:true,"pa-far":true,"epic-tahoe":true,"epic-west":true,"epic-canada":true,"epic-mw":true},collapsed:{"pa-ca":true,dest:true,"pa-far":true,"epic-canada":true,"epic-ne":true,"epic-ma":true,"epic-mw":true},sort:"drive",view:"grid",sio:false,openOnly:false,showHi:true,showLo:true,unit:"F",beg:false};
+const S={mode:"wk",cali:true,gearAll:false,gear:{},v:3,epic:false,groups:{cali:true,"pa-ca":true,tahoe:true,dest:true,"pa-far":true,"epic-tahoe":true,"epic-west":true,"epic-canada":true,"epic-mw":true},collapsed:{"pa-ca":true,dest:true,"pa-far":true,"epic-canada":true,"epic-ne":true,"epic-ma":true,"epic-mw":true},sort:"drive",view:"grid",start:"754 The Alameda, San Jose, CA",roads:false,sio:false,openOnly:false,showHi:true,showLo:true,unit:"F",beg:false};
 try{const saved=JSON.parse(localStorage.getItem("snowplanner")||"null");if(saved){const g=Object.assign({},S.groups,saved.groups||{}),c=saved.v===3?Object.assign({},S.collapsed,saved.collapsed||{}):saved.v===2?Object.assign({},S.collapsed,saved.collapsed||{},{"epic-ne":false,"epic-ma":false}):Object.assign({},S.collapsed);if(saved.v!==3&&saved.groups){g["epic-ne"]=true;g["epic-ma"]=true;}delete saved.v;Object.assign(S,saved);S.groups=g;S.collapsed=c;}}catch(e){}
 function save(){try{localStorage.setItem("snowplanner",JSON.stringify(S));}catch(e){}}
 
@@ -651,7 +667,54 @@ document.addEventListener("input",e=>{const c=S.calc;if(!c||!e.target.closest("#
  clearTimeout(window.__ct);window.__ct=setTimeout(()=>{const f=document.activeElement&&document.activeElement.id,fp=document.activeElement&&document.activeElement.dataset&&document.activeElement.dataset.price;save();renderCalc();const el=f?document.getElementById(f):fp?document.querySelector(`[data-price="${fp}"]`):null;if(el){el.focus();const L=el.value.length;try{el.setSelectionRange(L,L);}catch(_){}}},350);});
 document.addEventListener("change",e=>{const c=S.calc;if(!c)return;if(e.target.id==="cPacks"){c.packs=e.target.checked;save();renderCalc();}if(e.target.id==="cWk"){c.perWk=+e.target.value;save();renderCalc();}});
 /* ---------- map ---------- */
-let LMAP=null,LLAYER=null,leafletP=null,lastBoundsKey="";
+let LMAP=null,LLAYER=null,RLAYER=null,START_M=null,leafletP=null,lastBoundsKey="";
+/* ---------- roads ---------- */
+const DEF_START={addr:"754 The Alameda, San Jose, CA",lat:37.3326,lon:-121.9076};
+function startLL(){const g=S.geo&&S.geo.addr===S.start?S.geo:(S.start===DEF_START.addr?DEF_START:null);return g?[g.lat,g.lon]:[DEF_START.lat,DEF_START.lon];}
+const isDrivable=r=>r.lat!=null&&!/\+/.test(r.drive||"");
+let ROUTES={};try{ROUTES=JSON.parse(localStorage.getItem("snowplanner-routes")||"{}");}catch(e){}
+function saveRoutes(){try{localStorage.setItem("snowplanner-routes",JSON.stringify(ROUTES));}catch(e){}}
+const fmtDur=s=>{const m=Math.round(s/60);return Math.floor(m/60)+"h "+String(m%60).padStart(2,"0")+"m";};
+async function geocode(addr){
+ if(addr===DEF_START.addr)return DEF_START;
+ if(S.geo&&S.geo.addr===addr)return S.geo;
+ const j=await fetch("https://nominatim.openstreetmap.org/search?format=json&limit=1&q="+encodeURIComponent(addr)).then(r=>{if(!r.ok)throw new Error("geocode "+r.status);return r.json();});
+ if(!j.length)throw new Error("notfound");
+ S.geo={addr,lat:+j[0].lat,lon:+j[0].lon};save();return S.geo;}
+async function routeTo(g,r){
+ const key=g.lat.toFixed(4)+","+g.lon.toFixed(4)+"|"+r.id;if(ROUTES[key])return ROUTES[key];
+ const u=`https://router.project-osrm.org/route/v1/driving/${g.lon},${g.lat};${r.lon},${r.lat}?overview=simplified&geometries=geojson`;
+ const j=await fetch(u).then(x=>{if(!x.ok)throw new Error("route "+x.status);return x.json();});
+ if(!j.routes||!j.routes[0])throw new Error("noroute");
+ const rt=j.routes[0];const v={d:rt.duration,m:rt.distance,c:rt.geometry.coordinates.map(([lo,la])=>[+la.toFixed(4),+lo.toFixed(4)])};
+ ROUTES[key]=v;saveRoutes();return v;}
+let routeRun=0;
+async function showRoads(){
+ const run=++routeRun;const stat=$("#routeStat"),btn=$("#roadsBtn");
+ if(!LMAP||!RLAYER)return;
+ RLAYER.clearLayers();
+ const rs=visibleResorts().filter(isDrivable);
+ if(!rs.length){stat.textContent="No drivable resorts are shown. Open a California or Tahoe group.";return;}
+ btn.disabled=true;stat.textContent="Finding your start…";
+ let g;try{g=await geocode(S.start);}catch(e){btn.disabled=false;stat.textContent=e.message==="notfound"?"Couldn't find that address. Try adding the city and state.":"Couldn't look up the address here. Roads work on the GitHub Pages version.";return;}
+ if(run!==routeRun)return;
+ START_M.setLatLng([g.lat,g.lon]).setTooltipContent("Start · "+S.start);
+ const pts=[[g.lat,g.lon]];let ok=0,fail=0;
+ for(const r of rs){
+  if(run!==routeRun)return;stat.textContent=`Routing ${ok+fail+1} of ${rs.length}…`;
+  try{const v=await routeTo(g,r);if(run!==routeRun)return;
+   const pl=L.polyline(v.c,{color:getComputedStyle(document.documentElement).getPropertyValue("--accent"),weight:3.5,opacity:.85});
+   pl.bindTooltip(`<span class="rtip">${r.name}</span> · ${fmtDur(v.d)} · ${Math.round(v.m/1609)} mi`,{sticky:true});
+   pl.on("mouseover",()=>pl.setStyle({weight:6,opacity:1})).on("mouseout",()=>pl.setStyle({weight:3.5,opacity:.85}));
+   pl.addTo(RLAYER);v.c.forEach(p=>pts.push(p));r._route=v;ok++;}
+  catch(e){fail++;}
+ }
+ btn.disabled=false;
+ if(!ok){stat.textContent="Couldn't load roads here. They work on the GitHub Pages version.";return;}
+ stat.textContent=`${ok} drive${ok>1?"s":""} from your start${fail?` · ${fail} couldn't be routed`:""}. Hover a road for time and distance.`;
+ LMAP.fitBounds(pts,{padding:[30,30]});
+}
+function hideRoads(){routeRun++;S.roads=false;save();if(RLAYER)RLAYER.clearLayers();$("#routeStat").textContent="";$("#roadsOff").hidden=true;}
 function loadLeaflet(){if(window.L)return Promise.resolve();if(leafletP)return leafletP;
  leafletP=new Promise((res,rej)=>{const l=document.createElement("link");l.rel="stylesheet";l.href="vendor/leaflet.css";document.head.appendChild(l);
   const sc=document.createElement("script");sc.src="vendor/leaflet.js";sc.onload=res;sc.onerror=rej;document.head.appendChild(sc);});return leafletP;}
@@ -662,7 +725,8 @@ function popHTML(r){const sat=weekends[0],ds=datesFor(sat);
   if(f){const k=wxKind(f.code,f.sn);return`<b>${lbl}</b><span>${ico(k,15)} ${T(f.hi)}°/${T(f.lo)}° · ${f.sn>=0.1?f.sn.toFixed(1)+"″ snow":f.pp+"% precip"}</span>`;}
   return c?`<b>${lbl}</b><span>avg ${T(c.hi)}°/${T(c.lo)}° · ${c.sp}% snow days</span>`:"";}).join("");
  const fr=fresh(r.id,ds[0]);const cost=ds.reduce((a,d)=>a+dayCost(r,d).total,0);
- return`<div class="pop"><h4>${r.name}</h4><div class="pm">${r.st} · ${r.drive}${fr>=1?` · <span style="color:var(--snow);font-weight:700">+${Math.round(fr)}″ new</span>`:""}</div><div class="pd">${rows}<b>Cost</b><span>${cost?"$"+cost:"Covered by your pass"}</span></div><button type="button" data-open="${r.id}">Details</button></div>`;}
+ const g=startLL();const rk=g[0].toFixed(4)+","+g[1].toFixed(4)+"|"+r.id;const rt=ROUTES[rk];
+ return`<div class="pop"><h4>${r.name}</h4><div class="pm">${r.st} · ${rt?fmtDur(rt.d)+" · "+Math.round(rt.m/1609)+" mi from your start":r.drive}${fr>=1?` · <span style="color:var(--snow);font-weight:700">+${Math.round(fr)}″ new</span>`:""}</div><div class="pd">${rows}<b>Cost</b><span>${cost?"$"+cost:"Covered by your pass"}</span></div><button type="button" data-open="${r.id}">Details</button></div>`;}
 function renderMap(){
  loadLeaflet().then(()=>{
   if(!LMAP){LMAP=L.map("map",{zoomControl:true,attributionControl:true,worldCopyJump:true}).setView([39,-110],5);
@@ -671,7 +735,8 @@ function renderMap(){
    let tileErr=0;tl.on("tileerror",()=>{if(++tileErr===3)$("#mapnote").textContent="Map background can't load here; the GitHub Pages version shows it. Resort pins still work.";});
    LLAYER=L.layerGroup().addTo(LMAP);
    LMAP.on("popupopen",e=>{const b=e.popup.getElement().querySelector("[data-open]");if(b)b.onclick=()=>{LMAP.closePopup();openDrawer(b.dataset.open,weekends[0]);};});
-   L.circleMarker([37.33,-121.89],{radius:5,color:"#fff",weight:2,fillColor:"#102033",fillOpacity:1}).bindTooltip("Home · San Jose").addTo(LMAP);
+   START_M=L.circleMarker(startLL(),{radius:6,color:"#fff",weight:2,fillColor:"#102033",fillOpacity:1}).bindTooltip("Start · "+S.start).addTo(LMAP);
+   RLAYER=L.layerGroup().addTo(LMAP);
   }
   setTimeout(()=>LMAP.invalidateSize(),0);
   LLAYER.clearLayers();
@@ -681,6 +746,8 @@ function renderMap(){
    m.bindTooltip(r.name,{direction:"top",offset:[0,-6]});m.bindPopup(()=>popHTML(r));m.addTo(LLAYER);pts.push([r.lat,r.lon]);});
   const key=rs.map(r=>r.id).join();
   if(pts.length&&key!==lastBoundsKey){LMAP.fitBounds(pts,{padding:[40,40],maxZoom:8});lastBoundsKey=key;}
+  $("#startAddr").value=S.start;$("#roadsOff").hidden=!S.roads;
+  if(S.roads&&key!==RLAYER._key){RLAYER._key=key;showRoads();}
   if(!pts.length)$("#mapnote").textContent="No resorts are shown. Open a group or turn on a resort filter.";
   else if($("#mapnote").textContent.startsWith("No resorts"))$("#mapnote").textContent="";
  }).catch(()=>{$("#mapnote").textContent="The map couldn't load.";});
@@ -785,6 +852,8 @@ $("#epic").addEventListener("change",e=>{S.epic=e.target.checked;render();});
 $("#gearAll").addEventListener("change",e=>{S.gearAll=e.target.checked;if(!S.gearAll)S.gear={};render();});
 $("#beg").addEventListener("change",e=>{S.beg=e.target.checked;delete S.begPrev;render();});
 $("#sort").addEventListener("change",e=>{S.sort=e.target.value;render();});
+$("#routeForm").addEventListener("submit",e=>{e.preventDefault();const v=$("#startAddr").value.trim();if(!v)return;if(v!==S.start){S.start=v;}S.roads=true;save();$("#roadsOff").hidden=false;if(RLAYER)RLAYER._key=null;showRoads();});
+$("#roadsOff").addEventListener("click",hideRoads);
 $("#scrim").addEventListener("click",closeDrawer);$("#dClose").addEventListener("click",closeDrawer);
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeDrawer();});
 

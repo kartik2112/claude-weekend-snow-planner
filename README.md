@@ -16,7 +16,7 @@ A weekend ski and snowboard planner for **Cali Pass** holders (home resort: Dodg
 - A 16-day forecast for each resort, loaded live from [Open-Meteo](https://open-meteo.com/) on every page load: high/low temperature, snowfall, chance of precipitation, wind, and snow in the 3 days before
 - Beyond 16 days, the 2015–2025 average for that week (typical high/low and the share of days with 1″+ of new snow)
 - What each day costs you: Cali Pass days show no price, Powder Alliance days are free Sunday–Friday outside holidays, and everything else shows a lift-ticket price. You can also add a snowboard rental, for every resort or one at a time.
-- A map view of whichever resorts are open in the list
+- A map view of whichever resorts are open in the list, with driving routes from an editable start address (OpenStreetMap Nominatim + OSRM)
 - A Cali Pass break-even calculator ("Pass value" tab): pass cost, day-ticket prices, Dodge Ridge and Bear Valley multi-day packs, and your planned days
 - Live forecasts are fetched only for resort groups that are open, cached for 30 minutes
 - A ski-in/ski-out filter
