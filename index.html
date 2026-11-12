@@ -157,6 +157,14 @@ td.c.hol{background:var(--holiday-soft)}
 .tile:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
 .tile.sel{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent)}
 .tile.pow{border-color:var(--sun);box-shadow:0 0 0 1px var(--sun)}
+.tile.closedt{background:repeating-linear-gradient(135deg,transparent 0 6px,color-mix(in srgb,var(--line) 55%,transparent) 6px 7px);border-style:dashed;justify-content:center;align-items:flex-start;gap:1px}
+.cll{font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--faint)}
+.cld{font-size:12.5px;font-weight:700;color:var(--muted)}
+.day.cl{justify-content:center;opacity:.9}
+.pp.cl{color:var(--faint)}
+.opn{font-size:9px;font-weight:800;letter-spacing:.05em;border-radius:5px;padding:0 4px;line-height:1.5}
+.opn.yes{color:var(--pass);background:var(--pass-soft)}
+.opn.no{color:var(--muted);border:1px dashed var(--line)}
 .tile.clim{background:transparent;border-style:dashed;box-shadow:none}
 .tile.far .wxrow{opacity:.85}
 .days{display:grid;gap:6px}
@@ -293,6 +301,7 @@ tr.hidden{display:none}
       <label class="tog" for="cali" id="caliLbl"><input type="checkbox" id="cali" checked><span class="sw"></span>I have a Cali Pass</label>
       <label class="tog" for="epic"><input type="checkbox" id="epic"><span class="sw"></span>I have an Epic Pass</label>
       <label class="tog" for="beg"><input type="checkbox" id="beg"><span class="sw"></span>Beginner tickets</label>
+      <label class="tog" for="openOnly"><input type="checkbox" id="openOnly"><span class="sw"></span>Open this weekend</label>
       <label class="tog" for="sio"><input type="checkbox" id="sio"><span class="sw"></span>Ski-in/ski-out only</label>
       <label class="tog" for="gearAll"><input type="checkbox" id="gearAll"><span class="sw"></span>Board rental</label>
     </div>
@@ -344,7 +353,7 @@ tr.hidden{display:none}
 (function(){
 "use strict";
 const $=s=>document.querySelector(s);
-const S={mode:"wk",cali:true,gearAll:false,gear:{},v:3,epic:false,groups:{cali:true,"pa-ca":true,tahoe:true,dest:true,"pa-far":true,"epic-tahoe":true,"epic-west":true,"epic-canada":true,"epic-mw":true},collapsed:{"pa-ca":true,dest:true,"pa-far":true,"epic-canada":true,"epic-ne":true,"epic-ma":true,"epic-mw":true},sort:"drive",view:"grid",sio:false,showHi:true,showLo:true,unit:"F",beg:false};
+const S={mode:"wk",cali:true,gearAll:false,gear:{},v:3,epic:false,groups:{cali:true,"pa-ca":true,tahoe:true,dest:true,"pa-far":true,"epic-tahoe":true,"epic-west":true,"epic-canada":true,"epic-mw":true},collapsed:{"pa-ca":true,dest:true,"pa-far":true,"epic-canada":true,"epic-ne":true,"epic-ma":true,"epic-mw":true},sort:"drive",view:"grid",sio:false,openOnly:false,showHi:true,showLo:true,unit:"F",beg:false};
 try{const saved=JSON.parse(localStorage.getItem("snowplanner")||"null");if(saved){const g=Object.assign({},S.groups,saved.groups||{}),c=saved.v===3?Object.assign({},S.collapsed,saved.collapsed||{}):saved.v===2?Object.assign({},S.collapsed,saved.collapsed||{},{"epic-ne":false,"epic-ma":false}):Object.assign({},S.collapsed);if(saved.v!==3&&saved.groups){g["epic-ne"]=true;g["epic-ma"]=true;}delete saved.v;Object.assign(S,saved);S.groups=g;S.collapsed=c;}}catch(e){}
 function save(){try{localStorage.setItem("snowplanner",JSON.stringify(S));}catch(e){}}
 
@@ -402,7 +411,9 @@ function fc(rid,date){const r=F.r[rid];if(!r)return null;const i=idxOf(r,date);i
 function fresh(rid,date){const r=F.r[rid];if(!r)return null;let t=0,n=0;for(let k=1;k<=3;k++){const i=idxOf(r,addD(date,-k));if(i!=null&&r.sn[i]!=null){t+=r.sn[i];n++;}}return n?Math.round(t*10)/10:null;}
 const groupOf=r=>S.epic?r.epicGroup:r.group;
 const activeGroups=()=>S.epic?R.epicGroups:R.groups;
-const sioOK=r=>!S.sio||r.sio;
+const isOpen=(r,d)=>!r.open||(d>=r.open&&d<=r.close);
+const openWk=r=>datesFor(weekends[0]).some(d=>isOpen(r,d));
+const sioOK=r=>(!S.sio||r.sio)&&(!S.openOnly||openWk(r));
 function visibleResorts(){return R.resorts.filter(r=>{const g=groupOf(r);return g&&S.groups[g]&&!S.collapsed[g]&&sioOK(r);});}
 function clim(rid,sat){const wi=C.sats.indexOf(sat);const r=C.r[rid];if(wi<0||!r)return null;return{hi:r.hi[wi],lo:r.lo[wi],sp:r.sp[wi],sa:r.sa[wi]};}
 function daysOut(date){return Math.round((pd(date)-pd(today))/864e5);}
@@ -427,7 +438,7 @@ function ticket0(r,date){
  return{type:"pay",amt:isPeak(date)?r.price.hol:r.price.wk,conf:r.price.conf,why:isPeak(date)?"Peak / holiday rate":"Weekend rate"};
 }
 const gearOn=r=>S.gearAll||!!S.gear[r.id];
-function dayCost(r,date){const t=ticket(r,date);const g=gearOn(r)?r.rental.wk:0;return{t,g,total:t.amt+g};}
+function dayCost(r,date){if(!isOpen(r,date))return{t:{type:"closed",amt:0,why:"Closed"},g:0,total:0};const t=ticket(r,date);const g=gearOn(r)?r.rental.wk:0;return{t,g,total:t.amt+g};}
 function datesFor(sat){return S.mode==="sat"?[sat]:S.mode==="sun"?[addD(sat,1)]:[sat,addD(sat,1)];}
 
 /* ---------- rendering ---------- */
@@ -437,7 +448,9 @@ function snowLine(f,kind){
  if(f.sn>=0.1)return`<div class="sl sn">${ico("flake",10)}${f.sn>=10?Math.round(f.sn):f.sn.toFixed(1)}″</div>`;
  if(kind==="sun"&&f.pp<20)return`<div class="sl sun">Sunny</div>`;
  return`<div class="sl dry">${ico("drop",10)}${f.pp!=null?f.pp+"%":"—"}</div>`;}
+function closedLbl(r,date){return date<r.open?"Opens "+fmtD(r.open):"Closed for season";}
 function oneDay(r,date,sat){
+ if(!isOpen(r,date))return{closed:true,html:`<div class="day cl"><span class="cll">${S.mode==="wk"?(date<r.open?"Opens":"Closed"):closedLbl(r,date)}</span>${S.mode==="wk"&&date<r.open?`<span class="cld">${fmtD(r.open)}</span>`:""}</div>`};
  const f=fc(r.id,date);
  if(f){const k=wxKind(f.code,f.sn);
   if(S.mode==="wk")return{fc:true,html:`<div class="day"><div class="wxrow">${ico(k,17)}${snowLine(f,k)}</div>${temps(f.hi,f.lo)}</div>`};
@@ -449,7 +462,7 @@ function oneDay(r,date,sat){
 }
 function priceHTML(r,dates,badge){
  const cs=dates.map(d=>dayCost(r,d));
- const tok=c=>c.t.type==="pass"?`<span class="pp pass">${c.t.label||"Pass"}</span>`:c.t.type==="pa"?`<span class="pp pa">Free</span>`:c.t.type==="beg"?`<span class="pp beg${c.t.conf!=="pub"?" est":""}" title="Beginner ticket">${c.t.amt?"$"+c.t.amt:"Free"}<small>B</small></span>`:`<span class="pp pay${c.t.conf!=="pub"?" est":""}">$${c.t.amt}</span>`;
+ const tok=c=>c.t.type==="closed"?`<span class="pp cl">—</span>`:c.t.type==="pass"?`<span class="pp pass">${c.t.label||"Pass"}</span>`:c.t.type==="pa"?`<span class="pp pa">Free</span>`:c.t.type==="beg"?`<span class="pp beg${c.t.conf!=="pub"?" est":""}" title="Beginner ticket">${c.t.amt?"$"+c.t.amt:"Free"}<small>B</small></span>`:`<span class="pp pay${c.t.conf!=="pub"?" est":""}">$${c.t.amt}</span>`;
  let parts;
  if(cs.length===2&&cs[0].t.type===cs[1].t.type&&cs[0].t.amt===cs[1].t.amt&&cs[0].t.label===cs[1].t.label){
    parts=[tok(cs[0])+(cs[0].t.type==="pay"?`<span class="sep">×2</span>`:"")];
@@ -461,6 +474,8 @@ function cellHTML(r,sat){
  const dates=datesFor(sat);
  const hol=holOf(sat);
  let cls="tile",badge="";
+ if(dates.every(d=>!isOpen(r,d))){const lbl=closedLbl(r,dates[0]);
+  return`<td class="c${hol?" hol":""}"><button type="button" class="tile closedt" data-r="${r.id}" data-s="${sat}" aria-label="${r.name}, ${lbl}"><span class="cll">${dates[0]<r.open?"Opens":"Closed"}</span><span class="cld">${dates[0]<r.open?fmtD(r.open)+(r.openEst?" (est.)":""):"for the season"}</span></button></td>`;}
  const days=dates.map(d=>oneDay(r,d,sat));
  const anyFc=days.some(d=>d.fc);
  if(!anyFc)cls+=" clim";else if(daysOut(dates[0])>7)cls+=" far";
@@ -469,7 +484,7 @@ function cellHTML(r,sat){
   if(tot>=4)badge=`<span class="fb" title="New snow in the 3 days before">+${Math.round(tot)}″</span>`;
   if(dates.some(d=>{const f=fc(r.id,d);if(!f)return false;const k=wxKind(f.code,f.sn);return(k==="sun"||k==="part")&&(fresh(r.id,d)||0)>=6;}))cls+=" pow";
  }
- const body=(S.mode==="wk"&&!anyFc)?`<div class="days" style="grid-template-columns:1fr">${days[0].html}</div>`:`<div class="days">${days.map(d=>d.html).join("")}</div>`;
+ const body=(S.mode==="wk"&&!anyFc&&!days.some(d=>d.closed))?`<div class="days" style="grid-template-columns:1fr">${days[0].html}</div>`:`<div class="days">${days.map(d=>d.html).join("")}</div>`;
  const label=`${r.name}, ${dates.map(fmtD).join(" and ")}`;
  return`<td class="c${hol?" hol":""}"><button type="button" class="${cls}" data-r="${r.id}" data-s="${sat}" aria-label="${label}">${body}${priceHTML(r,dates,badge)}</button></td>`;
 }
@@ -481,7 +496,7 @@ function sortVal(r){
 function render(){
  const wrap=$("#gridwrap");const mode=S.mode;
  document.querySelectorAll("#modeSeg button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.mode===mode)));
- $("#cali").checked=S.cali;$("#sio").checked=S.sio;$("#epic").checked=S.epic;$("#caliLbl").classList.toggle("off",S.epic);$("#beg").closest(".tog").classList.toggle("off",S.epic);$("#beg").checked=S.beg;$("#gearAll").checked=S.gearAll;$("#sort").value=S.sort;
+ $("#cali").checked=S.cali;$("#sio").checked=S.sio;$("#openOnly").checked=S.openOnly;$("#epic").checked=S.epic;$("#caliLbl").classList.toggle("off",S.epic);$("#beg").closest(".tog").classList.toggle("off",S.epic);$("#beg").checked=S.beg;$("#gearAll").checked=S.gearAll;$("#sort").value=S.sort;
  document.querySelectorAll("#unitSeg button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.u===S.unit)));
  $("#tHi").setAttribute("aria-pressed",String(S.showHi));$("#tLo").setAttribute("aria-pressed",String(S.showLo));
  renderFilters();
@@ -512,7 +527,7 @@ function render(){
   h+=`<tr class="group${col?" collapsed":""}"><td colspan="${weekends.length+1}"><div class="gl"><button type="button" data-g="${g.id}" aria-expanded="${!col}"><span class="car">▼</span><span class="gt">${label}</span><span class="cnt">${rs.length}</span><span class="gn">${note}</span></button></div></td></tr>`;
   rs.forEach(r=>{
    const pb=S.epic?`<span class="passb cali">${r.epicLimit?"EPIC 7D":"EPIC"}</span>`:r.pass==="cali"?`<span class="passb cali">CALI</span>`:r.pass==="pa"?`<span class="passb pa">PA</span>`:`<span class="passb none">PAID</span>`;
-   h+=`<tr class="${col?"hidden":""}"><th class="rh" scope="row"><div class="rname">${r.home?'<span class="home">HOME</span>':""}<a href="${r.site}" target="_blank" rel="noopener">${r.name}</a></div><div class="rmeta">${pb}<span class="dr">${r.drive}</span>${r.sio?'<span class="sio" title="Ski-in/ski-out lodging">SKI-IN</span>':""}${gearOn(r)?`<button type="button" class="gearbtn" data-gear="${r.id}" aria-pressed="true" title="Remove snowboard rental for ${r.name}">${ico("board",11)}$${r.rental.wk}</button>`:""}</div></th>`;
+   h+=`<tr class="${col?"hidden":""}"><th class="rh" scope="row"><div class="rname">${r.home?'<span class="home">HOME</span>':""}<a href="${r.site}" target="_blank" rel="noopener">${r.name}</a></div><div class="rmeta">${pb}<span class="dr">${r.drive}</span>${r.sio?'<span class="sio" title="Ski-in/ski-out lodging">SKI-IN</span>':""}${r.open?(r.open<=today?'<span class="opn yes">OPEN</span>':`<span class="opn no" title="Projected opening">OPENS ${fmtD(r.open).toUpperCase()}</span>`):""}${gearOn(r)?`<button type="button" class="gearbtn" data-gear="${r.id}" aria-pressed="true" title="Remove snowboard rental for ${r.name}">${ico("board",11)}$${r.rental.wk}</button>`:""}</div></th>`;
    if(!col)weekends.forEach(sat=>h+=cellHTML(r,sat));
    h+=`</tr>`;
   });
@@ -567,7 +582,9 @@ function renderFilters(){
 function renderSummary(){
  const sat=weekends[0],sun=addD(sat,1);
  const vis=visibleResorts().filter(r=>S.epic||(r.group!=="pa-far"&&r.group!=="dest"));
- const pool=vis.length?vis:R.resorts;
+ const base=vis.length?vis:R.resorts;const pool=base.filter(r=>datesFor(weekends[0]).some(d=>isOpen(r,d)));
+ if(!pool.length){const nx=base.filter(r=>r.open&&r.open>today).sort((a,b)=>a.open<b.open?-1:1)[0];const hol0=R.holidays.find(x=>x.sat>=today);
+  $("#summary").innerHTML=`<div class="sum static"><span class="ic">${ico("cal",24)}</span><span><span class="k" style="display:block">This weekend</span><span class="v" style="display:block">Nothing shown is open yet</span><span class="s" style="display:block">${nx?"Next to open: "+nx.name+" on "+fmtD(nx.open):"Turn on more resort groups to compare"}</span></span></div>`+(hol0?`<div class="sum static"><span class="ic">${ico("cal",24)}</span><span><span class="k" style="display:block">Next holiday weekend</span><span class="v" style="display:block">${hol0.label}</span><span class="s" style="display:block">${fmtD(hol0.sat)}–${pd(addD(hol0.sat,1)).getUTCDate()} · PA blackouts, peak prices, crowds</span></span></div>`:"");return;}
  const ds=datesFor(sat);
  let best=null,bestV=-1;
  pool.forEach(r=>{let t=fresh(r.id,ds[0])||0;ds.forEach(d=>{const f=fc(r.id,d);if(f)t+=f.sn;});if(t>bestV){bestV=t;best=r;}});
@@ -617,14 +634,14 @@ function openDrawer(rid,sat){
  b+=`<div class="sec"><h3>What it costs you${S.cali?" · Cali Pass":" · no pass"}</h3><div class="cost">`;
  let tot=0;
  dates.forEach(d=>{const c=dayCost(r,d);tot+=c.t.amt;
-  const lbl=c.t.type==="pass"?"Included":c.t.type==="pa"?"Free (PA)":c.t.type==="beg"?(c.t.amt?"$"+c.t.amt:"Free")+(c.t.conf!=="pub"?" est.":"")+" · beginner":"$"+c.t.amt+(c.t.conf!=="pub"?" est.":"");
+  const lbl=c.t.type==="closed"?"Closed":c.t.type==="pass"?"Included":c.t.type==="pa"?"Free (PA)":c.t.type==="beg"?(c.t.amt?"$"+c.t.amt:"Free")+(c.t.conf!=="pub"?" est.":"")+" · beginner":"$"+c.t.amt+(c.t.conf!=="pub"?" est.":"");
   b+=`<div class="row"><div>${DOW[pd(d).getUTCDay()]} lift ticket<div class="why">${c.t.why}</div></div><div>${lbl}</div></div>`;});
  const g=dates.length*r.rental.wk;
  b+=`<div class="row"><div><label class="tog" for="dGear"><input type="checkbox" id="dGear" ${gearOn(r)?"checked":""}><span class="sw"></span>Snowboard rental</label><div class="why">Board + boots, adult, $${r.rental.wk}/day (estimate)</div></div><div>${gearOn(r)?"$"+g:"—"}</div></div>`;
  if(gearOn(r))tot+=g;
  b+=`<div class="row tot"><div>Total for ${dates.length===1?"the day":"the weekend"}</div><div>$${tot}</div></div></div>`;
  b+=`<p class="small muted" style="margin:8px 0 0">${r.price.note}.${r.price.win?" Window rate up to $"+r.price.win+".":""}</p></div>`;
- b+=`<div class="sec"><h3>Mountain</h3><dl class="kv"><dt>Summit</dt><dd>${r.summit.toLocaleString()} ft</dd><dt>Vertical</dt><dd>${r.vert.toLocaleString()} ft</dd><dt>Access</dt><dd>${r.pass==="cali"?"Cali Pass, unlimited":r.pass==="pa"?"Powder Alliance, 3 days":"Not on Cali Pass"}</dd></dl></div>`;
+ b+=`<div class="sec"><h3>Mountain</h3><dl class="kv"><dt>Summit</dt><dd>${r.summit.toLocaleString()} ft</dd><dt>Vertical</dt><dd>${r.vert.toLocaleString()} ft</dd><dt>Access</dt><dd>${S.epic?(r.epicLimit?"Epic Pass, 7 days":"Epic Pass, unlimited"):r.pass==="cali"?"Cali Pass, unlimited":r.pass==="pa"?"Powder Alliance, 3 days":"Not on Cali Pass"}</dd>${r.open?`<dt>Season (projected)</dt><dd>${fmtD(r.open)} – ${fmtD(r.close)}${r.open<=today?" · open now":""}</dd>`:""}</dl></div>`;
  b+=`<div class="sec"><h3>Check before you go</h3><div class="links"><a href="${r.tickets}" target="_blank" rel="noopener">Lift tickets ↗</a><a href="${r.site}" target="_blank" rel="noopener">Resort site ↗</a>${r.pa?`<a href="${r.pa}" target="_blank" rel="noopener">PA redemption ↗</a>`:""}</div></div>`;
  $("#dBody").innerHTML=b;
  $("#dGear").addEventListener("change",e=>{if(S.gearAll&&!e.target.checked){S.gearAll=false;R.resorts.forEach(x=>S.gear[x.id]=x.id!==r.id);}else S.gear[r.id]=e.target.checked;render();openDrawer(rid,sat);});
@@ -652,6 +669,7 @@ $("#cali").addEventListener("change",e=>{S.cali=e.target.checked;
   if(S.gearPrev!==undefined){S.gearAll=S.gearPrev;if(!S.gearAll)S.gear={};delete S.gearPrev;}}
  render();});
 $("#sio").addEventListener("change",e=>{S.sio=e.target.checked;render();});
+$("#openOnly").addEventListener("change",e=>{S.openOnly=e.target.checked;render();});
 $("#epic").addEventListener("change",e=>{S.epic=e.target.checked;render();});
 $("#gearAll").addEventListener("change",e=>{S.gearAll=e.target.checked;if(!S.gearAll)S.gear={};render();});
 $("#beg").addEventListener("change",e=>{S.beg=e.target.checked;delete S.begPrev;render();});

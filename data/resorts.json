@@ -112,7 +112,10 @@
     "conf": "est",
     "note": "Adult Beginner Ticket covers the conveyors, Chair 6 and Chair 1. Dodge Ridge lists it but hasn't posted the 26/27 price yet; estimate"
    },
-   "sio": false
+   "sio": false,
+   "open": "2026-12-26",
+   "close": "2027-03-14",
+   "openEst": false
   },
   {
    "id": "bear",
@@ -145,7 +148,10 @@
     "conf": "est",
     "note": "Beginner Area Ticket (ages 13+) covers Cub and Super Cub chairs and the Panda Carpet. Last published at $69 off-peak / $79 peak"
    },
-   "sio": false
+   "sio": false,
+   "open": "2026-11-21",
+   "close": "2027-03-28",
+   "openEst": false
   },
   {
    "id": "china",
@@ -173,7 +179,10 @@
    "lon": -119.157,
    "elev": 2380,
    "begNote": "No beginner-only ticket on sale. Carpet-only access comes only with lesson packages",
-   "sio": true
+   "sio": true,
+   "open": "2026-11-27",
+   "close": "2027-03-28",
+   "openEst": false
   },
   {
    "id": "mthigh",
@@ -201,7 +210,10 @@
    "lon": -117.69,
    "elev": 2250,
    "begNote": "No beginner-only ticket listed. Beginner access comes with lesson packages",
-   "sio": false
+   "sio": false,
+   "open": "2026-11-27",
+   "close": "2027-03-28",
+   "openEst": false
   },
   {
    "id": "sierra",
@@ -244,7 +256,10 @@
    "lon": -120.081,
    "elev": 2290,
    "begNote": "No beginner-only ticket on sale. The Easy Street beginner ticket comes only with lesson packages",
-   "sio": false
+   "sio": false,
+   "open": "2026-12-06",
+   "close": "2027-03-21",
+   "openEst": false
   },
   {
    "id": "shasta",
@@ -273,7 +288,10 @@
    "lon": -122.204,
    "elev": 1890,
    "begNote": "No beginner ticket price published",
-   "sio": false
+   "sio": false,
+   "open": "2026-12-26",
+   "close": "2027-03-14",
+   "openEst": false
   },
   {
    "id": "palisades",
@@ -307,7 +325,10 @@
     "conf": "est",
     "note": "The SnoVentures learning area has a free magic carpet. Beginner lift tickets are otherwise sold only with lessons"
    },
-   "sio": true
+   "sio": true,
+   "open": "2026-11-25",
+   "close": "2027-05-23",
+   "openEst": false
   },
   {
    "id": "northstar",
@@ -337,7 +358,10 @@
    "elev": 2290,
    "begNote": "No beginner-only ticket on sale",
    "epicGroup": "epic-tahoe",
-   "sio": true
+   "sio": true,
+   "open": "2026-11-20",
+   "close": "2027-04-12",
+   "openEst": false
   },
   {
    "id": "heavenly",
@@ -367,7 +391,10 @@
    "elev": 2590,
    "begNote": "No beginner-only ticket on sale",
    "epicGroup": "epic-tahoe",
-   "sio": true
+   "sio": true,
+   "open": "2026-11-20",
+   "close": "2027-04-04",
+   "openEst": false
   },
   {
    "id": "timberline",
@@ -395,7 +422,10 @@
    "lon": -121.711,
    "elev": 1830,
    "begNote": "Beginner ticket not checked for this resort",
-   "sio": true
+   "sio": true,
+   "open": "2026-11-21",
+   "close": "2027-07-18",
+   "openEst": false
   },
   {
    "id": "skibowl",
@@ -423,7 +453,10 @@
    "lon": -121.774,
    "elev": 1370,
    "begNote": "Beginner ticket not checked for this resort",
-   "sio": false
+   "sio": false,
+   "open": "2026-11-27",
+   "close": "2027-03-28",
+   "openEst": false
   },
   {
    "id": "mission",
@@ -451,7 +484,10 @@
    "lon": -120.399,
    "elev": 1680,
    "begNote": "Beginner ticket not checked for this resort",
-   "sio": false
+   "sio": false,
+   "open": "2026-12-04",
+   "close": "2027-04-18",
+   "openEst": false
   },
   {
    "id": "whitepass",
@@ -497,7 +533,10 @@
    "lon": -121.391,
    "elev": 1520,
    "begNote": "Beginner ticket not checked for this resort",
-   "sio": true
+   "sio": true,
+   "open": "2026-11-27",
+   "close": "2027-04-25",
+   "openEst": false
   },
   {
    "id": "eaglecrest",
@@ -525,7 +564,10 @@
    "lon": -134.517,
    "elev": 550,
    "begNote": "Beginner ticket not checked for this resort",
-   "sio": false
+   "sio": false,
+   "open": "2026-12-12",
+   "close": "2027-04-11",
+   "openEst": false
   },
   {
    "id": "blacktail",
@@ -553,7 +595,10 @@
    "lon": -114.355,
    "elev": 1830,
    "begNote": "Beginner ticket not checked for this resort",
-   "sio": false
+   "sio": false,
+   "open": "2026-12-26",
+   "close": "2027-03-28",
+   "openEst": false
   },
   {
    "id": "bogus",
@@ -581,7 +626,10 @@
    "lon": -116.103,
    "elev": 2070,
    "begNote": "Beginner ticket not checked for this resort",
-   "sio": true
+   "sio": true,
+   "open": "2026-11-28",
+   "close": "2027-03-21",
+   "openEst": false
   },
   {
    "id": "loveland",
@@ -609,7 +657,10 @@
    "lon": -105.898,
    "elev": 3500,
    "begNote": "Beginner ticket not checked for this resort",
-   "sio": false
+   "sio": false,
+   "open": "2026-11-07",
+   "close": "2027-05-09",
+   "openEst": false
   },
   {
    "id": "silver",
@@ -651,7 +702,10 @@
    "lon": -116.122,
    "elev": 1680,
    "begNote": "Beginner ticket not checked for this resort",
-   "sio": false
+   "sio": false,
+   "open": "2026-11-28",
+   "close": "2027-04-18",
+   "openEst": false
   },
   {
    "id": "cooper",
@@ -679,7 +733,10 @@
    "lon": -106.301,
    "elev": 3290,
    "begNote": "Beginner ticket not checked for this resort",
-   "sio": false
+   "sio": false,
+   "open": "2026-12-09",
+   "close": "2027-03-21",
+   "openEst": false
   },
   {
    "id": "snowking",
@@ -721,7 +778,10 @@
    "lon": -110.758,
    "elev": 2130,
    "begNote": "Beginner ticket not checked for this resort",
-   "sio": true
+   "sio": true,
+   "open": "2026-12-04",
+   "close": "2027-03-21",
+   "openEst": false
   },
   {
    "id": "angelfire",
@@ -749,7 +809,10 @@
    "lon": -105.278,
    "elev": 2900,
    "begNote": "Beginner ticket not checked for this resort",
-   "sio": true
+   "sio": true,
+   "open": "2026-12-11",
+   "close": "2027-03-21",
+   "openEst": false
   },
   {
    "id": "kirkwood",
@@ -777,7 +840,10 @@
    },
    "begNote": "Covered by your Epic Pass",
    "mi": 185,
-   "sio": true
+   "sio": true,
+   "open": "2026-12-04",
+   "close": "2027-04-11",
+   "openEst": false
   },
   {
    "id": "parkcity",
@@ -806,7 +872,10 @@
    "begNote": "No beginner-only ticket checked",
    "group": "dest",
    "ord": 1,
-   "sio": true
+   "sio": true,
+   "open": "2026-11-20",
+   "close": "2027-04-04",
+   "openEst": false
   },
   {
    "id": "vail",
@@ -836,7 +905,10 @@
    "begNote": "No beginner-only ticket checked",
    "group": "dest",
    "ord": 4,
-   "sio": true
+   "sio": true,
+   "open": "2026-11-13",
+   "close": "2027-04-11",
+   "openEst": false
   },
   {
    "id": "beavercreek",
@@ -863,7 +935,10 @@
     "conf": "est"
    },
    "begNote": "Covered by your Epic Pass",
-   "sio": true
+   "sio": true,
+   "open": "2026-11-25",
+   "close": "2027-04-12",
+   "openEst": false
   },
   {
    "id": "breck",
@@ -892,7 +967,10 @@
    "begNote": "No beginner-only ticket checked",
    "group": "dest",
    "ord": 5,
-   "sio": true
+   "sio": true,
+   "open": "2026-11-11",
+   "close": "2027-04-24",
+   "openEst": false
   },
   {
    "id": "keystone",
@@ -919,7 +997,10 @@
     "conf": "est"
    },
    "begNote": "Covered by your Epic Pass",
-   "sio": true
+   "sio": true,
+   "open": "2026-10-30",
+   "close": "2027-04-04",
+   "openEst": false
   },
   {
    "id": "crestedbutte",
@@ -946,7 +1027,10 @@
     "conf": "est"
    },
    "begNote": "Covered by your Epic Pass",
-   "sio": true
+   "sio": true,
+   "open": "2026-11-25",
+   "close": "2027-04-05",
+   "openEst": false
   },
   {
    "id": "telluride",
@@ -974,7 +1058,10 @@
    },
    "begNote": "Covered by your Epic Pass",
    "epicLimit": "7d",
-   "sio": true
+   "sio": true,
+   "open": "2026-11-26",
+   "close": "2027-04-04",
+   "openEst": false
   },
   {
    "id": "stevens",
@@ -1001,7 +1088,10 @@
     "conf": "est"
    },
    "begNote": "Covered by your Epic Pass",
-   "sio": false
+   "sio": false,
+   "open": "2026-12-04",
+   "close": "2027-04-11",
+   "openEst": false
   },
   {
    "id": "whistler",
@@ -1028,7 +1118,10 @@
     "conf": "est"
    },
    "begNote": "Covered by your Epic Pass",
-   "sio": true
+   "sio": true,
+   "open": "2026-11-20",
+   "close": "2027-05-16",
+   "openEst": false
   },
   {
    "id": "fernie",
@@ -1056,7 +1149,10 @@
    },
    "begNote": "Covered by your Epic Pass",
    "epicLimit": "7d",
-   "sio": true
+   "sio": true,
+   "open": "2026-12-05",
+   "close": "2027-04-11",
+   "openEst": false
   },
   {
    "id": "kickinghorse",
@@ -1084,7 +1180,10 @@
    },
    "begNote": "Covered by your Epic Pass",
    "epicLimit": "7d",
-   "sio": true
+   "sio": true,
+   "open": "2026-12-11",
+   "close": "2027-04-11",
+   "openEst": false
   },
   {
    "id": "kimberley",
@@ -1112,7 +1211,10 @@
    },
    "begNote": "Covered by your Epic Pass",
    "epicLimit": "7d",
-   "sio": true
+   "sio": true,
+   "open": "2026-12-12",
+   "close": "2027-04-11",
+   "openEst": false
   },
   {
    "id": "nakiska",
@@ -1140,7 +1242,10 @@
    },
    "begNote": "Covered by your Epic Pass",
    "epicLimit": "7d",
-   "sio": false
+   "sio": false,
+   "open": "2026-11-07",
+   "close": "2027-04-19",
+   "openEst": false
   },
   {
    "id": "msa",
@@ -1168,7 +1273,10 @@
    },
    "begNote": "Covered by your Epic Pass",
    "epicLimit": "7d",
-   "sio": true
+   "sio": true,
+   "open": "2026-11-21",
+   "close": "2027-04-19",
+   "openEst": false
   },
   {
    "id": "stoneham",
@@ -1196,7 +1304,10 @@
    },
    "begNote": "Covered by your Epic Pass",
    "epicLimit": "7d",
-   "sio": true
+   "sio": true,
+   "open": "2026-12-04",
+   "close": "2027-04-04",
+   "openEst": false
   },
   {
    "id": "stowe",
@@ -1223,7 +1334,10 @@
     "conf": "est"
    },
    "begNote": "Covered by your Epic Pass",
-   "sio": true
+   "sio": true,
+   "open": "2026-11-21",
+   "close": "2027-04-25",
+   "openEst": false
   },
   {
    "id": "okemo",
@@ -1250,7 +1364,10 @@
     "conf": "est"
    },
    "begNote": "Covered by your Epic Pass",
-   "sio": true
+   "sio": true,
+   "open": "2026-11-21",
+   "close": "2027-04-11",
+   "openEst": false
   },
   {
    "id": "mountsnow",
@@ -1277,7 +1394,10 @@
     "conf": "est"
    },
    "begNote": "Covered by your Epic Pass",
-   "sio": true
+   "sio": true,
+   "open": "2026-11-21",
+   "close": "2027-04-18",
+   "openEst": false
   },
   {
    "id": "hunter",
@@ -1304,7 +1424,10 @@
     "conf": "est"
    },
    "begNote": "Covered by your Epic Pass",
-   "sio": true
+   "sio": true,
+   "open": "2026-11-21",
+   "close": "2027-04-04",
+   "openEst": false
   },
   {
    "id": "attitash",
@@ -1331,7 +1454,10 @@
     "conf": "est"
    },
    "begNote": "Covered by your Epic Pass",
-   "sio": true
+   "sio": true,
+   "open": "2026-12-04",
+   "close": "2027-04-04",
+   "openEst": false
   },
   {
    "id": "wildcat",
@@ -1358,7 +1484,10 @@
     "conf": "est"
    },
    "begNote": "Covered by your Epic Pass",
-   "sio": false
+   "sio": false,
+   "open": "2026-12-02",
+   "close": "2027-04-04",
+   "openEst": false
   },
   {
    "id": "sunapee",
@@ -1385,7 +1514,10 @@
     "conf": "est"
    },
    "begNote": "Covered by your Epic Pass",
-   "sio": false
+   "sio": false,
+   "open": "2026-12-04",
+   "close": "2027-04-04",
+   "openEst": false
   },
   {
    "id": "crotched",
@@ -1412,7 +1544,10 @@
     "conf": "est"
    },
    "begNote": "Covered by your Epic Pass",
-   "sio": false
+   "sio": false,
+   "open": "2026-12-11",
+   "close": "2027-03-28",
+   "openEst": false
   },
   {
    "id": "liberty",
@@ -1439,7 +1574,10 @@
     "conf": "est"
    },
    "begNote": "Covered by your Epic Pass",
-   "sio": true
+   "sio": true,
+   "open": "2026-12-19",
+   "close": "2027-03-14",
+   "openEst": false
   },
   {
    "id": "roundtop",
@@ -1466,7 +1604,10 @@
     "conf": "est"
    },
    "begNote": "Covered by your Epic Pass",
-   "sio": false
+   "sio": false,
+   "open": "2026-12-12",
+   "close": "2027-03-14",
+   "openEst": false
   },
   {
    "id": "whitetail",
@@ -1493,7 +1634,10 @@
     "conf": "est"
    },
    "begNote": "Covered by your Epic Pass",
-   "sio": false
+   "sio": false,
+   "open": "2026-12-12",
+   "close": "2027-03-14",
+   "openEst": false
   },
   {
    "id": "jackfrost",
@@ -1520,7 +1664,10 @@
     "conf": "est"
    },
    "begNote": "Covered by your Epic Pass",
-   "sio": false
+   "sio": false,
+   "open": "2026-12-04",
+   "close": "2027-03-21",
+   "openEst": false
   },
   {
    "id": "bigboulder",
@@ -1547,7 +1694,10 @@
     "conf": "est"
    },
    "begNote": "Covered by your Epic Pass",
-   "sio": false
+   "sio": false,
+   "open": "2026-12-12",
+   "close": "2027-03-14",
+   "openEst": false
   },
   {
    "id": "sevensprings",
@@ -1574,7 +1724,10 @@
     "conf": "est"
    },
    "begNote": "Covered by your Epic Pass",
-   "sio": true
+   "sio": true,
+   "open": "2026-12-05",
+   "close": "2027-03-14",
+   "openEst": false
   },
   {
    "id": "hiddenvalleypa",
@@ -1601,7 +1754,10 @@
     "conf": "est"
    },
    "begNote": "Covered by your Epic Pass",
-   "sio": true
+   "sio": true,
+   "open": "2026-12-12",
+   "close": "2027-03-14",
+   "openEst": false
   },
   {
    "id": "laurel",
@@ -1628,7 +1784,10 @@
     "conf": "est"
    },
    "begNote": "Covered by your Epic Pass",
-   "sio": false
+   "sio": false,
+   "open": "2026-12-19",
+   "close": "2027-03-14",
+   "openEst": true
   },
   {
    "id": "wilmot",
@@ -1655,7 +1814,10 @@
     "conf": "est"
    },
    "begNote": "Covered by your Epic Pass",
-   "sio": false
+   "sio": false,
+   "open": "2026-12-04",
+   "close": "2027-03-07",
+   "openEst": false
   },
   {
    "id": "afton",
@@ -1682,7 +1844,10 @@
     "conf": "est"
    },
    "begNote": "Covered by your Epic Pass",
-   "sio": false
+   "sio": false,
+   "open": "2026-12-04",
+   "close": "2027-03-21",
+   "openEst": false
   },
   {
    "id": "mtbrighton",
@@ -1709,7 +1874,10 @@
     "conf": "est"
    },
    "begNote": "Covered by your Epic Pass",
-   "sio": false
+   "sio": false,
+   "open": "2026-12-09",
+   "close": "2027-03-14",
+   "openEst": false
   },
   {
    "id": "bostonmills",
@@ -1736,7 +1904,10 @@
     "conf": "est"
    },
    "begNote": "Covered by your Epic Pass",
-   "sio": false
+   "sio": false,
+   "open": "2026-12-18",
+   "close": "2027-03-07",
+   "openEst": false
   },
   {
    "id": "brandywine",
@@ -1763,7 +1934,10 @@
     "conf": "est"
    },
    "begNote": "Covered by your Epic Pass",
-   "sio": false
+   "sio": false,
+   "open": "2026-12-26",
+   "close": "2027-03-14",
+   "openEst": false
   },
   {
    "id": "madriver",
@@ -1790,7 +1964,10 @@
     "conf": "est"
    },
    "begNote": "Covered by your Epic Pass",
-   "sio": false
+   "sio": false,
+   "open": "2026-12-11",
+   "close": "2027-03-14",
+   "openEst": false
   },
   {
    "id": "alpinevalley",
@@ -1817,7 +1994,10 @@
     "conf": "est"
    },
    "begNote": "Covered by your Epic Pass",
-   "sio": false
+   "sio": false,
+   "open": "2026-12-19",
+   "close": "2027-03-07",
+   "openEst": false
   },
   {
    "id": "hiddenvalleymo",
@@ -1844,7 +2024,10 @@
     "conf": "est"
    },
    "begNote": "Covered by your Epic Pass",
-   "sio": false
+   "sio": false,
+   "open": "2026-12-12",
+   "close": "2027-03-07",
+   "openEst": false
   },
   {
    "id": "snowcreek",
@@ -1871,7 +2054,10 @@
     "conf": "est"
    },
    "begNote": "Covered by your Epic Pass",
-   "sio": false
+   "sio": false,
+   "open": "2026-12-26",
+   "close": "2027-03-07",
+   "openEst": false
   },
   {
    "id": "paoli",
@@ -1898,7 +2084,10 @@
     "conf": "est"
    },
    "begNote": "Covered by your Epic Pass",
-   "sio": false
+   "sio": false,
+   "open": "2026-12-18",
+   "close": "2027-03-07",
+   "openEst": false
   },
   {
    "id": "mammoth",
@@ -1926,7 +2115,10 @@
    },
    "begNote": "No beginner-only ticket checked",
    "ord": 0,
-   "sio": true
+   "sio": true,
+   "open": "2026-11-05",
+   "close": "2027-06-06",
+   "openEst": false
   },
   {
    "id": "snowbird",
@@ -1954,7 +2146,10 @@
    },
    "begNote": "No beginner-only ticket checked",
    "ord": 2,
-   "sio": true
+   "sio": true,
+   "open": "2026-11-27",
+   "close": "2027-05-31",
+   "openEst": false
   },
   {
    "id": "deervalley",
@@ -1982,7 +2177,10 @@
    },
    "begNote": "No beginner-only ticket checked",
    "ord": 3,
-   "sio": true
+   "sio": true,
+   "open": "2026-12-05",
+   "close": "2027-03-28",
+   "openEst": false
   },
   {
    "id": "aspen",
@@ -2010,7 +2208,10 @@
    },
    "begNote": "No beginner-only ticket checked",
    "ord": 6,
-   "sio": true
+   "sio": true,
+   "open": "2026-11-26",
+   "close": "2027-04-18",
+   "openEst": false
   }
  ],
  "epicGroups": [
@@ -2044,5 +2245,6 @@
    "label": "Epic \u00b7 Midwest",
    "note": "Unlimited on Epic Pass."
   }
- ]
+ ],
+ "seasonSrc": "OnTheSnow projected opening/closing dates, checked Nov 12, 2026"
 }
