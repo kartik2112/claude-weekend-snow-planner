@@ -100,7 +100,13 @@
    },
    "lat": 38.188,
    "lon": -119.956,
-   "elev": 2250
+   "elev": 2250,
+   "beg": {
+    "wk": 79,
+    "hol": 79,
+    "conf": "est",
+    "note": "Adult Beginner Ticket covers the conveyors, Chair 6 and Chair 1. Dodge Ridge lists it but hasn't posted the 26/27 price yet; estimate"
+   }
   },
   {
    "id": "bear",
@@ -126,7 +132,13 @@
    },
    "lat": 38.469,
    "lon": -120.04,
-   "elev": 2350
+   "elev": 2350,
+   "beg": {
+    "wk": 79,
+    "hol": 79,
+    "conf": "est",
+    "note": "Beginner Area Ticket (ages 13+) covers Cub and Super Cub chairs and the Panda Carpet. Last published at $69 off-peak / $79 peak"
+   }
   },
   {
    "id": "china",
@@ -142,9 +154,9 @@
    "tickets": "https://skichinapeak.com/lift-tickets",
    "price": {
     "wk": 139,
-    "hol": 169,
-    "conf": "est",
-    "note": "Variable online pricing from $119"
+    "hol": 179,
+    "conf": "range",
+    "note": "26/27 online from $139 (early/late season $129); resort rate up to $179"
    },
    "rental": {
     "wk": 60,
@@ -152,7 +164,8 @@
    },
    "lat": 37.236,
    "lon": -119.157,
-   "elev": 2380
+   "elev": 2380,
+   "begNote": "No beginner-only ticket on sale. Carpet-only access comes only with lesson packages"
   },
   {
    "id": "mthigh",
@@ -178,7 +191,8 @@
    },
    "lat": 34.375,
    "lon": -117.69,
-   "elev": 2250
+   "elev": 2250,
+   "begNote": "No beginner-only ticket listed. Beginner access comes with lesson packages"
   },
   {
    "id": "sierra",
@@ -219,7 +233,8 @@
    },
    "lat": 38.799,
    "lon": -120.081,
-   "elev": 2290
+   "elev": 2290,
+   "begNote": "No beginner-only ticket on sale. The Easy Street beginner ticket comes only with lesson packages"
   },
   {
    "id": "shasta",
@@ -246,7 +261,8 @@
    },
    "lat": 41.32,
    "lon": -122.204,
-   "elev": 1890
+   "elev": 1890,
+   "begNote": "No beginner ticket price published"
   },
   {
    "id": "palisades",
@@ -273,7 +289,13 @@
    },
    "lat": 39.197,
    "lon": -120.235,
-   "elev": 2300
+   "elev": 2300,
+   "beg": {
+    "wk": 0,
+    "hol": 0,
+    "conf": "est",
+    "note": "The SnoVentures learning area has a free magic carpet. Beginner lift tickets are otherwise sold only with lessons"
+   }
   },
   {
    "id": "northstar",
@@ -300,7 +322,8 @@
    },
    "lat": 39.264,
    "lon": -120.122,
-   "elev": 2290
+   "elev": 2290,
+   "begNote": "No beginner-only ticket on sale"
   },
   {
    "id": "heavenly",
@@ -327,7 +350,8 @@
    },
    "lat": 38.935,
    "lon": -119.906,
-   "elev": 2590
+   "elev": 2590,
+   "begNote": "No beginner-only ticket on sale"
   },
   {
    "id": "timberline",
@@ -353,7 +377,8 @@
    },
    "lat": 45.331,
    "lon": -121.711,
-   "elev": 1830
+   "elev": 1830,
+   "begNote": "Beginner ticket not checked for this resort"
   },
   {
    "id": "skibowl",
@@ -379,7 +404,8 @@
    },
    "lat": 45.302,
    "lon": -121.774,
-   "elev": 1370
+   "elev": 1370,
+   "begNote": "Beginner ticket not checked for this resort"
   },
   {
    "id": "mission",
@@ -405,7 +431,8 @@
    },
    "lat": 47.293,
    "lon": -120.399,
-   "elev": 1680
+   "elev": 1680,
+   "begNote": "Beginner ticket not checked for this resort"
   },
   {
    "id": "whitepass",
@@ -449,7 +476,8 @@
    },
    "lat": 46.637,
    "lon": -121.391,
-   "elev": 1520
+   "elev": 1520,
+   "begNote": "Beginner ticket not checked for this resort"
   },
   {
    "id": "eaglecrest",
@@ -475,7 +503,8 @@
    },
    "lat": 58.271,
    "lon": -134.517,
-   "elev": 550
+   "elev": 550,
+   "begNote": "Beginner ticket not checked for this resort"
   },
   {
    "id": "blacktail",
@@ -501,7 +530,8 @@
    },
    "lat": 48.012,
    "lon": -114.355,
-   "elev": 1830
+   "elev": 1830,
+   "begNote": "Beginner ticket not checked for this resort"
   },
   {
    "id": "bogus",
@@ -527,7 +557,8 @@
    },
    "lat": 43.764,
    "lon": -116.103,
-   "elev": 2070
+   "elev": 2070,
+   "begNote": "Beginner ticket not checked for this resort"
   },
   {
    "id": "loveland",
@@ -553,7 +584,8 @@
    },
    "lat": 39.68,
    "lon": -105.898,
-   "elev": 3500
+   "elev": 3500,
+   "begNote": "Beginner ticket not checked for this resort"
   },
   {
    "id": "silver",
@@ -593,7 +625,8 @@
    },
    "lat": 47.533,
    "lon": -116.122,
-   "elev": 1680
+   "elev": 1680,
+   "begNote": "Beginner ticket not checked for this resort"
   },
   {
    "id": "cooper",
@@ -619,7 +652,8 @@
    },
    "lat": 39.361,
    "lon": -106.301,
-   "elev": 3290
+   "elev": 3290,
+   "begNote": "Beginner ticket not checked for this resort"
   },
   {
    "id": "snowking",
@@ -659,7 +693,8 @@
    },
    "lat": 43.468,
    "lon": -110.758,
-   "elev": 2130
+   "elev": 2130,
+   "begNote": "Beginner ticket not checked for this resort"
   },
   {
    "id": "angelfire",
@@ -685,7 +720,8 @@
    },
    "lat": 36.385,
    "lon": -105.278,
-   "elev": 2900
+   "elev": 2900,
+   "begNote": "Beginner ticket not checked for this resort"
   }
  ]
 }

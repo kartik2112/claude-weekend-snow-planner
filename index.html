@@ -26,6 +26,7 @@
   --snow-soft:#DDF2F8;
   --sun:#D99A0B;
   --pass:#13795B;
+  --sun-soft:#FFF1CC;--sunink:#8A5A00;
   --pass-soft:#DEF3EA;
   --warn:#B45309;
   --shadow:0 1px 2px rgba(16,32,51,.06),0 1px 1px rgba(16,32,51,.04);
@@ -108,9 +109,9 @@ select{border:1px solid var(--line);background:var(--panel);border-radius:9px;pa
 .gridwrap{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:auto;max-height:calc(100vh - 110px);position:relative;box-shadow:var(--shadow);overscroll-behavior-x:none;overscroll-behavior-y:auto}
 table.g{border-collapse:separate;border-spacing:0;font-variant-numeric:tabular-nums}
 .g th,.g td{padding:0}
-.g thead th{position:sticky;top:0;z-index:3;background:var(--panel);border-bottom:1px solid var(--line)}
-.g thead th.corner{left:0;z-index:5;text-align:left;padding:10px 14px;vertical-align:bottom}
-.g .rh{position:sticky;left:0;z-index:2;background:var(--panel);border-right:1px solid var(--line);width:var(--namew);min-width:var(--namew);max-width:var(--namew)}
+.g thead th{position:sticky;top:0;z-index:7;background:var(--panel);border-bottom:1px solid var(--line)}
+.g thead th.corner{left:0;z-index:8;text-align:left;padding:10px 14px;vertical-align:bottom}
+.g .rh{position:sticky;left:0;z-index:6;background:var(--panel);border-right:1px solid var(--line);width:var(--namew);min-width:var(--namew);max-width:var(--namew)}
 .colh{width:var(--cellw);min-width:var(--cellw);padding:9px 6px 7px;text-align:center;vertical-align:bottom}
 .mode-wk .colh{width:calc(var(--cellw)*1.52);min-width:calc(var(--cellw)*1.52)}
 .colh .d{font-family:var(--display);font-size:17px;font-weight:600;line-height:1;white-space:nowrap}
@@ -123,7 +124,7 @@ table.g{border-collapse:separate;border-spacing:0;font-variant-numeric:tabular-n
 .colh .sd{display:grid;grid-template-columns:1fr 1fr;margin:6px 6px 0;font-size:9.5px;font-weight:800;letter-spacing:.08em;color:var(--faint)}
 .colh.is-hol{background:linear-gradient(var(--holiday-soft),var(--holiday-soft)) , var(--panel)!important;box-shadow:inset 0 3px 0 var(--holiday)}
 
-tr.group td{position:sticky;left:0;background:var(--well);padding:0;border-bottom:1px solid var(--line);border-top:1px solid var(--line)}
+tr.group td{position:sticky;left:0;z-index:5;background:var(--well);padding:0;border-bottom:1px solid var(--line);border-top:1px solid var(--line)}
 tr.group .gl{position:sticky;left:0;width:max-content;max-width:calc(100vw - 40px);padding:9px 14px}
 tr.group button{all:unset;cursor:pointer;display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
 tr.group button:focus-visible{outline:2px solid var(--accent);border-radius:4px}
@@ -147,10 +148,10 @@ tr.group.collapsed .car{transform:rotate(-90deg)}
 .gearbtn:hover{border-color:var(--accent);color:var(--accent)}
 .gearbtn[aria-pressed="true"]{background:var(--ink);color:var(--panel);border:1px solid var(--ink)}
 
-td.c{padding:4px;border-bottom:1px solid var(--line);vertical-align:top;background:var(--well)}
+td.c{contain:layout paint style;padding:4px;border-bottom:1px solid var(--line);vertical-align:top;background:var(--well)}
 td.c.hol{background:var(--holiday-soft)}
-.tile{all:unset;box-sizing:border-box;display:flex;flex-direction:column;gap:5px;width:100%;height:100%;min-height:62px;padding:8px 9px;cursor:pointer;position:relative;background:var(--tile);border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow);transition:border-color .12s,transform .12s}
-.tile:hover{border-color:var(--accent);transform:translateY(-1px)}
+.tile{all:unset;box-sizing:border-box;display:flex;flex-direction:column;gap:5px;width:100%;height:100%;min-height:62px;padding:8px 9px;cursor:pointer;position:relative;background:var(--tile);border:1px solid var(--line);border-radius:10px;isolation:isolate}
+@media (hover:hover){.tile:hover{border-color:var(--accent)}}
 .tile:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
 .tile.sel{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent)}
 .tile.pow{border-color:var(--sun);box-shadow:0 0 0 1px var(--sun)}
@@ -177,13 +178,16 @@ td.c.hol{background:var(--holiday-soft)}
 .sl svg{flex:none}
 .clim .t{color:var(--muted);font-weight:600}
 .clim .wxrow svg{opacity:.7}
-.fb{position:absolute;top:-8px;right:8px;z-index:1;font-size:10px;font-weight:800;color:#fff;background:var(--snow);border-radius:999px;padding:0 6px;line-height:1.6;box-shadow:0 1px 2px rgba(0,0,0,.2)}
+.pl .fb{margin-left:auto}
+.fb{font-size:10px;font-weight:800;color:#fff;background:var(--snow);border-radius:999px;padding:0 6px;line-height:1.6;box-shadow:0 1px 2px rgba(0,0,0,.2)}
 .pl{margin-top:auto;padding-top:5px;border-top:1px solid var(--line);display:flex;align-items:center;gap:4px;flex-wrap:wrap;font-size:11.5px;font-weight:700;white-space:nowrap}
 .clim .pl{border-top-style:dashed}
 .pp{border-radius:5px;padding:0 5px;line-height:1.6}
 .pp.pass{background:var(--pass-soft);color:var(--pass)}
 .pp.pa{background:var(--accent-soft);color:var(--accent)}
 .pp.pay{color:var(--ink);padding:0 2px}
+.pp.beg{background:var(--sun-soft);color:var(--sunink)}
+.pp.beg small{font-size:8.5px;font-weight:800;margin-left:2px;opacity:.8;vertical-align:1px}
 .pp.est::after{content:"~";color:var(--faint);margin-left:1px}
 .pp.gear{color:var(--muted);font-weight:600;padding:0 1px}
 .sep{color:var(--faint);font-weight:500}
@@ -268,6 +272,7 @@ tr.hidden{display:none}
     </div>
     <div class="cg">
       <label class="tog" for="cali"><input type="checkbox" id="cali" checked><span class="sw"></span>I have a Cali Pass</label>
+      <label class="tog" for="beg"><input type="checkbox" id="beg"><span class="sw"></span>Beginner tickets</label>
       <label class="tog" for="gearAll"><input type="checkbox" id="gearAll"><span class="sw"></span>Board rental</label>
     </div>
     <span class="vdiv"></span>
@@ -301,6 +306,7 @@ tr.hidden{display:none}
     <span class="li"><span class="pp pass">Pass</span>On your Cali Pass</span>
     <span class="li"><span class="pp pa">Free</span>Powder Alliance day (3 per resort)</span>
     <span class="li"><span class="sw-box" style="border:1px dashed var(--faint)"></span>10-year average (beyond 16 days)</span>
+    <span class="li"><span class="pp beg">$79<small>B</small></span>Beginner-area ticket</span>
     <span class="li">$~ estimated price</span>
   </div>
   <div class="notes" id="notes"></div>
@@ -316,7 +322,7 @@ tr.hidden{display:none}
 (function(){
 "use strict";
 const $=s=>document.querySelector(s);
-const S={mode:"wk",cali:true,gearAll:false,gear:{},groups:{cali:true,"pa-ca":true,tahoe:true,"pa-far":true},collapsed:{"pa-far":true},sort:"drive",showHi:true,showLo:true,unit:"F"};
+const S={mode:"wk",cali:true,gearAll:false,gear:{},groups:{cali:true,"pa-ca":true,tahoe:true,"pa-far":true},collapsed:{"pa-far":true},sort:"drive",showHi:true,showLo:true,unit:"F",beg:false};
 try{const saved=JSON.parse(localStorage.getItem("snowplanner")||"null");if(saved)Object.assign(S,saved);}catch(e){}
 function save(){try{localStorage.setItem("snowplanner",JSON.stringify(S));}catch(e){}}
 
@@ -331,28 +337,31 @@ const inR=(s,ranges)=>(ranges||[]).some(([a,b])=>s>=a&&s<=b);
 const today=(()=>{const n=new Date();return new Date(n.getTime()-n.getTimezoneOffset()*6e4).toISOString().slice(0,10)})();
 
 /* ---------- icons ---------- */
-function ico(kind,sz){sz=sz||18;const s=`width="${sz}" height="${sz}" viewBox="0 0 24 24" aria-hidden="true"`;
+function icoRaw(kind){const s=`viewBox="0 0 24 24"`;
  const sun=`<circle cx="12" cy="12" r="4.2" fill="var(--sun)"/><g stroke="var(--sun)" stroke-width="1.8" stroke-linecap="round"><path d="M12 2.5v2.3M12 19.2v2.3M2.5 12h2.3M19.2 12h2.3M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></g>`;
  const cloud=(x,y,f)=>`<path transform="translate(${x||0} ${y||0})" d="M7 18h10.2a3.8 3.8 0 0 0 .5-7.6A5.5 5.5 0 0 0 7.2 9.3 4.4 4.4 0 0 0 7 18z" fill="${f||"var(--faint)"}"/>`;
  const flakes=`<g fill="var(--snow)"><circle cx="8" cy="21" r="1.3"/><circle cx="12.5" cy="22.3" r="1.3"/><circle cx="17" cy="21" r="1.3"/></g>`;
  const drops=`<g stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round"><path d="M8.5 20l-1 2.5M13 20l-1 2.5M17.5 20l-1 2.5"/></g>`;
  switch(kind){
-  case"sun":return`<svg ${s}>${sun}</svg>`;
-  case"part":return`<svg ${s}><g transform="translate(-3 -3) scale(.8)">${sun}</g>${cloud(2,1)}</svg>`;
-  case"cloud":return`<svg ${s}>${cloud(0,-1)}</svg>`;
-  case"fog":return`<svg ${s}>${cloud(0,-3)}<g stroke="var(--faint)" stroke-width="1.8" stroke-linecap="round"><path d="M5 19h14M7 22h10"/></g></svg>`;
-  case"flurry":return`<svg ${s}>${cloud(0,-3)}<g fill="var(--snow)"><circle cx="9" cy="21" r="1.2"/><circle cx="15" cy="21.5" r="1.2"/></g></svg>`;
-  case"snow":return`<svg ${s}>${cloud(0,-3,"var(--snow)")}${flakes}</svg>`;
-  case"heavy":return`<svg ${s}>${cloud(0,-4,"var(--snow)")}${flakes}<g fill="var(--snow)"><circle cx="10" cy="18.2" r="1.1"/><circle cx="15" cy="18.2" r="1.1"/></g></svg>`;
-  case"rain":return`<svg ${s}>${cloud(0,-3)}${drops}</svg>`;
-  case"storm":return`<svg ${s}>${cloud(0,-3)}<path d="M12.5 15l-2.5 4h3l-2 4" stroke="var(--sun)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
-  case"flake":return`<svg ${s}><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v18M4.2 7.5l15.6 9M4.2 16.5l15.6-9"/></g></svg>`;
-  case"drop":return`<svg ${s}><path d="M12 3.5c3 4 5.5 7 5.5 10a5.5 5.5 0 0 1-11 0c0-3 2.5-6 5.5-10z" fill="currentColor" opacity=".8"/></svg>`;
-  case"money":return`<svg ${s}><rect x="3" y="6" width="18" height="12" rx="2.5" fill="none" stroke="var(--pass)" stroke-width="1.8"/><circle cx="12" cy="12" r="2.6" fill="var(--pass)"/></svg>`;
-  case"cal":return`<svg ${s}><rect x="3" y="5" width="18" height="16" rx="3" fill="none" stroke="var(--holiday)" stroke-width="1.8"/><path d="M3 10h18M8 3v4M16 3v4" stroke="var(--holiday)" stroke-width="1.8" stroke-linecap="round"/></svg>`;
-  case"board":return`<svg ${s}><rect x="9" y="2" width="6" height="20" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9.5 9h5M9.5 15h5" stroke="currentColor" stroke-width="2"/></svg>`;
+  case"sun":return`<symbol id="i-${kind}" ${s}>${sun}</symbol>`;
+  case"part":return`<symbol id="i-${kind}" ${s}><g transform="translate(-3 -3) scale(.8)">${sun}</g>${cloud(2,1)}</symbol>`;
+  case"cloud":return`<symbol id="i-${kind}" ${s}>${cloud(0,-1)}</symbol>`;
+  case"fog":return`<symbol id="i-${kind}" ${s}>${cloud(0,-3)}<g stroke="var(--faint)" stroke-width="1.8" stroke-linecap="round"><path d="M5 19h14M7 22h10"/></g></symbol>`;
+  case"flurry":return`<symbol id="i-${kind}" ${s}>${cloud(0,-3)}<g fill="var(--snow)"><circle cx="9" cy="21" r="1.2"/><circle cx="15" cy="21.5" r="1.2"/></g></symbol>`;
+  case"snow":return`<symbol id="i-${kind}" ${s}>${cloud(0,-3,"var(--snow)")}${flakes}</symbol>`;
+  case"heavy":return`<symbol id="i-${kind}" ${s}>${cloud(0,-4,"var(--snow)")}${flakes}<g fill="var(--snow)"><circle cx="10" cy="18.2" r="1.1"/><circle cx="15" cy="18.2" r="1.1"/></g></symbol>`;
+  case"rain":return`<symbol id="i-${kind}" ${s}>${cloud(0,-3)}${drops}</symbol>`;
+  case"storm":return`<symbol id="i-${kind}" ${s}>${cloud(0,-3)}<path d="M12.5 15l-2.5 4h3l-2 4" stroke="var(--sun)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>`;
+  case"flake":return`<symbol id="i-${kind}" ${s}><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v18M4.2 7.5l15.6 9M4.2 16.5l15.6-9"/></g></symbol>`;
+  case"drop":return`<symbol id="i-${kind}" ${s}><path d="M12 3.5c3 4 5.5 7 5.5 10a5.5 5.5 0 0 1-11 0c0-3 2.5-6 5.5-10z" fill="currentColor" opacity=".8"/></symbol>`;
+  case"money":return`<symbol id="i-${kind}" ${s}><rect x="3" y="6" width="18" height="12" rx="2.5" fill="none" stroke="var(--pass)" stroke-width="1.8"/><circle cx="12" cy="12" r="2.6" fill="var(--pass)"/></symbol>`;
+  case"cal":return`<symbol id="i-${kind}" ${s}><rect x="3" y="5" width="18" height="16" rx="3" fill="none" stroke="var(--holiday)" stroke-width="1.8"/><path d="M3 10h18M8 3v4M16 3v4" stroke="var(--holiday)" stroke-width="1.8" stroke-linecap="round"/></symbol>`;
+  case"board":return`<symbol id="i-${kind}" ${s}><rect x="9" y="2" width="6" height="20" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9.5 9h5M9.5 15h5" stroke="currentColor" stroke-width="2"/></symbol>`;
  }
  return"";}
+const ICONS=["sun","part","cloud","fog","flurry","snow","heavy","rain","storm","flake","drop","money","cal","board"];
+(function(){const d=document.createElement("div");d.innerHTML=`<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>${ICONS.map(icoRaw).join("")}</defs></svg>`;document.body.prepend(d.firstChild);})();
+function ico(kind,sz){sz=sz||18;return`<svg width="${sz}" height="${sz}" aria-hidden="true"><use href="#i-${kind}"/></svg>`;}
 function wxKind(code,sn){
  if(code==null)return"cloud";
  if([71,73,75,77,85,86].includes(code))return sn>=6?"heavy":sn<0.3?"flurry":"snow";
@@ -372,7 +381,13 @@ function clim(rid,sat){const wi=C.sats.indexOf(sat);const r=C.r[rid];if(wi<0||!r
 function daysOut(date){return Math.round((pd(date)-pd(today))/864e5);}
 const isPeak=d=>R.peak.includes(d);
 function holOf(sat){return R.holidays.find(h=>h.sat===sat);}
-function ticket(r,date){
+function ticket(r,date){const t=ticket0(r,date);
+ if(S.beg&&t.type==="pay"){
+  if(r.beg){const amt=isPeak(date)?r.beg.hol:r.beg.wk;return{type:"beg",amt,conf:r.beg.conf,why:"Beginner ticket · "+r.beg.note};}
+  return Object.assign({},t,{why:t.why+" · "+(r.begNote||"No beginner ticket")+", so full price shown",nobeg:true});
+ }
+ return t;}
+function ticket0(r,date){
  const dow=pd(date).getUTCDay();
  if(S.cali&&r.pass==="cali")return{type:"pass",amt:0,why:"Unlimited on Cali Pass, no blackouts"};
  if(S.cali&&r.pass==="pa"){
@@ -404,16 +419,16 @@ function oneDay(r,date,sat){
  const k=c.sp>=30?"snow":c.sp>=18?"cloud":"part";
  return{fc:false,c,html:`<div class="day"><div class="wxrow">${ico(k,17)}${temps(c.hi,c.lo)}</div><div class="sl dry">${ico("flake",10)}${c.sp}% snow days</div></div>`};
 }
-function priceHTML(r,dates){
+function priceHTML(r,dates,badge){
  const cs=dates.map(d=>dayCost(r,d));
- const tok=c=>c.t.type==="pass"?`<span class="pp pass">Pass</span>`:c.t.type==="pa"?`<span class="pp pa">Free</span>`:`<span class="pp pay${c.t.conf!=="pub"?" est":""}">$${c.t.amt}</span>`;
+ const tok=c=>c.t.type==="pass"?`<span class="pp pass">Pass</span>`:c.t.type==="pa"?`<span class="pp pa">Free</span>`:c.t.type==="beg"?`<span class="pp beg${c.t.conf!=="pub"?" est":""}" title="Beginner ticket">${c.t.amt?"$"+c.t.amt:"Free"}<small>B</small></span>`:`<span class="pp pay${c.t.conf!=="pub"?" est":""}">$${c.t.amt}</span>`;
  let parts;
  if(cs.length===2&&cs[0].t.type===cs[1].t.type&&cs[0].t.amt===cs[1].t.amt){
    parts=[tok(cs[0])+(cs[0].t.type==="pay"?`<span class="sep">×2</span>`:"")];
  }else parts=[cs.map(tok).join(`<span class="sep">·</span>`)];
  const gear=cs.reduce((a,c)=>a+c.g,0);
  if(gear)parts.push(`<span class="pp gear">+$${gear}</span>`);
- return`<div class="pl">${parts.join("")}</div>`;}
+ return`<div class="pl">${parts.join("")}${badge||""}</div>`;}
 function cellHTML(r,sat){
  const dates=datesFor(sat);
  const hol=holOf(sat);
@@ -428,7 +443,7 @@ function cellHTML(r,sat){
  }
  const body=(S.mode==="wk"&&!anyFc)?`<div class="days" style="grid-template-columns:1fr">${days[0].html}</div>`:`<div class="days">${days.map(d=>d.html).join("")}</div>`;
  const label=`${r.name}, ${dates.map(fmtD).join(" and ")}`;
- return`<td class="c${hol?" hol":""}"><button type="button" class="${cls}" data-r="${r.id}" data-s="${sat}" aria-label="${label}">${badge}${body}${priceHTML(r,dates)}</button></td>`;
+ return`<td class="c${hol?" hol":""}"><button type="button" class="${cls}" data-r="${r.id}" data-s="${sat}" aria-label="${label}">${body}${priceHTML(r,dates,badge)}</button></td>`;
 }
 function sortVal(r){
  const sat=weekends[0];
@@ -438,7 +453,7 @@ function sortVal(r){
 function render(){
  const wrap=$("#gridwrap");const mode=S.mode;
  document.querySelectorAll("#modeSeg button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.mode===mode)));
- $("#cali").checked=S.cali;$("#gearAll").checked=S.gearAll;$("#sort").value=S.sort;
+ $("#cali").checked=S.cali;$("#beg").checked=S.beg;$("#gearAll").checked=S.gearAll;$("#sort").value=S.sort;
  document.querySelectorAll("#unitSeg button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.u===S.unit)));
  $("#tHi").setAttribute("aria-pressed",String(S.showHi));$("#tLo").setAttribute("aria-pressed",String(S.showLo));
  renderFilters();
@@ -469,7 +484,7 @@ function render(){
   rs.forEach(r=>{
    const pb=r.pass==="cali"?`<span class="passb cali">CALI</span>`:r.pass==="pa"?`<span class="passb pa">PA</span>`:`<span class="passb none">PAID</span>`;
    h+=`<tr class="${col?"hidden":""}"><th class="rh" scope="row"><div class="rname">${r.home?'<span class="home">HOME</span>':""}<a href="${r.site}" target="_blank" rel="noopener">${r.name}</a></div><div class="rmeta">${pb}<span class="dr">${r.drive}</span>${gearOn(r)?`<button type="button" class="gearbtn" data-gear="${r.id}" aria-pressed="true" title="Remove snowboard rental for ${r.name}">${ico("board",11)}$${r.rental.wk}</button>`:""}</div></th>`;
-   weekends.forEach(sat=>h+=cellHTML(r,sat));
+   if(!col)weekends.forEach(sat=>h+=cellHTML(r,sat));
    h+=`</tr>`;
   });
  });
@@ -535,7 +550,7 @@ function openDrawer(rid,sat){
  b+=`<div class="sec"><h3>What it costs you${S.cali?" · Cali Pass":" · no pass"}</h3><div class="cost">`;
  let tot=0;
  dates.forEach(d=>{const c=dayCost(r,d);tot+=c.t.amt;
-  const lbl=c.t.type==="pass"?"Included":c.t.type==="pa"?"Free (PA)":"$"+c.t.amt+(c.t.conf!=="pub"?" est.":"");
+  const lbl=c.t.type==="pass"?"Included":c.t.type==="pa"?"Free (PA)":c.t.type==="beg"?(c.t.amt?"$"+c.t.amt:"Free")+(c.t.conf!=="pub"?" est.":"")+" · beginner":"$"+c.t.amt+(c.t.conf!=="pub"?" est.":"");
   b+=`<div class="row"><div>${DOW[pd(d).getUTCDay()]} lift ticket<div class="why">${c.t.why}</div></div><div>${lbl}</div></div>`;});
  const g=dates.length*r.rental.wk;
  b+=`<div class="row"><div><label class="tog" for="dGear"><input type="checkbox" id="dGear" ${gearOn(r)?"checked":""}><span class="sw"></span>Snowboard rental</label><div class="why">Board + boots, adult, $${r.rental.wk}/day (estimate)</div></div><div>${gearOn(r)?"$"+g:"—"}</div></div>`;
@@ -564,10 +579,12 @@ document.addEventListener("click",e=>{
  const t=e.target.closest(".tile,.sum[data-r]");if(t){openDrawer(t.dataset.r,t.dataset.s);return;}
 });
 $("#cali").addEventListener("change",e=>{S.cali=e.target.checked;
- if(!S.cali){S.gearPrev=S.gearAll;S.gearAll=true;}
+ if(!S.cali){S.gearPrev=S.gearAll;S.gearAll=true;S.begPrev=S.beg;S.beg=true;}
+ else if(S.begPrev!==undefined){S.beg=S.begPrev;delete S.begPrev;}
  else if(S.gearPrev!==undefined){S.gearAll=S.gearPrev;if(!S.gearAll)S.gear={};delete S.gearPrev;}
  render();});
 $("#gearAll").addEventListener("change",e=>{S.gearAll=e.target.checked;if(!S.gearAll)S.gear={};render();});
+$("#beg").addEventListener("change",e=>{S.beg=e.target.checked;delete S.begPrev;render();});
 $("#sort").addEventListener("change",e=>{S.sort=e.target.value;render();});
 $("#scrim").addEventListener("click",closeDrawer);$("#dClose").addEventListener("click",closeDrawer);
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeDrawer();});
@@ -585,12 +602,16 @@ function liveForecast(rs){
    out.r[r.id]={c:d.weather_code,hi:rd(d.temperature_2m_max),lo:rd(d.temperature_2m_min),sn:d.snowfall_sum.map(x=>x==null?null:Math.round(x*10)/10),pp:d.precipitation_probability_max,w:rd(d.wind_speed_10m_max),g:rd(d.wind_gusts_10m_max)};});
   return out;});
 }
+function useForecast(f){F=f;dayIdx={};F.days.forEach((d,i)=>dayIdx[d]=i);}
+function cachedLive(){try{const c=JSON.parse(localStorage.getItem("snowplanner-fc")||"null");if(c&&c.live&&Date.now()-new Date(c.generated)<30*6e4)return c;}catch(e){}return null;}
 Promise.all([getJ("data/resorts.json"),getJ("data/climate.json")])
-.then(([r,c])=>liveForecast(r.resorts).catch(()=>getJ("data/forecast.json")).then(f=>[r,f,c]))
-.then(([r,f,c])=>{
- R=r;F=f;C=c;F.days.forEach((d,i)=>dayIdx[d]=i);
- weekends=C.sats.filter(s=>addD(s,1)>=today);
- renderFresh();render();
+.then(([r,c])=>{R=r;C=c;weekends=C.sats.filter(s=>addD(s,1)>=today);
+ const cached=cachedLive();
+ return(cached?Promise.resolve(cached):getJ("data/forecast.json")).then(f=>{
+  useForecast(f);renderFresh();render();
+  if(cached)return;
+  liveForecast(R.resorts).then(lf=>{try{localStorage.setItem("snowplanner-fc",JSON.stringify(lf));}catch(e){}useForecast(lf);renderFresh();render();}).catch(()=>{});
+ });
 }).catch(err=>{$("#gridwrap").innerHTML=`<div class="err">Couldn't load the planner data (${err.message}). Reload the page to try again.</div>`;});
 })();
 </script>
