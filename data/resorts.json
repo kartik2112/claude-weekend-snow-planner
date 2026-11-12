@@ -2020,16 +2020,6 @@
    "note": "Drivable. Unlimited on Epic Pass."
   },
   {
-   "id": "epic-west",
-   "label": "Epic \u00b7 Rockies & West",
-   "note": "Unlimited, except Telluride (7 days)."
-  },
-  {
-   "id": "epic-canada",
-   "label": "Epic \u00b7 Canada",
-   "note": "Whistler unlimited; 6 Canadian Rockies partners share 7 days."
-  },
-  {
    "id": "epic-ne",
    "label": "Epic \u00b7 Northeast",
    "note": "Unlimited on Epic Pass."
@@ -2038,6 +2028,16 @@
    "id": "epic-ma",
    "label": "Epic \u00b7 Mid-Atlantic",
    "note": "Unlimited on Epic Pass."
+  },
+  {
+   "id": "epic-west",
+   "label": "Epic \u00b7 Rockies & West",
+   "note": "Unlimited, except Telluride (7 days)."
+  },
+  {
+   "id": "epic-canada",
+   "label": "Epic \u00b7 Canada",
+   "note": "Whistler unlimited; 6 Canadian Rockies partners share 7 days."
   },
   {
    "id": "epic-mw",

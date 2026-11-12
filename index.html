@@ -344,8 +344,8 @@ tr.hidden{display:none}
 (function(){
 "use strict";
 const $=s=>document.querySelector(s);
-const S={mode:"wk",cali:true,gearAll:false,gear:{},v:2,epic:false,groups:{cali:true,"pa-ca":true,tahoe:true,dest:true,"pa-far":true,"epic-tahoe":true,"epic-west":true,"epic-canada":true,"epic-ne":true,"epic-ma":true,"epic-mw":true},collapsed:{"pa-ca":true,dest:true,"pa-far":true,"epic-canada":true,"epic-ne":true,"epic-ma":true,"epic-mw":true},sort:"drive",view:"grid",sio:false,showHi:true,showLo:true,unit:"F",beg:false};
-try{const saved=JSON.parse(localStorage.getItem("snowplanner")||"null");if(saved){const g=Object.assign({},S.groups,saved.groups||{}),c=saved.v===2?Object.assign({},S.collapsed,saved.collapsed||{}):Object.assign({},S.collapsed);delete saved.v;Object.assign(S,saved);S.groups=g;S.collapsed=c;}}catch(e){}
+const S={mode:"wk",cali:true,gearAll:false,gear:{},v:3,epic:false,groups:{cali:true,"pa-ca":true,tahoe:true,dest:true,"pa-far":true,"epic-tahoe":true,"epic-west":true,"epic-canada":true,"epic-mw":true},collapsed:{"pa-ca":true,dest:true,"pa-far":true,"epic-canada":true,"epic-ne":true,"epic-ma":true,"epic-mw":true},sort:"drive",view:"grid",sio:false,showHi:true,showLo:true,unit:"F",beg:false};
+try{const saved=JSON.parse(localStorage.getItem("snowplanner")||"null");if(saved){const g=Object.assign({},S.groups,saved.groups||{}),c=saved.v===3?Object.assign({},S.collapsed,saved.collapsed||{}):saved.v===2?Object.assign({},S.collapsed,saved.collapsed||{},{"epic-ne":false,"epic-ma":false}):Object.assign({},S.collapsed);if(saved.v!==3&&saved.groups){g["epic-ne"]=true;g["epic-ma"]=true;}delete saved.v;Object.assign(S,saved);S.groups=g;S.collapsed=c;}}catch(e){}
 function save(){try{localStorage.setItem("snowplanner",JSON.stringify(S));}catch(e){}}
 
 let R,F,C,dayIdx={},weekends=[];
@@ -561,7 +561,7 @@ function renderMap(){
  }).catch(()=>{$("#mapnote").textContent="The map couldn't load.";});
 }
 function renderFilters(){
- const labels=S.epic?{"epic-tahoe":"Tahoe","epic-west":"Rockies & West","epic-canada":"Canada","epic-ne":"Northeast","epic-ma":"Mid-Atlantic","epic-mw":"Midwest"}:{cali:"Cali Pass","pa-ca":"PA drivable",tahoe:"Tahoe paid",dest:"Destinations","pa-far":"PA fly-to"};
+ const labels=S.epic?{"epic-tahoe":"Tahoe","epic-ne":"Northeast","epic-ma":"Mid-Atlantic","epic-west":"Rockies & West","epic-canada":"Canada","epic-mw":"Midwest"}:{cali:"Cali Pass","pa-ca":"PA drivable",tahoe:"Tahoe paid",dest:"Destinations","pa-far":"PA fly-to"};
  $("#filters").innerHTML=Object.keys(labels).map(k=>`<button type="button" class="fchip" data-f="${k}" aria-pressed="${!!S.groups[k]&&!S.collapsed[k]}">${labels[k]}</button>`).join("");
 }
 function renderSummary(){
