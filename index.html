@@ -657,7 +657,11 @@ function render(){
 /* ---------- deals ---------- */
 let D=null;
 const TYPE_LBL={flex:"Flexible multi-day",pack:"Multi-day pack",advance:"Advance online",buddy:"Buddy / friend"};
-function daysLeft(d){return Math.ceil((pd(d)-pd(today))/864e5);}
+const devToday=()=>{const n=new Date();return new Date(n.getTime()-n.getTimezoneOffset()*6e4).toISOString().slice(0,10);};
+function daysLeft(d){return Math.round((pd(d)-pd(devToday()))/864e5);}
+/* a deal stays listed through its end date (device date), then drops off */
+const live=x=>!x.expires||daysLeft(x.expires)>=0;
+document.addEventListener("visibilitychange",()=>{if(!document.hidden&&S.view==="deals"&&D)renderDeals();});
 const passCovers=id=>{const r=R.resorts.find(x=>x.id===id);if(!r)return false;return (S.cali&&(r.pass==="cali"||r.pass==="pa"))||(S.epic&&!!r.epicGroup);};
 const dealCovered=x=>x.type!=="buddy"&&x.resorts.every(passCovers);
 const passWhy=id=>{const r=R.resorts.find(x=>x.id===id);return S.epic&&r.epicGroup?"Epic":r.pass==="pa"?"Powder Alliance":"Cali Pass";};
@@ -681,15 +685,15 @@ function dealHTML(x){
 function renderDeals(){
  if(!D){$("#dealswrap").innerHTML='<div class="card muted">Loading deals…</div>';getJ("data/deals.json").then(j=>{D=j;renderDeals();}).catch(()=>{$("#dealswrap").innerHTML='<div class="err">Couldn’t load the deals list. Reload to try again.</div>';});return;}
  const core=["dodge","bear","china","mthigh","sierra","shasta","palisades","northstar","heavenly","kirkwood","mammoth","parkcity","snowbird","deervalley","vail","breck","aspen"];
- const used=core.filter(id=>!passCovers(id)&&D.deals.some(x=>x.resorts.includes(id)&&!dealCovered(x)));
+ const used=core.filter(id=>!passCovers(id)&&D.deals.some(x=>live(x)&&x.resorts.includes(id)&&!dealCovered(x)));
  const dRes=S.dealRes.filter(id=>used.includes(id));
- const covered=D.deals.filter(dealCovered);
+ const covered=D.deals.filter(x=>live(x)&&dealCovered(x));
  const have=[S.cali&&"Cali Pass (incl. Powder Alliance)",S.epic&&"Epic Pass"].filter(Boolean);
  const ppd=x=>x.total&&x.days?x.total/x.days:999;
- let list=D.deals.filter(x=>!dealCovered(x)&&(S.dealType==="all"||x.type===S.dealType)&&(!dRes.length||x.resorts.some(id=>dRes.includes(id)))&&(S.dealHidden||!S.dnope[x.id])&&(!S.dealFav||S.dfav[x.id]));
+ let list=D.deals.filter(x=>live(x)&&!dealCovered(x)&&(S.dealType==="all"||x.type===S.dealType)&&(!dRes.length||x.resorts.some(id=>dRes.includes(id)))&&(S.dealHidden||!S.dnope[x.id])&&(!S.dealFav||S.dfav[x.id]));
  list.sort((a,b)=>((S.dfav[b.id]?1:0)-(S.dfav[a.id]?1:0))||((a.expires||"9999")<(b.expires||"9999")?-1:(a.expires||"9999")>(b.expires||"9999")?1:0)||(ppd(a)-ppd(b)));
- const hid=D.deals.filter(x=>S.dnope[x.id]).length;
- const ending=D.deals.filter(x=>!dealCovered(x)&&!S.dnope[x.id]&&x.expires&&daysLeft(x.expires)>=0&&daysLeft(x.expires)<=14);
+ const hid=D.deals.filter(x=>live(x)&&S.dnope[x.id]).length;
+ const ending=D.deals.filter(x=>live(x)&&!dealCovered(x)&&!S.dnope[x.id]&&x.expires&&daysLeft(x.expires)>=0&&daysLeft(x.expires)<=14);
  $("#dealswrap").innerHTML=`<div class="card dfilters">
    <div class="dfrow"><span class="ctl-label">I have</span><label class="tog" for="dCali"><input type="checkbox" id="dCali" ${S.cali?"checked":""}><span class="sw"></span>Cali Pass</label><label class="tog" for="dEpic"><input type="checkbox" id="dEpic" ${S.epic?"checked":""}><span class="sw"></span>Epic Pass</label></div>
    ${covered.length?`<p class="calc-note" style="margin:0">Hiding ${covered.length} deal${covered.length>1?"s":""} for resorts your ${have.join(" and ")} already covers: ${covered.map(x=>x.title).join(", ")}. Buddy discounts stay listed.</p>`:""}
@@ -917,7 +921,7 @@ function openDrawer(rid,sat){
  b+=`<div class="row tot"><div>Total for ${dates.length===1?"the day":"the weekend"}</div><div>$${tot}</div></div></div>`;
  b+=`<p class="small muted" style="margin:8px 0 0">${r.price.note}.${r.price.win?" Window rate up to $"+r.price.win+".":""}</p></div>`;
  b+=`<div class="sec"><h3>Mountain</h3><dl class="kv"><dt>Summit</dt><dd>${r.summit.toLocaleString()} ft</dd><dt>Vertical</dt><dd>${r.vert.toLocaleString()} ft</dd><dt>Access</dt><dd>${S.epic?(r.epicLimit?"Epic Pass, 7 days":"Epic Pass, unlimited"):r.pass==="cali"?"Cali Pass, unlimited":r.pass==="pa"?"Powder Alliance, 3 days":"Not on Cali Pass"}</dd>${r.open?`<dt>Season (projected)</dt><dd>${fmtD(r.open)} – ${fmtD(r.close)}${r.open<=today?" · open now":""}</dd>`:""}</dl></div>`;
- if(D){const ds=D.deals.filter(x=>x.resorts.includes(r.id)&&!S.dnope[x.id]&&!dealCovered(x));if(ds.length){
+ if(D){const ds=D.deals.filter(x=>live(x)&&x.resorts.includes(r.id)&&!S.dnope[x.id]&&!dealCovered(x));if(ds.length){
   b+=`<div class="sec"><h3>Deals &amp; buddy discounts here</h3><div class="cost">${ds.map(x=>{const e=x.expires?daysLeft(x.expires):null;return`<div class="row"><div>${S.dfav[x.id]?"★ ":""}${x.title}<div class="why">${x.provider} · ${x.type==="buddy"?x.blackout:(x.blackout.split(".")[0])}${e!=null&&e>=0?` · <b style="color:var(--holiday)">ends ${e===0?"today":"in "+e+" day"+(e>1?"s":"")}</b>`:""}</div></div><div>${x.total!=null?(x.totalFrom?"from ":"")+"$"+x.total+(x.days>1?`<div class="why">${x.days} days</div>`:""):x.pct}</div></div>`;}).join("")}</div><p class="small" style="margin:6px 0 0"><a href="#" data-gotodeals="${r.id}" style="color:var(--accent);font-weight:700">See these in Deals →</a></p></div>`;}}
  b+=`<div class="sec"><h3>Check before you go</h3><div class="links"><a href="${r.tickets}" target="_blank" rel="noopener">Lift tickets ↗</a><a href="${r.site}" target="_blank" rel="noopener">Resort site ↗</a>${r.pa?`<a href="${r.pa}" target="_blank" rel="noopener">PA redemption ↗</a>`:""}</div></div>`;
  $("#dBody").innerHTML=b;
