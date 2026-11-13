@@ -235,6 +235,49 @@ tr.hidden{display:none}
 .pop button{margin-top:8px;border:1px solid var(--line);background:var(--accent);color:#fff;border-radius:8px;padding:5px 10px;font-weight:700;cursor:pointer}
 .leaflet-tooltip{font-family:var(--body);font-weight:700;font-size:11.5px}
 .controls.calc-mode > :not(#viewSeg){display:none}
+.fx{display:inline-flex;gap:2px;margin-left:auto}
+.fbtn{border:0;background:transparent;color:var(--faint);font-size:14px;line-height:1;width:22px;height:22px;border-radius:6px;cursor:pointer;padding:0}
+.fbtn:hover{background:var(--well);color:var(--ink)}
+.fbtn.on{color:var(--sun)}
+.fbtn.nope.on{color:var(--holiday)}
+.rname .fx{opacity:.6}
+.rh:hover .rname .fx,.rname .fx:focus-within{opacity:1}
+tr.nope-row .rh{opacity:.55}
+.hcount{color:var(--muted);font-weight:600}
+.dealswrap{display:flex;flex-direction:column;gap:12px}
+.dfilters{display:flex;flex-direction:column;gap:8px}
+.dfrow{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.dalert{margin:0;font-size:12.5px;background:var(--holiday-soft);color:var(--holiday);border-radius:9px;padding:7px 10px}
+.dgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:12px;align-items:start}
+.deal{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:8px;box-shadow:var(--shadow)}
+.deal.fav{border-color:var(--sun);box-shadow:0 0 0 1px var(--sun)}
+.deal.nope{opacity:.55}
+.deal header{display:flex;gap:8px;align-items:flex-start}
+.deal h3{margin:4px 0 0;font-family:var(--display);font-size:21px;font-weight:700;line-height:1.1}
+.dprov{font-size:12px;color:var(--muted);font-weight:600}
+.dtype{font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;border-radius:5px;padding:1px 6px}
+.t-flex{background:var(--pass-soft);color:var(--pass)}.t-pack{background:var(--accent-soft);color:var(--accent)}.t-advance{background:var(--well);color:var(--muted);border:1px solid var(--line)}.t-buddy{background:var(--sun-soft);color:var(--sunink)}
+.drow{display:flex;justify-content:space-between;align-items:flex-end;gap:10px;flex-wrap:wrap}
+.dprice{display:flex;flex-direction:column}
+.dtot{font-family:var(--display);font-size:30px;font-weight:600;line-height:1}
+.dper{font-size:12.5px;color:var(--muted);font-weight:600}
+.dalt{font-size:12px;color:var(--muted)}
+.exp{font-size:11.5px;font-weight:800;border-radius:999px;padding:3px 9px;background:var(--well);color:var(--muted);white-space:nowrap}
+.exp.soon{background:var(--holiday);color:#fff}
+.exp.gone{background:var(--line);color:var(--muted);text-decoration:line-through}
+.exp.none{font-weight:600}
+table.tiers{width:100%;border-collapse:collapse;font-size:12px;font-variant-numeric:tabular-nums}
+table.tiers th,table.tiers td{text-align:center;padding:4px 2px;border-bottom:1px solid var(--line)}
+table.tiers th:first-child,table.tiers td:first-child{text-align:left;color:var(--muted);font-weight:600}
+table.tiers th{font-size:10.5px;color:var(--faint)}
+.dline{margin:0;font-size:12.5px}
+.deal ul{margin:0;padding-left:18px;font-size:12.5px;display:flex;flex-direction:column;gap:2px}
+.dres{display:flex;flex-wrap:wrap;gap:4px}
+.rchip{font-size:11px;font-weight:700;border:1px solid var(--line);border-radius:999px;padding:1px 8px;color:var(--muted)}
+.rchip.fav{border-color:var(--sun);color:var(--sunink)}
+.rchip.more{border-style:dashed}
+.dlink{align-self:flex-start;font-size:12.5px;font-weight:700;color:var(--accent);text-decoration:none;border:1px solid var(--line);border-radius:9px;padding:5px 10px}
+.dlink:hover{border-color:var(--accent)}
 .calcwrap{display:grid;grid-template-columns:minmax(300px,420px) 1fr;gap:14px;align-items:start}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow)}
 .card h2{margin:0 0 4px;font-family:var(--display);font-size:20px;font-weight:700;text-transform:uppercase;letter-spacing:.03em}
@@ -300,6 +343,7 @@ table.be td{text-align:right;padding:7px 6px;border-bottom:1px solid var(--line)
 .cost{border:1px solid var(--line);border-radius:12px;overflow:hidden}
 .cost .row{display:flex;justify-content:space-between;gap:10px;padding:9px 12px;border-bottom:1px solid var(--line);font-size:13px;align-items:center}
 .cost .row:last-child{border-bottom:0}
+.cost .row>div:last-child{white-space:nowrap;text-align:right}
 .cost .row.tot{font-weight:800;background:var(--well)}
 .cost .why{font-size:11.5px;color:var(--muted);font-weight:500}
 .links{display:flex;flex-wrap:wrap;gap:6px}
@@ -342,6 +386,7 @@ table.be td{text-align:right;padding:7px 6px;border-bottom:1px solid var(--line)
     <div class="seg" role="group" aria-label="View" id="viewSeg">
       <button type="button" data-view="grid">List</button>
       <button type="button" data-view="map">Map</button>
+      <button type="button" data-view="deals">Deals</button>
       <button type="button" data-view="calc">Pass value</button>
     </div>
     <div class="seg" role="group" aria-label="Days to show" id="modeSeg">
@@ -355,6 +400,8 @@ table.be td{text-align:right;padding:7px 6px;border-bottom:1px solid var(--line)
       <label class="tog" for="beg"><input type="checkbox" id="beg"><span class="sw"></span>Beginner tickets</label>
       <label class="tog" for="openOnly"><input type="checkbox" id="openOnly"><span class="sw"></span>Open this weekend</label>
       <label class="tog" for="sio"><input type="checkbox" id="sio"><span class="sw"></span>Ski-in/ski-out only</label>
+      <label class="tog" for="favOnly"><input type="checkbox" id="favOnly"><span class="sw"></span>Favorites only</label>
+      <label class="tog" for="showHidden"><input type="checkbox" id="showHidden"><span class="sw"></span>Show hidden<span class="hcount" id="hcount"></span></label>
       <label class="tog" for="gearAll"><input type="checkbox" id="gearAll"><span class="sw"></span>Board rental</label>
     </div>
     <span class="vdiv"></span>
@@ -378,6 +425,7 @@ table.be td{text-align:right;padding:7px 6px;border-bottom:1px solid var(--line)
   <div class="summary" id="summary"></div>
 
   <p class="disc" id="disc"></p>
+  <section class="dealswrap" id="dealswrap" hidden aria-label="Pass and ticket deals"></section>
   <section class="calcwrap" id="calcwrap" hidden aria-label="Cali Pass break-even calculator"></section>
   <div class="mapwrap" id="mapwrap" hidden>
     <form class="routebar" id="routeForm" autocomplete="on">
@@ -414,7 +462,7 @@ table.be td{text-align:right;padding:7px 6px;border-bottom:1px solid var(--line)
 (function(){
 "use strict";
 const $=s=>document.querySelector(s);
-const S={mode:"wk",cali:true,gearAll:false,gear:{},v:3,epic:false,groups:{cali:true,"pa-ca":true,tahoe:true,dest:true,"pa-far":true,"epic-tahoe":true,"epic-west":true,"epic-canada":true,"epic-mw":true},collapsed:{"pa-ca":true,dest:true,"pa-far":true,"epic-canada":true,"epic-ne":true,"epic-ma":true,"epic-mw":true},sort:"drive",view:"grid",start:"754 The Alameda, San Jose, CA",roads:false,sio:false,openOnly:false,showHi:true,showLo:true,unit:"F",beg:false};
+const S={mode:"wk",cali:true,gearAll:false,gear:{},v:3,epic:false,groups:{cali:true,"pa-ca":true,tahoe:true,dest:true,"pa-far":true,"epic-tahoe":true,"epic-west":true,"epic-canada":true,"epic-mw":true},collapsed:{"pa-ca":true,dest:true,"pa-far":true,"epic-canada":true,"epic-ne":true,"epic-ma":true,"epic-mw":true},sort:"drive",view:"grid",fav:{},nope:{},dfav:{},dnope:{},showHidden:false,favOnly:false,dealRes:[],dealType:"all",dealHidden:false,dealFav:false,start:"754 The Alameda, San Jose, CA",roads:false,sio:false,openOnly:false,showHi:true,showLo:true,unit:"F",beg:false};
 try{const saved=JSON.parse(localStorage.getItem("snowplanner")||"null");if(saved){const g=Object.assign({},S.groups,saved.groups||{}),c=saved.v===3?Object.assign({},S.collapsed,saved.collapsed||{}):saved.v===2?Object.assign({},S.collapsed,saved.collapsed||{},{"epic-ne":false,"epic-ma":false}):Object.assign({},S.collapsed);if(saved.v!==3&&saved.groups){g["epic-ne"]=true;g["epic-ma"]=true;}delete saved.v;Object.assign(S,saved);S.groups=g;S.collapsed=c;}}catch(e){}
 function save(){try{localStorage.setItem("snowplanner",JSON.stringify(S));}catch(e){}}
 
@@ -474,7 +522,7 @@ const groupOf=r=>S.epic?r.epicGroup:r.group;
 const activeGroups=()=>S.epic?R.epicGroups:R.groups;
 const isOpen=(r,d)=>!r.open||(d>=r.open&&d<=r.close);
 const openWk=r=>datesFor(weekends[0]).some(d=>isOpen(r,d));
-const sioOK=r=>(!S.sio||r.sio)&&(!S.openOnly||openWk(r));
+const sioOK=r=>(!S.sio||r.sio)&&(!S.openOnly||openWk(r))&&(S.showHidden||!S.nope[r.id])&&(!S.favOnly||S.fav[r.id]);
 function visibleResorts(){return R.resorts.filter(r=>{const g=groupOf(r);return g&&S.groups[g]&&!S.collapsed[g]&&sioOK(r);});}
 function clim(rid,sat){const wi=C.sats.indexOf(sat);const r=C.r[rid];if(wi<0||!r)return null;return{hi:r.hi[wi],lo:r.lo[wi],sp:r.sp[wi],sa:r.sa[wi]};}
 function daysOut(date){return Math.round((pd(date)-pd(today))/864e5);}
@@ -556,7 +604,7 @@ function sortVal(r){
 function render(){
  const wrap=$("#gridwrap");const mode=S.mode;
  document.querySelectorAll("#modeSeg button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.mode===mode)));
- $("#cali").checked=S.cali;$("#sio").checked=S.sio;$("#openOnly").checked=S.openOnly;$("#epic").checked=S.epic;$("#caliLbl").classList.toggle("off",S.epic);$("#beg").closest(".tog").classList.toggle("off",S.epic);$("#beg").checked=S.beg;$("#gearAll").checked=S.gearAll;$("#sort").value=S.sort;
+ $("#cali").checked=S.cali;$("#sio").checked=S.sio;$("#favOnly").checked=S.favOnly;$("#showHidden").checked=S.showHidden;{const n=Object.keys(S.nope).filter(k=>S.nope[k]).length;$("#hcount").textContent=n?` (${n})`:"";}$("#openOnly").checked=S.openOnly;$("#epic").checked=S.epic;$("#caliLbl").classList.toggle("off",S.epic);$("#beg").closest(".tog").classList.toggle("off",S.epic);$("#beg").checked=S.beg;$("#gearAll").checked=S.gearAll;$("#sort").value=S.sort;
  document.querySelectorAll("#unitSeg button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.u===S.unit)));
  $("#tHi").setAttribute("aria-pressed",String(S.showHi));$("#tLo").setAttribute("aria-pressed",String(S.showLo));
  renderFilters();
@@ -587,7 +635,7 @@ function render(){
   h+=`<tr class="group${col?" collapsed":""}"><td colspan="${weekends.length+1}"><div class="gl"><button type="button" data-g="${g.id}" aria-expanded="${!col}"><span class="car">▼</span><span class="gt">${label}</span><span class="cnt">${rs.length}</span><span class="gn">${note}</span></button></div></td></tr>`;
   rs.forEach(r=>{
    const pb=S.epic?`<span class="passb cali">${r.epicLimit?"EPIC 7D":"EPIC"}</span>`:r.pass==="cali"?`<span class="passb cali">CALI</span>`:r.pass==="pa"?`<span class="passb pa">PA</span>`:`<span class="passb none">PAID</span>`;
-   h+=`<tr class="${col?"hidden":""}"><th class="rh" scope="row"><div class="rname">${r.home?'<span class="home">HOME</span>':""}<a href="${r.site}" target="_blank" rel="noopener">${r.name}</a></div><div class="rmeta">${pb}<span class="dr">${r.drive}</span>${r.sio?'<span class="sio" title="Ski-in/ski-out lodging">SKI-IN</span>':""}${r.open?(r.open<=today?'<span class="opn yes">OPEN</span>':`<span class="opn no" title="Projected opening">OPENS ${fmtD(r.open).toUpperCase()}</span>`):""}${gearOn(r)?`<button type="button" class="gearbtn" data-gear="${r.id}" aria-pressed="true" title="Remove snowboard rental for ${r.name}">${ico("board",11)}$${r.rental.wk}</button>`:""}</div></th>`;
+   h+=`<tr class="${col?"hidden":""}${S.nope[r.id]?" nope-row":""}"><th class="rh" scope="row"><div class="rname">${r.home?'<span class="home">HOME</span>':""}<a href="${r.site}" target="_blank" rel="noopener">${r.name}</a><span class="fx"><button type="button" class="fbtn${S.fav[r.id]?" on":""}" data-fav="${r.id}" aria-pressed="${!!S.fav[r.id]}" title="Favorite">${S.fav[r.id]?"★":"☆"}</button><button type="button" class="fbtn nope${S.nope[r.id]?" on":""}" data-nope="${r.id}" aria-pressed="${!!S.nope[r.id]}" title="${S.nope[r.id]?"Show again":"Not interested (hide)"}">⊘</button></span></div><div class="rmeta">${pb}<span class="dr">${r.drive}</span>${r.sio?'<span class="sio" title="Ski-in/ski-out lodging">SKI-IN</span>':""}${r.open?(r.open<=today?'<span class="opn yes">OPEN</span>':`<span class="opn no" title="Projected opening">OPENS ${fmtD(r.open).toUpperCase()}</span>`):""}${gearOn(r)?`<button type="button" class="gearbtn" data-gear="${r.id}" aria-pressed="true" title="Remove snowboard rental for ${r.name}">${ico("board",11)}$${r.rental.wk}</button>`:""}</div></th>`;
    if(!col)weekends.forEach(sat=>h+=cellHTML(r,sat));
    h+=`</tr>`;
   });
@@ -597,10 +645,50 @@ function render(){
  wrap.innerHTML=h;wrap.scrollLeft=sx;wrap.scrollTop=sy;
  renderSummary();save();ensureForecast();
  document.querySelectorAll("#viewSeg button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.view===S.view)));
- $("#gridwrap").hidden=S.view!=="grid";$("#mapwrap").hidden=S.view!=="map";$("#calcwrap").hidden=S.view!=="calc";
- $("#summary").hidden=S.view==="calc";document.querySelector(".controls").classList.toggle("calc-mode",S.view==="calc");$("#legend").hidden=S.view==="calc";$("#notes").hidden=S.view==="calc";$("#disc").hidden=S.view==="calc";
+ const side=S.view==="calc"||S.view==="deals";
+ $("#gridwrap").hidden=S.view!=="grid";$("#mapwrap").hidden=S.view!=="map";$("#calcwrap").hidden=S.view!=="calc";$("#dealswrap").hidden=S.view!=="deals";
+ $("#summary").hidden=side;$("#disc").hidden=side;document.querySelector(".controls").classList.toggle("calc-mode",side);$("#legend").hidden=side;$("#notes").hidden=side;
+ if(S.view==="deals")renderDeals();
  if(S.view==="map")renderMap();
  if(S.view==="calc")renderCalc();
+}
+/* ---------- deals ---------- */
+let D=null;
+const TYPE_LBL={flex:"Flexible multi-day",pack:"Multi-day pack",advance:"Advance online",buddy:"Buddy / friend"};
+function daysLeft(d){return Math.ceil((pd(d)-pd(today))/864e5);}
+function dealHTML(x){
+ const rs=x.resorts.map(id=>R.resorts.find(r=>r.id===id)).filter(Boolean);
+ const showRs=rs.slice(0,6);const more=rs.length-showRs.length;
+ const exp=x.expires?daysLeft(x.expires):null;
+ const expB=x.expires?`<span class="exp ${exp<0?"gone":exp<=7?"soon":""}">${exp<0?"Ended":exp===0?"Ends today":exp<=60?`Ends in ${exp} day${exp>1?"s":""}`:"Ends "+fmtD(x.expires)}</span>`:`<span class="exp none">No end date posted</span>`;
+ const price=x.total!=null?`<div class="dprice"><span class="dtot">${x.totalFrom?"from ":""}$${x.total}</span><span class="dper">${x.days} day${x.days>1?"s":""}${x.days>1?` · $${Math.round(x.total/x.days)}/day`:""}</span>${x.alt?`<span class="dalt">or ${x.alt}</span>`:""}</div>`:`<div class="dprice"><span class="dtot">${x.pct}</span><span class="dper">for your friends</span></div>`;
+ const tiers=x.tiers?`<table class="tiers"><thead><tr><th>Days</th>${x.tiers.map(t=>`<th>${t[0]}</th>`).join("")}</tr></thead><tbody><tr><td>Total</td>${x.tiers.map(t=>`<td>$${t[1]}</td>`).join("")}</tr><tr><td>Per day</td>${x.tiers.map(t=>`<td>$${Math.round(t[1]/t[0])}</td>`).join("")}</tr></tbody></table>`:"";
+ return`<article class="deal${S.dfav[x.id]?" fav":""}${S.dnope[x.id]?" nope":""}">
+  <header><div><span class="dtype t-${x.type}">${TYPE_LBL[x.type]}</span><h3>${x.title}</h3><div class="dprov">${x.provider}</div></div>
+  <span class="fx"><button type="button" class="fbtn${S.dfav[x.id]?" on":""}" data-dfav="${x.id}" aria-pressed="${!!S.dfav[x.id]}" title="Favorite">${S.dfav[x.id]?"★":"☆"}</button><button type="button" class="fbtn nope${S.dnope[x.id]?" on":""}" data-dnope="${x.id}" aria-pressed="${!!S.dnope[x.id]}" title="${S.dnope[x.id]?"Show again":"Not interested (hide)"}">⊘</button></span></header>
+  <div class="drow">${price}${expB}</div>
+  ${tiers}
+  <p class="dline">${x.blackout}</p>
+  <p class="dline muted">${x.expiresNote}</p>
+  <ul>${x.notes.map(n=>`<li>${n}</li>`).join("")}</ul>
+  <div class="dres">${showRs.map(r=>`<span class="rchip${S.fav[r.id]?" fav":""}">${S.fav[r.id]?"★ ":""}${r.name}</span>`).join("")}${more>0?`<span class="rchip more">+${more} more</span>`:""}</div>
+  <a class="dlink" href="${x.url}" target="_blank" rel="noopener">View deal ↗</a></article>`;}
+function renderDeals(){
+ if(!D){$("#dealswrap").innerHTML='<div class="card muted">Loading deals…</div>';getJ("data/deals.json").then(j=>{D=j;renderDeals();}).catch(()=>{$("#dealswrap").innerHTML='<div class="err">Couldn’t load the deals list. Reload to try again.</div>';});return;}
+ const core=["dodge","bear","china","mthigh","sierra","shasta","palisades","northstar","heavenly","kirkwood","mammoth","parkcity","snowbird","deervalley","vail","breck","aspen"];
+ const used=core.filter(id=>D.deals.some(x=>x.resorts.includes(id)));
+ const ppd=x=>x.total&&x.days?x.total/x.days:999;
+ let list=D.deals.filter(x=>(S.dealType==="all"||x.type===S.dealType)&&(!S.dealRes.length||x.resorts.some(id=>S.dealRes.includes(id)))&&(S.dealHidden||!S.dnope[x.id])&&(!S.dealFav||S.dfav[x.id]));
+ list.sort((a,b)=>((S.dfav[b.id]?1:0)-(S.dfav[a.id]?1:0))||((a.expires||"9999")<(b.expires||"9999")?-1:(a.expires||"9999")>(b.expires||"9999")?1:0)||(ppd(a)-ppd(b)));
+ const hid=D.deals.filter(x=>S.dnope[x.id]).length;
+ const ending=D.deals.filter(x=>x.expires&&daysLeft(x.expires)>=0&&daysLeft(x.expires)<=14);
+ $("#dealswrap").innerHTML=`<div class="card dfilters">
+   <div class="dfrow"><span class="ctl-label">Resorts</span><button type="button" class="fchip" data-dres="all" aria-pressed="${!S.dealRes.length}">All</button>${used.map(id=>{const r=R.resorts.find(x=>x.id===id);return`<button type="button" class="fchip" data-dres="${id}" aria-pressed="${S.dealRes.includes(id)}">${S.fav[id]?"★ ":""}${r.name}</button>`;}).join("")}</div>
+   <div class="dfrow"><span class="ctl-label">Type</span>${[["all","All"],["flex","Flexible multi-day"],["pack","Multi-day packs"],["advance","Advance online"],["buddy","Buddy / friend"]].map(([k,l])=>`<button type="button" class="fchip" data-dtype="${k}" aria-pressed="${S.dealType===k}">${l}</button>`).join("")}
+   <span class="vdiv"></span><button type="button" class="fchip" data-dtoggle="dealFav" aria-pressed="${S.dealFav}">★ Favorites only</button><button type="button" class="fchip" data-dtoggle="dealHidden" aria-pressed="${S.dealHidden}">Show hidden${hid?` (${hid})`:""}</button></div>
+   ${ending.length?`<p class="dalert">⏳ ${ending.map(x=>`<b>${x.title}</b> (${x.provider}) ${daysLeft(x.expires)===0?"ends today":"ends in "+daysLeft(x.expires)+" day"+(daysLeft(x.expires)>1?"s":"")}`).join(" · ")}</p>`:""}
+   <p class="calc-note" style="margin:0">Adult prices as fetched on ${fmtD(D.checked)}. Sorted by favorites, then soonest deadline, then price per day. Confirm on the seller's site before buying.</p></div>
+  <div class="dgrid">${list.length?list.map(dealHTML).join(""):'<div class="card muted">No deals match these filters.</div>'}</div>`;
 }
 /* ---------- pass calculator ---------- */
 const CALC_DEF={pass:629,tax:0,packs:true,perWk:2,price:{},days:{dodge:10,bear:2,china:0,mthigh:0},pa:{sierra:0,shasta:0}};
@@ -819,6 +907,8 @@ function openDrawer(rid,sat){
  b+=`<div class="row tot"><div>Total for ${dates.length===1?"the day":"the weekend"}</div><div>$${tot}</div></div></div>`;
  b+=`<p class="small muted" style="margin:8px 0 0">${r.price.note}.${r.price.win?" Window rate up to $"+r.price.win+".":""}</p></div>`;
  b+=`<div class="sec"><h3>Mountain</h3><dl class="kv"><dt>Summit</dt><dd>${r.summit.toLocaleString()} ft</dd><dt>Vertical</dt><dd>${r.vert.toLocaleString()} ft</dd><dt>Access</dt><dd>${S.epic?(r.epicLimit?"Epic Pass, 7 days":"Epic Pass, unlimited"):r.pass==="cali"?"Cali Pass, unlimited":r.pass==="pa"?"Powder Alliance, 3 days":"Not on Cali Pass"}</dd>${r.open?`<dt>Season (projected)</dt><dd>${fmtD(r.open)} – ${fmtD(r.close)}${r.open<=today?" · open now":""}</dd>`:""}</dl></div>`;
+ if(D){const ds=D.deals.filter(x=>x.resorts.includes(r.id)&&!S.dnope[x.id]);if(ds.length){
+  b+=`<div class="sec"><h3>Deals &amp; buddy discounts here</h3><div class="cost">${ds.map(x=>{const e=x.expires?daysLeft(x.expires):null;return`<div class="row"><div>${S.dfav[x.id]?"★ ":""}${x.title}<div class="why">${x.provider} · ${x.type==="buddy"?x.blackout:(x.blackout.split(".")[0])}${e!=null&&e>=0?` · <b style="color:var(--holiday)">ends ${e===0?"today":"in "+e+" day"+(e>1?"s":"")}</b>`:""}</div></div><div>${x.total!=null?(x.totalFrom?"from ":"")+"$"+x.total+(x.days>1?`<div class="why">${x.days} days</div>`:""):x.pct}</div></div>`;}).join("")}</div><p class="small" style="margin:6px 0 0"><a href="#" data-gotodeals="${r.id}" style="color:var(--accent);font-weight:700">See these in Deals →</a></p></div>`;}}
  b+=`<div class="sec"><h3>Check before you go</h3><div class="links"><a href="${r.tickets}" target="_blank" rel="noopener">Lift tickets ↗</a><a href="${r.site}" target="_blank" rel="noopener">Resort site ↗</a>${r.pa?`<a href="${r.pa}" target="_blank" rel="noopener">PA redemption ↗</a>`:""}</div></div>`;
  $("#dBody").innerHTML=b;
  $("#dGear").addEventListener("change",e=>{if(S.gearAll&&!e.target.checked){S.gearAll=false;R.resorts.forEach(x=>S.gear[x.id]=x.id!==r.id);}else S.gear[r.id]=e.target.checked;render();openDrawer(rid,sat);});
@@ -831,6 +921,13 @@ function closeDrawer(){$("#scrim").classList.remove("on");$("#drawer").classList
 /* ---------- events ---------- */
 document.addEventListener("click",e=>{
  const st=e.target.closest("[data-step]");if(st){const c=S.calc,k=st.dataset.step,id=st.dataset.id;const max=k==="pa"?3:60;c[k][id]=Math.max(0,Math.min(max,(c[k][id]||0)+(+st.dataset.d)));save();renderCalc();return;}
+ const fb=e.target.closest("[data-fav],[data-nope],[data-dfav],[data-dnope]");if(fb){const k=fb.dataset.fav?"fav":fb.dataset.nope?"nope":fb.dataset.dfav?"dfav":"dnope";const id=fb.dataset[k];S[k][id]=!S[k][id];
+  const pair={fav:"nope",nope:"fav",dfav:"dnope",dnope:"dfav"};if(S[k][id])S[pair[k]][id]=false;
+  save();render();return;}
+ const dr=e.target.closest("[data-dres]");if(dr){const id=dr.dataset.dres;if(id==="all")S.dealRes=[];else{const i=S.dealRes.indexOf(id);if(i>=0)S.dealRes.splice(i,1);else S.dealRes.push(id);}save();renderDeals();return;}
+ const dt=e.target.closest("[data-dtype]");if(dt){S.dealType=dt.dataset.dtype;save();renderDeals();return;}
+ const dtg=e.target.closest("[data-dtoggle]");if(dtg){const k=dtg.dataset.dtoggle;S[k]=!S[k];save();renderDeals();return;}
+ const gd=e.target.closest("[data-gotodeals]");if(gd){e.preventDefault();S.dealRes=[gd.dataset.gotodeals];S.dealType="all";S.view="deals";closeDrawer();render();window.scrollTo(0,0);return;}
  const vw=e.target.closest("#viewSeg button");if(vw){S.view=vw.dataset.view;render();return;}
  const m=e.target.closest("#modeSeg button");if(m){S.mode=m.dataset.mode;render();return;}
  const u=e.target.closest("#unitSeg button");if(u){S.unit=u.dataset.u;render();return;}
@@ -847,6 +944,8 @@ $("#cali").addEventListener("change",e=>{S.cali=e.target.checked;
   if(S.gearPrev!==undefined){S.gearAll=S.gearPrev;if(!S.gearAll)S.gear={};delete S.gearPrev;}}
  render();});
 $("#sio").addEventListener("change",e=>{S.sio=e.target.checked;render();});
+$("#favOnly").addEventListener("change",e=>{S.favOnly=e.target.checked;render();});
+$("#showHidden").addEventListener("change",e=>{S.showHidden=e.target.checked;render();});
 $("#openOnly").addEventListener("change",e=>{S.openOnly=e.target.checked;render();});
 $("#epic").addEventListener("change",e=>{S.epic=e.target.checked;render();});
 $("#gearAll").addEventListener("change",e=>{S.gearAll=e.target.checked;if(!S.gearAll)S.gear={};render();});
@@ -885,6 +984,7 @@ Promise.all([getJ("data/resorts.json"),getJ("data/climate.json"),getJ("data/fore
 .then(([r,c,f])=>{R=r;C=c;weekends=C.sats.filter(s=>addD(s,1)>=today);
  F=f;const cache=loadCache();Object.keys(cache).forEach(k=>{if(Date.now()-cache[k].live<FRESH_MS){F.r[k]=cache[k];F.live=true;F.liveAt=Math.max(F.liveAt||0,cache[k].live);}});
  renderFresh();render();
+ getJ("data/deals.json").then(j=>{D=j;if(S.view==="deals")renderDeals();}).catch(()=>{});
 }).catch(err=>{$("#gridwrap").innerHTML=`<div class="err">Couldn't load the planner data (${err.message}). Reload the page to try again.</div>`;});
 })();
 </script>

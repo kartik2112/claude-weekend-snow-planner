@@ -1,0 +1,323 @@
+{
+ "checked": "2026-11-12",
+ "deals": [
+  {
+   "id": "epic-day-pass",
+   "title": "Epic Day Pass",
+   "provider": "Vail Resorts (Epic)",
+   "type": "flex",
+   "resorts": [
+    "heavenly",
+    "northstar",
+    "kirkwood",
+    "parkcity",
+    "vail",
+    "breck",
+    "beavercreek",
+    "keystone",
+    "crestedbutte",
+    "stevens",
+    "whistler",
+    "stowe",
+    "okemo",
+    "mountsnow",
+    "hunter",
+    "attitash",
+    "wildcat",
+    "sunapee",
+    "crotched",
+    "liberty",
+    "roundtop",
+    "whitetail",
+    "jackfrost",
+    "bigboulder",
+    "sevensprings",
+    "hiddenvalleypa",
+    "laurel",
+    "wilmot",
+    "afton",
+    "mtbrighton",
+    "bostonmills",
+    "brandywine",
+    "madriver",
+    "alpinevalley",
+    "hiddenvalleymo",
+    "snowcreek",
+    "paoli"
+   ],
+   "tiers": [
+    [
+     1,
+     147
+    ],
+    [
+     2,
+     274
+    ],
+    [
+     3,
+     386
+    ],
+    [
+     4,
+     481
+    ],
+    [
+     5,
+     560
+    ],
+    [
+     6,
+     641
+    ],
+    [
+     7,
+     716
+    ]
+   ],
+   "days": 4,
+   "total": 481,
+   "blackout": "Peak holiday dates not included unless you add Peak Dates (+$87 on a 4-day). 4- to 7-day passes also cover Telluride and the 6 Canadian Rockies partners.",
+   "expires": "2026-11-15",
+   "expiresNote": "Prices go up after Nov 15. Sales usually end in early December.",
+   "notes": [
+    "Pick 1\u20137 days now, choose when and where to ride later",
+    "Save 20% on lodging, rentals and dining with Epic Mountain Rewards",
+    "A cheaper 32-resort version is $375 for 4 days",
+    "Does not include Epic Friend Tickets"
+   ],
+   "url": "https://www.skiheavenly.com/plan-your-trip/lift-access/passes/epic-day-pass.aspx"
+  },
+  {
+   "id": "mammoth-quad",
+   "title": "Quad Pack+",
+   "provider": "Mammoth Mountain",
+   "type": "flex",
+   "resorts": [
+    "mammoth"
+   ],
+   "days": 4,
+   "total": 499,
+   "blackout": "No blackout dates. Valid at Mammoth and June Mountain.",
+   "expires": null,
+   "expiresNote": "Limited-time offer; end date not posted. Summer price was $100/day, now $125/day.",
+   "notes": [
+    "Any 4 days, all season",
+    "30% off extra days once the 4 are used",
+    "Add a Rental Quad Pack at checkout for up to 50% off rentals",
+    "One person only; non-refundable"
+   ],
+   "url": "https://www.mammothmountain.com/plan-your-trip/deals-and-packages/quad-pack-winter"
+  },
+  {
+   "id": "palisades-4",
+   "title": "4-Day Lift Pack, Unrestricted",
+   "provider": "Palisades Tahoe",
+   "type": "pack",
+   "resorts": [
+    "palisades"
+   ],
+   "days": 4,
+   "total": 539,
+   "blackout": "No blackout dates.",
+   "expires": null,
+   "expiresNote": "Prices rise closer to the season; no fixed end date posted.",
+   "notes": [
+    "Extra days at 50% off the window rate",
+    "Friends & Family tickets at 25% off the window rate",
+    "Also: 2-Day Unrestricted $369 \u00b7 4-Day Midweek $390 (no weekends, so not for Sat\u2013Sun trips)"
+   ],
+   "url": "https://shop.palisadestahoe.com/l/winter-lift-tickets/multi-pack-lift-tickets/p/ticketpacks"
+  },
+  {
+   "id": "palisades-2",
+   "title": "2-Day Lift Pack, Unrestricted",
+   "provider": "Palisades Tahoe",
+   "type": "pack",
+   "resorts": [
+    "palisades"
+   ],
+   "days": 2,
+   "total": 369,
+   "blackout": "No blackout dates.",
+   "expires": null,
+   "expiresNote": "Prices rise closer to the season; no fixed end date posted.",
+   "notes": [
+    "Extra days at 50% off the window rate",
+    "Friends & Family tickets at 25% off the window rate"
+   ],
+   "url": "https://shop.palisadestahoe.com/l/winter-lift-tickets/multi-pack-lift-tickets/p/ticketpacks"
+  },
+  {
+   "id": "sierra-3pak",
+   "title": "Lift Ticket 3-PAK",
+   "provider": "Sierra-at-Tahoe",
+   "type": "flex",
+   "resorts": [
+    "sierra"
+   ],
+   "days": 3,
+   "total": 291,
+   "blackout": "No blackout dates. Weekend parking reservation $25/day (free with 4+ in the car).",
+   "expires": null,
+   "expiresNote": "No end date posted.",
+   "notes": [
+    "Any 3 days of the season",
+    "Pairs well with free Powder Alliance Sundays: use the 3-PAK on Saturdays",
+    "2-of-3-day ticket also available at $145/day"
+   ],
+   "url": "https://sierraattahoe.com/lift-tickets/"
+  },
+  {
+   "id": "dodge-packs",
+   "title": "2-Day and 4-Day Passes",
+   "provider": "Dodge Ridge",
+   "type": "flex",
+   "resorts": [
+    "dodge"
+   ],
+   "days": 4,
+   "total": 316,
+   "alt": "2 days for $208",
+   "blackout": "No blackout dates; valid every operating day of 26/27.",
+   "expires": null,
+   "expiresNote": "No end date posted.",
+   "notes": [
+    "One card, one person, use any days",
+    "Covered by your Cali Pass if you have one: this is for friends or a no-pass season"
+   ],
+   "url": "https://dodgeridge.com/lift-tickets/"
+  },
+  {
+   "id": "bear-packs",
+   "title": "Anytime 2-Pack and 4-Pack",
+   "provider": "Bear Valley",
+   "type": "flex",
+   "resorts": [
+    "bear"
+   ],
+   "days": 4,
+   "total": 316,
+   "alt": "2 days for $208",
+   "blackout": "No blackout dates.",
+   "expires": null,
+   "expiresNote": "Unused days expire at the end of the 26/27 season. No sale end date posted.",
+   "notes": [
+    "One card, one person (ages 13+)",
+    "Non-refundable"
+   ],
+   "url": "https://shop.bearvalley.com/lift-ticket-specials"
+  },
+  {
+   "id": "ikon-session",
+   "title": "Ikon Session Pass (2, 3 or 4 days)",
+   "provider": "Ikon Pass",
+   "type": "flex",
+   "resorts": [
+    "mammoth",
+    "palisades",
+    "sierra"
+   ],
+   "days": 2,
+   "total": 369,
+   "totalFrom": true,
+   "blackout": "Blackouts Dec 26\u201330, Jan 16\u201317, Feb 13\u201314. Lift reservations required.",
+   "expires": null,
+   "expiresNote": "Sales end in December; exact date not posted. Prices rise during the fall.",
+   "notes": [
+    "Split days across Mammoth, June, Palisades, Sierra-at-Tahoe, Big Bear and 40+ others",
+    "Ikon Base Pass upgrade from $1,099"
+   ],
+   "url": "https://www.ikonpass.com/en/shop-passes/ikon-session-pass"
+  },
+  {
+   "id": "china-online",
+   "title": "Buy online in advance",
+   "provider": "China Peak",
+   "type": "advance",
+   "resorts": [
+    "china"
+   ],
+   "days": 1,
+   "total": 139,
+   "blackout": "Limited number of low-price tickets each day. Holiday rates Dec 26\u2013Jan 3, Jan 15\u201317, Feb 12\u201314.",
+   "expires": null,
+   "expiresNote": "Ongoing; cheapest when bought days ahead.",
+   "notes": [
+    "As low as $139 online ($129 early/late season) vs up to $179 at the window"
+   ],
+   "url": "https://skichinapeak.com/lift-tickets"
+  },
+  {
+   "id": "cali-buddy",
+   "title": "Cali Pass Buddy Tickets",
+   "provider": "Cali Pass",
+   "type": "buddy",
+   "resorts": [
+    "dodge",
+    "bear",
+    "china",
+    "mthigh"
+   ],
+   "days": 1,
+   "total": null,
+   "pct": "40\u201350% off",
+   "blackout": "50% off weekdays (non-holiday), 40% off weekends & holidays, off the full-price adult ticket.",
+   "expires": null,
+   "expiresNote": "10 per season, 1 per day; valid through the 26/27 season.",
+   "notes": [
+    "Redeem at any of the 4 Cali Pass resorts",
+    "Example: a $159 Dodge Saturday is about $95 for your friend"
+   ],
+   "url": "https://www.thecalipass.com/buynow"
+  },
+  {
+   "id": "epic-friend",
+   "title": "Epic Friend Tickets",
+   "provider": "Epic Pass",
+   "type": "buddy",
+   "resorts": [
+    "heavenly",
+    "northstar",
+    "kirkwood",
+    "parkcity",
+    "vail",
+    "breck"
+   ],
+   "days": 1,
+   "total": null,
+   "pct": "50% off",
+   "blackout": "50% off the window price for friends 13+, 25% off for kids. Not included with Epic Day Pass.",
+   "expires": null,
+   "expiresNote": "Valid through the 26/27 season.",
+   "notes": [
+    "Sent from your Epic account to any friend",
+    "Friend can apply the cost toward their own Epic Pass"
+   ],
+   "url": "https://www.epicpass.com/friends"
+  },
+  {
+   "id": "ikon-ff",
+   "title": "Ikon Friends & Family tickets",
+   "provider": "Ikon Pass",
+   "type": "buddy",
+   "resorts": [
+    "palisades",
+    "mammoth",
+    "snowbird",
+    "deervalley",
+    "aspen"
+   ],
+   "days": 1,
+   "total": null,
+   "pct": "up to 25% off",
+   "blackout": "Up to 25% off the window rate on days the holder's pass is valid.",
+   "expires": null,
+   "expiresNote": "Valid through the 26/27 season.",
+   "notes": [
+    "Ikon Pass, Base Pass and Palisades lift-pack holders can share them"
+   ],
+   "url": "https://www.palisadestahoe.com/lift-tickets"
+  }
+ ]
+}
