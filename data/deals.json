@@ -3,7 +3,7 @@
  "deals": [
   {
    "id": "epic-day-pass",
-   "title": "Epic Day Pass",
+   "title": "Epic Day Pass · All Resorts",
    "provider": "Vail Resorts (Epic)",
    "type": "flex",
    "resorts": [
@@ -81,9 +81,163 @@
    "expires": "2026-11-15",
    "expiresNote": "Prices go up after Nov 15. Sales usually end in early December.",
    "notes": [
-    "Pick 1\u20137 days now, choose when and where to ride later",
+    "Pick 1–7 days now, choose when and where to ride later",
+    "Includes Vail, Beaver Creek, Breckenridge, Park City and Whistler, which the cheaper versions leave out",
+    "Matching bonus days at Afton Alps, Mt. Brighton and Wilmot",
     "Save 20% on lodging, rentals and dining with Epic Mountain Rewards",
-    "A cheaper 32-resort version is $375 for 4 days",
+    "Does not include Epic Friend Tickets"
+   ],
+   "url": "https://www.skiheavenly.com/plan-your-trip/lift-access/passes/epic-day-pass.aspx"
+  },
+  {
+   "id": "epic-day-pass-32",
+   "title": "Epic Day Pass · 32 Resorts",
+   "provider": "Vail Resorts (Epic)",
+   "type": "flex",
+   "resorts": [
+    "heavenly",
+    "northstar",
+    "kirkwood",
+    "keystone",
+    "crestedbutte",
+    "stevens",
+    "stowe",
+    "okemo",
+    "mountsnow",
+    "hunter",
+    "attitash",
+    "wildcat",
+    "sunapee",
+    "crotched",
+    "liberty",
+    "roundtop",
+    "whitetail",
+    "jackfrost",
+    "bigboulder",
+    "sevensprings",
+    "hiddenvalleypa",
+    "laurel",
+    "wilmot",
+    "afton",
+    "mtbrighton",
+    "bostonmills",
+    "brandywine",
+    "madriver",
+    "alpinevalley",
+    "hiddenvalleymo",
+    "snowcreek",
+    "paoli"
+   ],
+   "tiers": [
+    [
+     1,
+     115
+    ],
+    [
+     2,
+     216
+    ],
+    [
+     3,
+     299
+    ],
+    [
+     4,
+     375
+    ],
+    [
+     5,
+     434
+    ],
+    [
+     6,
+     492
+    ],
+    [
+     7,
+     548
+    ]
+   ],
+   "days": 4,
+   "total": 375,
+   "blackout": "Peak holiday dates not included unless you add Peak Dates (+$65 on a 4-day). No Telluride or Canadian Rockies partner days.",
+   "expires": "2026-11-15",
+   "expiresNote": "Prices go up after Nov 15. Sales usually end in early December.",
+   "notes": [
+    "Same flexible 1–7 days as All Resorts, for about $106 less on 4 days",
+    "Includes Heavenly, Northstar and Kirkwood",
+    "Leaves out Vail, Beaver Creek, Breckenridge, Park City and Whistler",
+    "Does not include Epic Friend Tickets"
+   ],
+   "url": "https://www.skiheavenly.com/plan-your-trip/lift-access/passes/epic-day-pass.aspx"
+  },
+  {
+   "id": "epic-day-pass-22",
+   "title": "Epic Day Pass · 22 Resorts",
+   "provider": "Vail Resorts (Epic)",
+   "type": "flex",
+   "resorts": [
+    "attitash",
+    "wildcat",
+    "sunapee",
+    "crotched",
+    "liberty",
+    "roundtop",
+    "whitetail",
+    "jackfrost",
+    "bigboulder",
+    "sevensprings",
+    "hiddenvalleypa",
+    "laurel",
+    "wilmot",
+    "afton",
+    "mtbrighton",
+    "bostonmills",
+    "brandywine",
+    "madriver",
+    "alpinevalley",
+    "hiddenvalleymo",
+    "snowcreek",
+    "paoli"
+   ],
+   "tiers": [
+    [
+     1,
+     72
+    ],
+    [
+     2,
+     131
+    ],
+    [
+     3,
+     184
+    ],
+    [
+     4,
+     228
+    ],
+    [
+     5,
+     267
+    ],
+    [
+     6,
+     303
+    ],
+    [
+     7,
+     337
+    ]
+   ],
+   "days": 4,
+   "total": 228,
+   "blackout": "Peak holiday dates not included unless you add Peak Dates (+$44 on a 4-day). Smaller Northeast, Mid-Atlantic and Midwest mountains only.",
+   "expires": "2026-11-15",
+   "expiresNote": "Prices go up after Nov 15. Sales usually end in early December.",
+   "notes": [
+    "No Tahoe or Rockies resorts",
+    "Leaves out Stowe, Okemo, Mount Snow and Hunter too",
     "Does not include Epic Friend Tickets"
    ],
    "url": "https://www.skiheavenly.com/plan-your-trip/lift-access/passes/epic-day-pass.aspx"
@@ -125,7 +279,7 @@
    "notes": [
     "Extra days at 50% off the window rate",
     "Friends & Family tickets at 25% off the window rate",
-    "Also: 2-Day Unrestricted $369 \u00b7 4-Day Midweek $390 (no weekends, so not for Sat\u2013Sun trips)"
+    "Also: 2-Day Unrestricted $369 · 4-Day Midweek $390 (no weekends, so not for Sat–Sun trips)"
    ],
    "url": "https://shop.palisadestahoe.com/l/winter-lift-tickets/multi-pack-lift-tickets/p/ticketpacks"
   },
@@ -221,7 +375,7 @@
    "days": 2,
    "total": 369,
    "totalFrom": true,
-   "blackout": "Blackouts Dec 26\u201330, Jan 16\u201317, Feb 13\u201314. Lift reservations required.",
+   "blackout": "Blackouts Dec 26–30, Jan 16–17, Feb 13–14. Lift reservations required.",
    "expires": null,
    "expiresNote": "Sales end in December; exact date not posted. Prices rise during the fall.",
    "notes": [
@@ -240,7 +394,7 @@
    ],
    "days": 1,
    "total": 139,
-   "blackout": "Limited number of low-price tickets each day. Holiday rates Dec 26\u2013Jan 3, Jan 15\u201317, Feb 12\u201314.",
+   "blackout": "Limited number of low-price tickets each day. Holiday rates Dec 26–Jan 3, Jan 15–17, Feb 12–14.",
    "expires": null,
    "expiresNote": "Ongoing; cheapest when bought days ahead.",
    "notes": [
@@ -261,7 +415,7 @@
    ],
    "days": 1,
    "total": null,
-   "pct": "40\u201350% off",
+   "pct": "40–50% off",
    "blackout": "50% off weekdays (non-holiday), 40% off weekends & holidays, off the full-price adult ticket.",
    "expires": null,
    "expiresNote": "10 per season, 1 per day; valid through the 26/27 season.",
