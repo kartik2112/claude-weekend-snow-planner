@@ -55,28 +55,28 @@
  "groups": [
   {
    "id": "cali",
-   "label": "Cali Pass \u00b7 unlimited",
+   "label": "Cali Pass · unlimited",
    "note": "No blackouts. Included with your pass."
   },
   {
    "id": "pa-ca",
-   "label": "Powder Alliance \u00b7 drivable",
-   "note": "3 free days each, Sun\u2013Fri, non-holiday. Saturdays are paid."
+   "label": "Powder Alliance · drivable",
+   "note": "3 free days each, Sun–Fri, non-holiday. Saturdays are paid."
   },
   {
    "id": "tahoe",
-   "label": "Tahoe add-ons \u00b7 paid",
+   "label": "Tahoe add-ons · paid",
    "note": "Not on Cali Pass. Dynamic pricing: buy online early."
   },
   {
    "id": "dest",
-   "label": "Destination trips \u00b7 paid",
+   "label": "Destination trips · paid",
    "note": "Fly or road-trip mountains. Not on Cali Pass."
   },
   {
    "id": "pa-far",
-   "label": "Powder Alliance \u00b7 fly-to",
-   "note": "3 free days each, Sun\u2013Fri, non-holiday."
+   "label": "Powder Alliance · fly-to",
+   "note": "3 free days each, Sun–Fri, non-holiday."
   }
  ],
  "resorts": [
@@ -233,7 +233,8 @@
    "sio": false,
    "open": "2026-11-27",
    "close": "2027-03-28",
-   "openEst": false
+   "openEst": false,
+   "night": "Wed–Sun nights in peak season, until 10pm (West Resort)"
   },
   {
    "id": "sierra",
@@ -311,7 +312,8 @@
    "sio": false,
    "open": "2026-12-26",
    "close": "2027-03-14",
-   "openEst": false
+   "openEst": false,
+   "nightNote": "No night skiing now, only twilight hours on some days"
   },
   {
    "id": "palisades",
@@ -330,7 +332,7 @@
     "hol": 246,
     "win": 289,
     "conf": "range",
-    "note": "Advance online $103\u2013$246 by date; window up to $289. 4-day pack $110/day"
+    "note": "Advance online $103–$246 by date; window up to $289. 4-day pack $110/day"
    },
    "rental": {
     "wk": 89,
@@ -367,7 +369,7 @@
     "hol": 205,
     "win": 284,
     "conf": "range",
-    "note": "Advance online $131\u2013$205 by date; same-day $164\u2013$284. Epic Day Pass from ~$109/day"
+    "note": "Advance online $131–$205 by date; same-day $164–$284. Epic Day Pass from ~$109/day"
    },
    "rental": {
     "wk": 95,
@@ -400,7 +402,7 @@
     "hol": 205,
     "win": 284,
     "conf": "range",
-    "note": "Advance online ~$139\u2013$205; window $219\u2013$284. Epic Day Pass from ~$109/day"
+    "note": "Advance online ~$139–$205; window $219–$284. Epic Day Pass from ~$109/day"
    },
    "rental": {
     "wk": 95,
@@ -445,7 +447,8 @@
    "sio": true,
    "open": "2026-11-21",
    "close": "2027-07-18",
-   "openEst": false
+   "openEst": false,
+   "night": "Fri–Sat nights, 4–9pm, mid-winter"
   },
   {
    "id": "skibowl",
@@ -476,7 +479,8 @@
    "sio": false,
    "open": "2026-11-27",
    "close": "2027-03-28",
-   "openEst": false
+   "openEst": false,
+   "night": "Largest night area in the US, 30+ lit runs; nightly to about 10pm"
   },
   {
    "id": "mission",
@@ -507,7 +511,8 @@
    "sio": false,
    "open": "2026-12-04",
    "close": "2027-04-18",
-   "openEst": false
+   "openEst": false,
+   "night": "Wed–Sat 4–9pm, late Dec–Feb, plus holiday nights"
   },
   {
    "id": "whitepass",
@@ -574,7 +579,7 @@
     "wk": 75,
     "hol": 75,
     "conf": "est",
-    "note": "Last published adult rate $75. Open Wed\u2013Sun"
+    "note": "Last published adult rate $75. Open Wed–Sun"
    },
    "rental": {
     "wk": 45,
@@ -587,7 +592,8 @@
    "sio": false,
    "open": "2026-12-12",
    "close": "2027-04-11",
-   "openEst": false
+   "openEst": false,
+   "night": "Friday Night Lights on select Fridays"
   },
   {
    "id": "blacktail",
@@ -649,7 +655,8 @@
    "sio": true,
    "open": "2026-11-28",
    "close": "2027-03-21",
-   "openEst": false
+   "openEst": false,
+   "night": "Nightly 4:30–10pm, about 175 lit acres"
   },
   {
    "id": "loveland",
@@ -801,7 +808,8 @@
    "sio": true,
    "open": "2026-12-04",
    "close": "2027-03-21",
-   "openEst": false
+   "openEst": false,
+   "night": "Evening skiing on select nights"
   },
   {
    "id": "angelfire",
@@ -832,7 +840,8 @@
    "sio": true,
    "open": "2026-12-11",
    "close": "2027-03-21",
-   "openEst": false
+   "openEst": false,
+   "nightNote": "Night skiing paused for 2026-27 (new lift)"
   },
   {
    "id": "kirkwood",
@@ -916,7 +925,7 @@
     "hol": 259,
     "win": 374,
     "conf": "range",
-    "note": "26/27 advance $202\u2013$259 by date; window $239\u2013$374"
+    "note": "26/27 advance $202–$259 by date; window $239–$374"
    },
    "rental": {
     "wk": 110,
@@ -1020,7 +1029,8 @@
    "sio": true,
    "open": "2026-10-30",
    "close": "2027-04-04",
-   "openEst": false
+   "openEst": false,
+   "night": "Select nights, until about 8pm"
   },
   {
    "id": "crestedbutte",
@@ -1111,7 +1121,8 @@
    "sio": false,
    "open": "2026-12-04",
    "close": "2027-04-11",
-   "openEst": false
+   "openEst": false,
+   "night": "Select nights in peak season, until about 8pm"
   },
   {
    "id": "whistler",
@@ -1296,7 +1307,8 @@
    "sio": true,
    "open": "2026-11-21",
    "close": "2027-04-19",
-   "openEst": false
+   "openEst": false,
+   "night": "Select nights"
   },
   {
    "id": "stoneham",
@@ -1327,7 +1339,8 @@
    "sio": true,
    "open": "2026-12-04",
    "close": "2027-04-04",
-   "openEst": false
+   "openEst": false,
+   "night": "Most nights in season"
   },
   {
    "id": "stowe",
@@ -1567,7 +1580,8 @@
    "sio": false,
    "open": "2026-12-11",
    "close": "2027-03-28",
-   "openEst": false
+   "openEst": false,
+   "night": "Nightly, with Midnight Madness on select Saturdays"
   },
   {
    "id": "liberty",
@@ -1597,7 +1611,8 @@
    "sio": true,
    "open": "2026-12-19",
    "close": "2027-03-14",
-   "openEst": false
+   "openEst": false,
+   "night": "Night skiing most nights in season"
   },
   {
    "id": "roundtop",
@@ -1627,7 +1642,8 @@
    "sio": false,
    "open": "2026-12-12",
    "close": "2027-03-14",
-   "openEst": false
+   "openEst": false,
+   "night": "Night skiing most nights in season"
   },
   {
    "id": "whitetail",
@@ -1657,7 +1673,8 @@
    "sio": false,
    "open": "2026-12-12",
    "close": "2027-03-14",
-   "openEst": false
+   "openEst": false,
+   "night": "Night skiing most nights in season"
   },
   {
    "id": "jackfrost",
@@ -1687,7 +1704,8 @@
    "sio": false,
    "open": "2026-12-04",
    "close": "2027-03-21",
-   "openEst": false
+   "openEst": false,
+   "night": "Night skiing most nights in season"
   },
   {
    "id": "bigboulder",
@@ -1717,7 +1735,8 @@
    "sio": false,
    "open": "2026-12-12",
    "close": "2027-03-14",
-   "openEst": false
+   "openEst": false,
+   "night": "Night skiing most nights in season"
   },
   {
    "id": "sevensprings",
@@ -1747,7 +1766,8 @@
    "sio": true,
    "open": "2026-12-05",
    "close": "2027-03-14",
-   "openEst": false
+   "openEst": false,
+   "night": "Night skiing most nights in season"
   },
   {
    "id": "hiddenvalleypa",
@@ -1777,7 +1797,8 @@
    "sio": true,
    "open": "2026-12-12",
    "close": "2027-03-14",
-   "openEst": false
+   "openEst": false,
+   "night": "Night skiing most nights in season"
   },
   {
    "id": "laurel",
@@ -1807,7 +1828,8 @@
    "sio": false,
    "open": "2026-12-19",
    "close": "2027-03-14",
-   "openEst": true
+   "openEst": true,
+   "night": "Night skiing most nights in season"
   },
   {
    "id": "wilmot",
@@ -1837,7 +1859,8 @@
    "sio": false,
    "open": "2026-12-04",
    "close": "2027-03-07",
-   "openEst": false
+   "openEst": false,
+   "night": "Night skiing most nights in season"
   },
   {
    "id": "afton",
@@ -1867,7 +1890,8 @@
    "sio": false,
    "open": "2026-12-04",
    "close": "2027-03-21",
-   "openEst": false
+   "openEst": false,
+   "night": "Night skiing most nights in season"
   },
   {
    "id": "mtbrighton",
@@ -1897,7 +1921,8 @@
    "sio": false,
    "open": "2026-12-09",
    "close": "2027-03-14",
-   "openEst": false
+   "openEst": false,
+   "night": "Night skiing most nights in season"
   },
   {
    "id": "bostonmills",
@@ -1927,7 +1952,8 @@
    "sio": false,
    "open": "2026-12-18",
    "close": "2027-03-07",
-   "openEst": false
+   "openEst": false,
+   "night": "Night skiing most nights in season"
   },
   {
    "id": "brandywine",
@@ -1957,7 +1983,8 @@
    "sio": false,
    "open": "2026-12-26",
    "close": "2027-03-14",
-   "openEst": false
+   "openEst": false,
+   "night": "Night skiing most nights in season"
   },
   {
    "id": "madriver",
@@ -1987,7 +2014,8 @@
    "sio": false,
    "open": "2026-12-11",
    "close": "2027-03-14",
-   "openEst": false
+   "openEst": false,
+   "night": "Night skiing most nights in season"
   },
   {
    "id": "alpinevalley",
@@ -2017,7 +2045,8 @@
    "sio": false,
    "open": "2026-12-19",
    "close": "2027-03-07",
-   "openEst": false
+   "openEst": false,
+   "night": "Night skiing most nights in season"
   },
   {
    "id": "hiddenvalleymo",
@@ -2047,7 +2076,8 @@
    "sio": false,
    "open": "2026-12-12",
    "close": "2027-03-07",
-   "openEst": false
+   "openEst": false,
+   "night": "Night skiing most nights in season"
   },
   {
    "id": "snowcreek",
@@ -2077,7 +2107,8 @@
    "sio": false,
    "open": "2026-12-26",
    "close": "2027-03-07",
-   "openEst": false
+   "openEst": false,
+   "night": "Night skiing most nights in season"
   },
   {
    "id": "paoli",
@@ -2107,7 +2138,8 @@
    "sio": false,
    "open": "2026-12-18",
    "close": "2027-03-07",
-   "openEst": false
+   "openEst": false,
+   "night": "Night skiing most nights in season"
   },
   {
    "id": "mammoth",
@@ -2189,7 +2221,7 @@
     "wk": 269,
     "hol": 349,
     "conf": "range",
-    "note": "26/27 window up to $349 ($309 online); weekday ~$219. Ski only \u2014 no snowboarding at Deer Valley"
+    "note": "26/27 window up to $349 ($309 online); weekday ~$219. Ski only — no snowboarding at Deer Valley"
    },
    "rental": {
     "wk": 100,
@@ -2237,32 +2269,32 @@
  "epicGroups": [
   {
    "id": "epic-tahoe",
-   "label": "Epic \u00b7 Tahoe",
+   "label": "Epic · Tahoe",
    "note": "Drivable. Unlimited on Epic Pass."
   },
   {
    "id": "epic-ne",
-   "label": "Epic \u00b7 Northeast",
+   "label": "Epic · Northeast",
    "note": "Unlimited on Epic Pass."
   },
   {
    "id": "epic-ma",
-   "label": "Epic \u00b7 Mid-Atlantic",
+   "label": "Epic · Mid-Atlantic",
    "note": "Unlimited on Epic Pass."
   },
   {
    "id": "epic-west",
-   "label": "Epic \u00b7 Rockies & West",
+   "label": "Epic · Rockies & West",
    "note": "Unlimited, except Telluride (7 days)."
   },
   {
    "id": "epic-canada",
-   "label": "Epic \u00b7 Canada",
+   "label": "Epic · Canada",
    "note": "Whistler unlimited; 6 Canadian Rockies partners share 7 days."
   },
   {
    "id": "epic-mw",
-   "label": "Epic \u00b7 Midwest",
+   "label": "Epic · Midwest",
    "note": "Unlimited on Epic Pass."
   }
  ],
