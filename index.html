@@ -402,7 +402,6 @@ table.be td{text-align:right;padding:7px 6px;border-bottom:1px solid var(--line)
       <label class="tog" for="cali" id="caliLbl"><input type="checkbox" id="cali" checked><span class="sw"></span>I have a Cali Pass</label>
       <label class="tog" for="epic"><input type="checkbox" id="epic"><span class="sw"></span>I have an Epic Pass</label>
       <label class="tog" for="beg"><input type="checkbox" id="beg"><span class="sw"></span>Beginner tickets</label>
-      <label class="tog" for="openOnly"><input type="checkbox" id="openOnly"><span class="sw"></span>Open this weekend</label>
       <label class="tog" for="sio"><input type="checkbox" id="sio"><span class="sw"></span>Ski-in/ski-out only</label>
       <label class="tog" for="nightOnly"><input type="checkbox" id="nightOnly"><span class="sw"></span>Night or twilight skiing</label>
       <label class="tog" for="favOnly"><input type="checkbox" id="favOnly"><span class="sw"></span>Favorites only</label>
@@ -467,8 +466,8 @@ table.be td{text-align:right;padding:7px 6px;border-bottom:1px solid var(--line)
 (function(){
 "use strict";
 const $=s=>document.querySelector(s);
-const S={mode:"wk",cali:true,gearAll:false,gear:{},v:3,epic:false,groups:{cali:true,"pa-ca":true,tahoe:true,dest:true,"pa-far":true,"epic-tahoe":true,"epic-west":true,"epic-canada":true,"epic-mw":true},collapsed:{"pa-ca":true,dest:true,"pa-far":true,"epic-canada":true,"epic-ne":true,"epic-ma":true,"epic-mw":true},sort:"drive",view:"grid",fav:{},nope:{},dfav:{},dnope:{},showHidden:false,favOnly:false,dealRes:[],dealType:"all",dealHidden:false,dealFav:false,start:"754 The Alameda, San Jose, CA",roads:false,sio:false,nightOnly:false,openOnly:false,showHi:true,showLo:true,unit:"F",beg:false};
-try{const saved=JSON.parse(localStorage.getItem("snowplanner")||"null");if(saved){const g=Object.assign({},S.groups,saved.groups||{}),c=saved.v===3?Object.assign({},S.collapsed,saved.collapsed||{}):saved.v===2?Object.assign({},S.collapsed,saved.collapsed||{},{"epic-ne":false,"epic-ma":false}):Object.assign({},S.collapsed);if(saved.v!==3&&saved.groups){g["epic-ne"]=true;g["epic-ma"]=true;}delete saved.v;Object.assign(S,saved);S.groups=g;S.collapsed=c;}}catch(e){}
+const S={mode:"wk",cali:true,gearAll:false,gear:{},v:3,epic:false,groups:{cali:true,"pa-ca":true,tahoe:true,dest:true,"pa-far":true,"epic-tahoe":true,"epic-west":true,"epic-canada":true,"epic-mw":true},collapsed:{"pa-ca":true,dest:true,"pa-far":true,"epic-canada":true,"epic-ne":true,"epic-ma":true,"epic-mw":true},sort:"drive",view:"grid",fav:{},nope:{},dfav:{},dnope:{},showHidden:false,favOnly:false,dealRes:[],dealType:"all",dealHidden:false,dealFav:false,start:"754 The Alameda, San Jose, CA",roads:false,sio:false,nightOnly:false,showHi:true,showLo:true,unit:"F",beg:false};
+try{const saved=JSON.parse(localStorage.getItem("snowplanner")||"null");if(saved){const g=Object.assign({},S.groups,saved.groups||{}),c=saved.v===3?Object.assign({},S.collapsed,saved.collapsed||{}):saved.v===2?Object.assign({},S.collapsed,saved.collapsed||{},{"epic-ne":false,"epic-ma":false}):Object.assign({},S.collapsed);if(saved.v!==3&&saved.groups){g["epic-ne"]=true;g["epic-ma"]=true;}delete saved.v;delete saved.openOnly;Object.assign(S,saved);S.groups=g;S.collapsed=c;}}catch(e){}
 function save(){try{localStorage.setItem("snowplanner",JSON.stringify(S));}catch(e){}}
 
 let R,F,C,dayIdx={},weekends=[];
@@ -526,8 +525,7 @@ function fresh(rid,date){const r=F.r[rid];if(!r)return null;let t=0,n=0;for(let 
 const groupOf=r=>S.epic?r.epicGroup:r.group;
 const activeGroups=()=>S.epic?R.epicGroups:R.groups;
 const isOpen=(r,d)=>!r.open||(d>=r.open&&d<=r.close);
-const openWk=r=>datesFor(weekends[0]).some(d=>isOpen(r,d));
-const sioOK=r=>(!S.sio||r.sio)&&(!S.nightOnly||!!r.night||!!r.twilight)&&(!S.openOnly||openWk(r))&&(S.showHidden||!S.nope[r.id])&&(!S.favOnly||S.fav[r.id]);
+const sioOK=r=>(!S.sio||r.sio)&&(!S.nightOnly||!!r.night||!!r.twilight)&&(S.showHidden||!S.nope[r.id])&&(!S.favOnly||S.fav[r.id]);
 function visibleResorts(){return R.resorts.filter(r=>{const g=groupOf(r);return g&&S.groups[g]&&!S.collapsed[g]&&sioOK(r);});}
 function clim(rid,sat){const wi=C.sats.indexOf(sat);const r=C.r[rid];if(wi<0||!r)return null;return{hi:r.hi[wi],lo:r.lo[wi],sp:r.sp[wi],sa:r.sa[wi]};}
 function daysOut(date){return Math.round((pd(date)-pd(today))/864e5);}
@@ -609,7 +607,7 @@ function sortVal(r){
 function render(){
  const wrap=$("#gridwrap");const mode=S.mode;
  document.querySelectorAll("#modeSeg button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.mode===mode)));
- $("#cali").checked=S.cali;$("#sio").checked=S.sio;$("#nightOnly").checked=!!S.nightOnly;$("#favOnly").checked=S.favOnly;$("#showHidden").checked=S.showHidden;{const n=Object.keys(S.nope).filter(k=>S.nope[k]).length;$("#hcount").textContent=n?` (${n})`:"";}$("#openOnly").checked=S.openOnly;$("#epic").checked=S.epic;$("#caliLbl").classList.toggle("off",S.epic);$("#beg").closest(".tog").classList.toggle("off",S.epic);$("#beg").checked=S.beg;$("#gearAll").checked=S.gearAll;$("#sort").value=S.sort;
+ $("#cali").checked=S.cali;$("#sio").checked=S.sio;$("#nightOnly").checked=!!S.nightOnly;$("#favOnly").checked=S.favOnly;$("#showHidden").checked=S.showHidden;{const n=Object.keys(S.nope).filter(k=>S.nope[k]).length;$("#hcount").textContent=n?` (${n})`:"";}$("#epic").checked=S.epic;$("#caliLbl").classList.toggle("off",S.epic);$("#beg").closest(".tog").classList.toggle("off",S.epic);$("#beg").checked=S.beg;$("#gearAll").checked=S.gearAll;$("#sort").value=S.sort;
  document.querySelectorAll("#unitSeg button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.u===S.unit)));
  $("#tHi").setAttribute("aria-pressed",String(S.showHi));$("#tLo").setAttribute("aria-pressed",String(S.showLo));
  renderFilters();
@@ -964,7 +962,6 @@ $("#sio").addEventListener("change",e=>{S.sio=e.target.checked;render();});
 $("#nightOnly").addEventListener("change",e=>{S.nightOnly=e.target.checked;render();});
 $("#favOnly").addEventListener("change",e=>{S.favOnly=e.target.checked;render();});
 $("#showHidden").addEventListener("change",e=>{S.showHidden=e.target.checked;render();});
-$("#openOnly").addEventListener("change",e=>{S.openOnly=e.target.checked;render();});
 $("#epic").addEventListener("change",e=>{S.epic=e.target.checked;render();});
 $("#dealswrap").addEventListener("change",e=>{
  if(e.target.id==="dCali"){const c=$("#cali");c.checked=e.target.checked;c.dispatchEvent(new Event("change"));}
