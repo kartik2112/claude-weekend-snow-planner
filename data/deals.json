@@ -1,5 +1,5 @@
 {
- "checked": "2026-11-12",
+ "checked": "2026-11-17",
  "deals": [
   {
    "id": "epic-day-pass",
@@ -78,8 +78,8 @@
    "days": 4,
    "total": 481,
    "blackout": "Peak holiday dates not included unless you add Peak Dates (+$87 on a 4-day). 4- to 7-day passes also cover Telluride and the 6 Canadian Rockies partners.",
-   "expires": "2026-11-15",
-   "expiresNote": "Prices go up after Nov 15. Sales usually end in early December.",
+   "expires": "2026-12-06",
+   "expiresNote": "Passes go off sale December 6. Prices held after Nov 15.",
    "notes": [
     "Pick 1–7 days now, choose when and where to ride later",
     "Includes Vail, Beaver Creek, Breckenridge, Park City and Whistler, which the cheaper versions leave out",
@@ -161,8 +161,8 @@
    "days": 4,
    "total": 375,
    "blackout": "Peak holiday dates not included unless you add Peak Dates (+$65 on a 4-day). No Telluride or Canadian Rockies partner days.",
-   "expires": "2026-11-15",
-   "expiresNote": "Prices go up after Nov 15. Sales usually end in early December.",
+   "expires": "2026-12-06",
+   "expiresNote": "Passes go off sale December 6. Prices held after Nov 15.",
    "notes": [
     "Same flexible 1–7 days as All Resorts, for about $106 less on 4 days",
     "Includes Heavenly, Northstar and Kirkwood",
@@ -233,8 +233,8 @@
    "days": 4,
    "total": 228,
    "blackout": "Peak holiday dates not included unless you add Peak Dates (+$44 on a 4-day). Smaller Northeast, Mid-Atlantic and Midwest mountains only.",
-   "expires": "2026-11-15",
-   "expiresNote": "Prices go up after Nov 15. Sales usually end in early December.",
+   "expires": "2026-12-06",
+   "expiresNote": "Passes go off sale December 6. Prices held after Nov 15.",
    "notes": [
     "No Tahoe or Rockies resorts",
     "Leaves out Stowe, Okemo, Mount Snow and Hunter too",
@@ -253,15 +253,15 @@
    "days": 4,
    "total": 499,
    "blackout": "No blackout dates. Valid at Mammoth and June Mountain.",
-   "expires": null,
-   "expiresNote": "Limited-time offer; end date not posted. Summer price was $100/day, now $125/day.",
+   "expires": "2026-11-17",
+   "expiresNote": "Part of Pre-Season Savings, which says book by Nov 16; the page countdown runs out Nov 17.",
    "notes": [
     "Any 4 days, all season",
     "30% off extra days once the 4 are used",
     "Add a Rental Quad Pack at checkout for up to 50% off rentals",
     "One person only; non-refundable"
    ],
-   "url": "https://www.mammothmountain.com/plan-your-trip/deals-and-packages/quad-pack-winter"
+   "url": "https://www.mammothmountain.com/plan-your-trip/deals-and-packages/pre-season-savings"
   },
   {
    "id": "palisades-4",
@@ -354,8 +354,8 @@
    "total": 316,
    "alt": "2 days for $208",
    "blackout": "No blackout dates.",
-   "expires": null,
-   "expiresNote": "Unused days expire at the end of the 26/27 season. No sale end date posted.",
+   "expires": "2026-11-30",
+   "expiresNote": "Bear Valley's multi-day pack sale ends Nov 30. Unused days expire at the end of the 26/27 season.",
    "notes": [
     "One card, one person (ages 13+)",
     "Non-refundable"
@@ -376,13 +376,27 @@
    "total": 369,
    "totalFrom": true,
    "blackout": "Blackouts Dec 26–30, Jan 16–17, Feb 13–14. Lift reservations required.",
-   "expires": null,
-   "expiresNote": "Sales end in December; exact date not posted. Prices rise during the fall.",
+   "expires": "2026-12-10",
+   "expiresNote": "Ikon's listed prices are valid through Dec 10, 2026.",
    "notes": [
     "Split days across Mammoth, June, Palisades, Sierra-at-Tahoe, Big Bear and 40+ others",
     "Ikon Base Pass upgrade from $1,099"
    ],
-   "url": "https://www.ikonpass.com/en/shop-passes/ikon-session-pass"
+   "url": "https://www.ikonpass.com/en/shop-passes/ikon-session-pass",
+   "tiers": [
+    [
+     2,
+     369
+    ],
+    [
+     3,
+     499
+    ],
+    [
+     4,
+     599
+    ]
+   ]
   },
   {
    "id": "china-online",
@@ -394,7 +408,7 @@
    ],
    "days": 1,
    "total": 139,
-   "blackout": "Limited number of low-price tickets each day. Holiday rates Dec 26–Jan 3, Jan 15–17, Feb 12–14.",
+   "blackout": "Limited number of low-price tickets each day. Holiday dates Dec 26–Jan 3, Jan 16–17, Feb 13–14.",
    "expires": null,
    "expiresNote": "Ongoing; cheapest when bought days ahead.",
    "notes": [
@@ -418,7 +432,7 @@
    "pct": "40–50% off",
    "blackout": "50% off weekdays (non-holiday), 40% off weekends & holidays, off the full-price adult ticket.",
    "expires": null,
-   "expiresNote": "10 per season, 1 per day; valid through the 26/27 season.",
+   "expiresNote": "10 per season, 1 per day; valid through the 26/27 season. Cali Pass sales end Nov 30.",
    "notes": [
     "Redeem at any of the 4 Cali Pass resorts",
     "Example: a $159 Dodge Saturday is about $95 for your friend"
@@ -472,6 +486,65 @@
     "Ikon Pass, Base Pass and Palisades lift-pack holders can share them"
    ],
    "url": "https://www.palisadestahoe.com/lift-tickets"
+  },
+  {
+   "id": "palisades-opening-99",
+   "title": "$99 opening-week lift tickets",
+   "provider": "Palisades Tahoe",
+   "type": "advance",
+   "resorts": [
+    "palisades"
+   ],
+   "days": 1,
+   "total": 99,
+   "blackout": "Valid Nov 21–24, 2026 only. Regular pricing after that.",
+   "expires": "2026-11-24",
+   "expiresNote": "Only for Nov 21–24, 2026.",
+   "notes": [
+    "Season kicks off early on Sat Nov 21",
+    "Buy online or at the Ticket & Pass Office",
+    "Can't be combined with other discounts"
+   ],
+   "url": "https://www.palisadestahoe.com/lift-tickets"
+  },
+  {
+   "id": "snowbird-flex5",
+   "title": "Flex-5 Pass",
+   "provider": "Snowbird",
+   "type": "flex",
+   "resorts": [
+    "snowbird"
+   ],
+   "days": 5,
+   "total": 679,
+   "blackout": "No blackout dates; days don't have to be consecutive.",
+   "expires": "2026-12-16",
+   "expiresNote": "Goes off sale Dec 16.",
+   "notes": [
+    "Any 5 days of the 26/27 season",
+    "Same $679 price for all ages, plus 7.45% tax"
+   ],
+   "url": "https://www.snowbird.com/flex-5-pass/"
+  },
+  {
+   "id": "sierra-2of3",
+   "title": "2-of-3 Day Ticket",
+   "provider": "Sierra-at-Tahoe",
+   "type": "pack",
+   "resorts": [
+    "sierra"
+   ],
+   "days": 2,
+   "total": 290,
+   "blackout": "Use 2 days within a 3-day window; expires after the third day.",
+   "expires": null,
+   "expiresNote": "No end date posted.",
+   "notes": [
+    "$145/day adult",
+    "Gives a spare day if weather turns",
+    "Weekend parking reservation required"
+   ],
+   "url": "https://sierraattahoe.com/lift-tickets/"
   }
  ]
 }

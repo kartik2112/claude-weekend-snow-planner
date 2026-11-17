@@ -1,5 +1,5 @@
 {
- "checked": "2026-11-12",
+ "checked": "2026-11-17",
  "holidays": [
   {
    "sat": "2026-11-28",
@@ -114,7 +114,7 @@
    },
    "sio": false,
    "open": "2026-12-26",
-   "close": "2027-03-14",
+   "close": "2027-04-04",
    "openEst": false,
    "packs": [
     [
@@ -192,15 +192,15 @@
     "note": "26/27 online from $139 (early/late season $129); resort rate up to $179"
    },
    "rental": {
-    "wk": 60,
-    "conf": "est"
+    "wk": 77,
+    "conf": "pub"
    },
    "lat": 37.236,
    "lon": -119.157,
    "elev": 2380,
    "begNote": "No beginner-only ticket on sale. Carpet-only access comes only with lesson packages",
    "sio": true,
-   "open": "2026-11-27",
+   "open": "2026-11-21",
    "close": "2027-03-28",
    "openEst": false
   },
@@ -302,8 +302,8 @@
     "note": "Last published weekend adult rate $109"
    },
    "rental": {
-    "wk": 55,
-    "conf": "est"
+    "wk": 50,
+    "conf": "pub"
    },
    "lat": 41.32,
    "lon": -122.204,
@@ -431,14 +431,14 @@
    "tickets": "https://www.timberlinelodge.com/",
    "pa": "https://www.powderalliance.com/resorts-details/timberline",
    "price": {
-    "wk": 134,
-    "hol": 144,
+    "wk": 161,
+    "hol": 161,
     "conf": "est",
-    "note": "Last published adult rate $124"
+    "note": "Latest published adult rate $161 on peak days (Sat–Sun), $129 weekdays; 26/27 rates post when winter sales open"
    },
    "rental": {
-    "wk": 60,
-    "conf": "est"
+    "wk": 65,
+    "conf": "pub"
    },
    "lat": 45.331,
    "lon": -121.711,
@@ -501,8 +501,8 @@
     "note": "Last published adult rate $95"
    },
    "rental": {
-    "wk": 55,
-    "conf": "est"
+    "wk": 63,
+    "conf": "pub"
    },
    "lat": 47.293,
    "lon": -120.399,
@@ -545,14 +545,14 @@
     ]
    ],
    "price": {
-    "wk": 95,
-    "hol": 105,
-    "conf": "est",
-    "note": "Last published adult rate $85"
+    "wk": 119,
+    "hol": 119,
+    "conf": "range",
+    "note": "26/27 online only, dynamic: peak days (Fri–Sun and holidays) from $89, never more than $119"
    },
    "rental": {
-    "wk": 50,
-    "conf": "est"
+    "wk": 54,
+    "conf": "pub"
    },
    "lat": 46.637,
    "lon": -121.391,
@@ -576,14 +576,14 @@
    "tickets": "https://www.skijuneau.com/",
    "pa": "https://www.powderalliance.com/resorts-details/eaglecrest-ski-area",
    "price": {
-    "wk": 75,
-    "hol": 75,
-    "conf": "est",
-    "note": "Last published adult rate $75. Open Wed–Sun"
+    "wk": 85,
+    "hol": 85,
+    "conf": "pub",
+    "note": "26/27 adult full day $85 (half day $70). Open Wed–Sun"
    },
    "rental": {
-    "wk": 45,
-    "conf": "est"
+    "wk": 54,
+    "conf": "pub"
    },
    "lat": 58.271,
    "lon": -134.517,
@@ -593,7 +593,13 @@
    "open": "2026-12-12",
    "close": "2027-04-11",
    "openEst": false,
-   "night": "Friday Night Lights on select Fridays"
+   "night": "Friday Night Lights on select Fridays",
+   "beg": {
+    "wk": 60,
+    "hol": 60,
+    "conf": "pub",
+    "note": "Lower Mountain ticket covers the Hooter and Porcupine chairs"
+   }
   },
   {
    "id": "blacktail",
@@ -672,13 +678,13 @@
    "pa": "https://www.powderalliance.com/resorts-details/loveland-ski-area",
    "price": {
     "wk": 159,
-    "hol": 169,
-    "conf": "est",
-    "note": "Last published adult rate $149"
+    "hol": 159,
+    "conf": "pub",
+    "note": "26/27 regular-season window $159 (early season $119); buying online ahead is cheaper"
    },
    "rental": {
     "wk": 60,
-    "conf": "est"
+    "conf": "pub"
    },
    "lat": 39.68,
    "lon": -105.898,
@@ -687,7 +693,13 @@
    "sio": false,
    "open": "2026-11-07",
    "close": "2027-05-09",
-   "openEst": false
+   "openEst": false,
+   "beg": {
+    "wk": 60,
+    "hol": 60,
+    "conf": "pub",
+    "note": "Loveland Valley ticket covers the separate beginner area only"
+   }
   },
   {
    "id": "silver",
@@ -717,9 +729,9 @@
    ],
    "price": {
     "wk": 76,
-    "hol": 86,
+    "hol": 80,
     "conf": "pub",
-    "note": "Last published weekend adult rate $76"
+    "note": "26/27 online advance adult: $76 weekends, $80 holidays ($64 midweek)"
    },
    "rental": {
     "wk": 50,
@@ -747,14 +759,14 @@
    "tickets": "https://www.skicooper.com/",
    "pa": "https://www.powderalliance.com/resorts-details/ski-cooper",
    "price": {
-    "wk": 79,
-    "hol": 89,
-    "conf": "est",
-    "note": "Estimate"
+    "wk": 99,
+    "hol": 99,
+    "conf": "pub",
+    "note": "26/27 adult $99 weekends and holidays ($49 weekdays)"
    },
    "rental": {
-    "wk": 50,
-    "conf": "est"
+    "wk": 45,
+    "conf": "pub"
    },
    "lat": 39.361,
    "lon": -106.301,
@@ -830,8 +842,8 @@
     "note": "Last published adult rate $122"
    },
    "rental": {
-    "wk": 60,
-    "conf": "est"
+    "wk": 55,
+    "conf": "pub"
    },
    "lat": 36.385,
    "lon": -105.278,
@@ -2170,7 +2182,13 @@
    "sio": true,
    "open": "2026-11-05",
    "close": "2027-06-06",
-   "openEst": false
+   "openEst": false,
+   "beg": {
+    "wk": 109,
+    "hol": 109,
+    "conf": "range",
+    "note": "Adult (13+) Beginner ticket $89–$109 by date; covers Chairs 7, 11, 15 and 17"
+   }
   },
   {
    "id": "snowbird",
@@ -2201,7 +2219,13 @@
    "sio": true,
    "open": "2026-11-27",
    "close": "2027-05-31",
-   "openEst": false
+   "openEst": false,
+   "beg": {
+    "wk": 42,
+    "hol": 42,
+    "conf": "pub",
+    "note": "Chickadee-only ticket for the beginner lift"
+   }
   },
   {
    "id": "deervalley",
@@ -2232,7 +2256,13 @@
    "sio": true,
    "open": "2026-12-05",
    "close": "2027-03-28",
-   "openEst": false
+   "openEst": false,
+   "beg": {
+    "wk": 68,
+    "hol": 68,
+    "conf": "pub",
+    "note": "Learning Area ticket, $68 for all ages"
+   }
   },
   {
    "id": "aspen",
