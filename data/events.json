@@ -1,0 +1,1238 @@
+{
+"checked": "2026-11-19",
+"note": "From each resort's events calendar on Nov 19, 2026. Items marked Est. aren't posted for 26/27 yet; dates are projected from last season.",
+"kinds": {
+"apres": "Après",
+"music": "Live music",
+"party": "Party",
+"comp": "Competition",
+"fest": "Festival",
+"family": "Clinic / family"
+},
+"events": [
+{
+"r": "dodge",
+"n": "6600 ft Music Series",
+"k": "music",
+"t": "Late morning–afternoon",
+"d": "Live bands at the lodge on select weekends. 26/27 lineup not posted; last season had shows Sun Feb 1 and Sat Feb 7.",
+"days": [
+6,
+0
+],
+"sel": true,
+"est": true,
+"from": "2027-01-09",
+"to": "2027-03-21",
+"u": "https://dodgeridge.com/events/"
+},
+{
+"r": "dodge",
+"n": "Never Summer demo days",
+"k": "family",
+"t": "9am–3pm",
+"d": "Free snowboard demos over MLK weekend (Jan 18–19 last season).",
+"dates": [
+"2027-01-16",
+"2027-01-17"
+],
+"est": true,
+"u": "https://dodgeridge.com/events/"
+},
+{
+"r": "dodge",
+"n": "Dave Dow & Friends",
+"k": "music",
+"t": "11am",
+"d": "Annual live-music day; Sat Jan 24 last season.",
+"dates": [
+"2027-01-23"
+],
+"est": true,
+"u": "https://dodgeridge.com/events/"
+},
+{
+"r": "dodge",
+"n": "Boarding for Breast Cancer (B4BC)",
+"k": "party",
+"d": "Fundraiser day with music, raffles and costumes; Sun Feb 1 last season.",
+"dates": [
+"2027-01-31"
+],
+"est": true,
+"u": "https://dodgeridge.com/events/"
+},
+{
+"r": "dodge",
+"n": "Chicks on Stix",
+"k": "family",
+"d": "Women's ski & ride day; Sat Feb 28 last season.",
+"dates": [
+"2027-02-27"
+],
+"est": true,
+"u": "https://dodgeridge.com/events/"
+},
+{
+"r": "dodge",
+"n": "Ryan Lavagnino Classic",
+"k": "comp",
+"d": "Memorial race weekend; Mar 5–8 last season.",
+"from": "2027-03-05",
+"to": "2027-03-07",
+"est": true,
+"u": "https://dodgeridge.com/events/"
+},
+{
+"r": "dodge",
+"n": "Passholder Appreciation Day",
+"k": "party",
+"d": "Season-closing party for passholders; Sun Mar 15 last season.",
+"dates": [
+"2027-03-14"
+],
+"est": true,
+"u": "https://dodgeridge.com/events/"
+},
+{
+"r": "bear",
+"n": "Cal Band weekend",
+"k": "music",
+"d": "100+ member Cal Band plays around the resort, skis Cub Meadow, and plays the Bear Valley Lodge at night (Jan 9–10 last season).",
+"dates": [
+"2027-01-08",
+"2027-01-09"
+],
+"est": true,
+"u": "https://www.bearvalley.com/"
+},
+{
+"r": "bear",
+"n": "Winter Explosion",
+"k": "party",
+"d": "Torchlight parade + fireworks, Murphys on the Mountain wine tasting, DJ 3–7pm. Saturday of MLK weekend.",
+"dates": [
+"2027-01-16"
+],
+"est": true,
+"u": "https://www.bearvalley.com/"
+},
+{
+"r": "bear",
+"n": "B4BC weekend",
+"k": "party",
+"d": "Friday pre-party with live music at Sky High Pizza, Saturday on-mountain fundraiser (Jan 30–31 last season).",
+"dates": [
+"2027-01-29",
+"2027-01-30"
+],
+"est": true,
+"u": "https://www.bearvalley.com/"
+},
+{
+"r": "bear",
+"n": "Bjornloppet XC race",
+"k": "comp",
+"d": "Cross-country ski race weekend at Bear Valley Adventure Co. (Mar 7–8 last season).",
+"dates": [
+"2027-03-06",
+"2027-03-07"
+],
+"est": true,
+"u": "https://www.bearvalley.com/"
+},
+{
+"r": "bear",
+"n": "Après live music",
+"k": "apres",
+"t": "3:30–7pm",
+"d": "Live music at Maury's Mustang Bar / Bear Valley Lodge on event weekends.",
+"days": [
+6
+],
+"sel": true,
+"est": true,
+"from": "2026-12-19",
+"to": "2027-03-27",
+"u": "https://www.bearvalley.com/"
+},
+{
+"r": "china",
+"n": "Lodge-bar après",
+"k": "apres",
+"d": "No 26/27 events posted yet. Live music at the base lodge and Buckhorn Bar & Grill on some weekends; check the calendar.",
+"days": [
+6
+],
+"sel": true,
+"est": true,
+"from": "2026-12-19",
+"to": "2027-03-27",
+"u": "https://www.skichinapeak.com/events-calendar"
+},
+{
+"r": "mthigh",
+"n": "DJs on the West Deck",
+"k": "apres",
+"d": "Guest DJ sets on the West Deck on select weekends (26/27 dates not posted).",
+"days": [
+6,
+0
+],
+"sel": true,
+"est": true,
+"from": "2026-12-19",
+"to": "2027-03-14",
+"u": "https://www.mthigh.com/site/events"
+},
+{
+"r": "mthigh",
+"n": "H2O Winter Classic",
+"k": "comp",
+"d": "Snowboard + surf combined contest: snowboarding here, surfing next day at Palm Springs Surf Club.",
+"dates": [
+"2027-02-20",
+"2027-02-21"
+],
+"u": "https://www.mthigh.com/site/events"
+},
+{
+"r": "mthigh",
+"n": "Spring Jam",
+"k": "party",
+"d": "Free DJ party 11am–3pm, rail jam, snowball toss, frozen T-shirt contest (Sat Mar 14 last season).",
+"dates": [
+"2027-03-13"
+],
+"est": true,
+"u": "https://www.mthigh.com/site/events"
+},
+{
+"r": "sierra",
+"n": "Weekend live music",
+"k": "music",
+"t": "2–5pm",
+"d": "Bands on the Plaza / Golden Bear Terrace (e.g. The Imposters last season). 26/27 calendar not posted.",
+"days": [
+6,
+0
+],
+"sel": true,
+"est": true,
+"from": "2026-12-19",
+"to": "2027-03-28",
+"u": "https://www.sierraattahoe.com/events/"
+},
+{
+"r": "sierra",
+"n": "Fish Taco Friday at Riva Grill",
+"k": "apres",
+"t": "Evening, South Lake Tahoe",
+"d": "Sierra's Friday après in South Lake Tahoe, with live music.",
+"days": [
+5
+],
+"est": true,
+"from": "2027-01-08",
+"to": "2027-03-26",
+"u": "https://www.sierraattahoe.com/events/"
+},
+{
+"r": "sierra",
+"n": "Spring Après Party",
+"k": "party",
+"d": "Golden Bear Terrace party to wind down winter (Sat Mar 21 last season).",
+"dates": [
+"2027-03-20"
+],
+"est": true,
+"u": "https://www.sierraattahoe.com/events/"
+},
+{
+"r": "sierra",
+"n": "Pond Skim",
+"k": "comp",
+"d": "Closing-week pond skim (Sun Mar 29 last season).",
+"dates": [
+"2027-03-28"
+],
+"est": true,
+"u": "https://www.sierraattahoe.com/events/"
+},
+{
+"r": "shasta",
+"n": "Pre-Season Party",
+"k": "party",
+"t": "5–8:30pm",
+"d": "Live music from Brothers Reed + Warren Miller's 'Days Off'. Free meal for passholders.",
+"dates": [
+"2026-12-05"
+],
+"u": "https://www.skipark.com/ski-park-events"
+},
+{
+"r": "shasta",
+"n": "Live music: Jimmy Limo",
+"k": "apres",
+"t": "2–5pm",
+"d": "Free live music in the lodge.",
+"dates": [
+"2026-12-11"
+],
+"u": "https://www.skipark.com/ski-park-events"
+},
+{
+"r": "shasta",
+"n": "Live music: The North Band",
+"k": "apres",
+"t": "2–5pm",
+"d": "Free live music in the lodge.",
+"dates": [
+"2026-12-12"
+],
+"u": "https://www.skipark.com/ski-park-events"
+},
+{
+"r": "shasta",
+"n": "Live music: Jackalope Blue",
+"k": "apres",
+"t": "2–5pm",
+"d": "Free live music in the lodge.",
+"dates": [
+"2026-12-19"
+],
+"u": "https://www.skipark.com/ski-park-events"
+},
+{
+"r": "shasta",
+"n": "Live music: Rick Garrett",
+"k": "apres",
+"t": "2–5pm",
+"d": "Free live music in the lodge.",
+"dates": [
+"2026-12-26"
+],
+"u": "https://www.skipark.com/ski-park-events"
+},
+{
+"r": "shasta",
+"n": "Live music: Michelle Lambert Duo",
+"k": "apres",
+"t": "2–5pm",
+"d": "Free live music in the lodge.",
+"dates": [
+"2027-01-01"
+],
+"u": "https://www.skipark.com/ski-park-events"
+},
+{
+"r": "shasta",
+"n": "Live music: Kevin Conness",
+"k": "apres",
+"t": "2–5pm",
+"d": "Free live music in the lodge.",
+"dates": [
+"2027-01-02"
+],
+"u": "https://www.skipark.com/ski-park-events"
+},
+{
+"r": "shasta",
+"n": "Live music: Rabbit Townsend",
+"k": "apres",
+"t": "2–5pm",
+"d": "Free live music in the lodge.",
+"dates": [
+"2027-01-09"
+],
+"u": "https://www.skipark.com/ski-park-events"
+},
+{
+"r": "shasta",
+"n": "Live music: Brothers Reed",
+"k": "apres",
+"t": "2–5pm",
+"d": "Free live music in the lodge.",
+"dates": [
+"2027-01-15"
+],
+"u": "https://www.skipark.com/ski-park-events"
+},
+{
+"r": "shasta",
+"n": "Live music: Wilder",
+"k": "apres",
+"t": "2–5pm",
+"d": "Free live music in the lodge.",
+"dates": [
+"2027-01-16"
+],
+"u": "https://www.skipark.com/ski-park-events"
+},
+{
+"r": "shasta",
+"n": "Live music: Blü Egyptian",
+"k": "apres",
+"t": "2–5pm",
+"d": "Free live music in the lodge.",
+"dates": [
+"2027-01-23"
+],
+"u": "https://www.skipark.com/ski-park-events"
+},
+{
+"r": "shasta",
+"n": "Live music: Mike Ehlers",
+"k": "apres",
+"t": "2–5pm",
+"d": "Free live music in the lodge.",
+"dates": [
+"2027-01-30"
+],
+"u": "https://www.skipark.com/ski-park-events"
+},
+{
+"r": "palisades",
+"n": "Welcome to Winter + FORGED",
+"k": "party",
+"d": "Village kickoff party and unveiling of new FORGED sculpture inductees.",
+"dates": [
+"2026-11-28"
+],
+"u": "https://www.palisadestahoe.com/events-and-activities/events-calendar"
+},
+{
+"r": "palisades",
+"n": "Tahoe Live",
+"k": "fest",
+"d": "Mountain rave in Olympic Valley, biggest lineup yet. Ticketed.",
+"from": "2026-12-11",
+"to": "2026-12-13",
+"u": "https://www.palisadestahoe.com/events-and-activities/events-calendar"
+},
+{
+"r": "palisades",
+"n": "KT Bass Bar Music Series",
+"k": "apres",
+"t": "Afternoon, KT Base Bar",
+"d": "Free DJ après on the KT-22 Base Bar deck (52 days this season).",
+"dates": [
+"2026-12-18",
+"2026-12-19",
+"2026-12-25",
+"2026-12-26",
+"2026-12-27",
+"2026-12-30",
+"2026-12-31",
+"2027-01-01",
+"2027-01-02",
+"2027-01-08",
+"2027-01-09",
+"2027-01-15",
+"2027-01-16",
+"2027-01-17",
+"2027-01-22",
+"2027-01-23",
+"2027-01-29",
+"2027-01-30",
+"2027-02-05",
+"2027-02-06",
+"2027-02-12",
+"2027-02-13",
+"2027-02-14"
+],
+"u": "https://www.palisadestahoe.com/events-and-activities/events-calendar"
+},
+{
+"r": "palisades",
+"n": "KT Bass Bar Music Series",
+"k": "apres",
+"t": "Afternoon, KT Base Bar",
+"d": "Spring dates not posted yet; last season it ran Fridays & Saturdays through Mar 28.",
+"days": [
+5,
+6
+],
+"est": true,
+"from": "2027-02-19",
+"to": "2027-03-27",
+"u": "https://www.palisadestahoe.com/events-and-activities/events-calendar"
+},
+{
+"r": "palisades",
+"n": "Live music at Alpine bar",
+"k": "music",
+"d": "Holiday live music at Alpine.",
+"dates": [
+"2026-12-26"
+],
+"u": "https://www.palisadestahoe.com/events-and-activities/events-calendar"
+},
+{
+"r": "palisades",
+"n": "NYE glowstick parade + fireworks",
+"k": "party",
+"d": "Glowstick parade, fireworks and after-party.",
+"dates": [
+"2026-12-31"
+],
+"u": "https://www.palisadestahoe.com/events-and-activities/events-calendar"
+},
+{
+"r": "palisades",
+"n": "Live music at Gold Coast (39° North)",
+"k": "music",
+"d": "Mid-mountain live music at Gold Coast.",
+"dates": [
+"2027-01-16",
+"2027-01-23",
+"2027-01-30",
+"2027-02-06",
+"2027-02-13"
+],
+"u": "https://www.palisadestahoe.com/events-and-activities/events-calendar"
+},
+{
+"r": "palisades",
+"n": "Febtoberfest",
+"k": "party",
+"d": "Oktoberfest in February in The Village.",
+"dates": [
+"2027-02-07"
+],
+"u": "https://www.palisadestahoe.com/events-and-activities/events-calendar"
+},
+{
+"r": "northstar",
+"n": "Après Music Series",
+"k": "apres",
+"t": "Village stage",
+"d": "Live music on the Village stage: bands Saturdays, DJs Fridays & Sundays. S'mores + après drinks.",
+"days": [
+5,
+6,
+0
+],
+"from": "2026-11-20",
+"to": "2027-04-11",
+"u": "https://www.northstarcalifornia.com/explore-the-resort/activities-and-events/events-calendar.aspx"
+},
+{
+"r": "northstar",
+"n": "Sunday Sessions",
+"k": "family",
+"d": "Progression day with friends: clinics, park laps, hangs.",
+"dates": [
+"2026-12-13",
+"2027-01-10",
+"2027-02-07"
+],
+"u": "https://www.northstarcalifornia.com/explore-the-resort/activities-and-events/events-calendar.aspx"
+},
+{
+"r": "northstar",
+"n": "Holiday tree lighting",
+"k": "party",
+"d": "Winter Wonders kickoff at the Village ice rink.",
+"dates": [
+"2026-12-18"
+],
+"u": "https://www.northstarcalifornia.com/explore-the-resort/activities-and-events/events-calendar.aspx"
+},
+{
+"r": "northstar",
+"n": "Figure skating expo",
+"k": "family",
+"d": "Jennifer Jones Ice Theatre on the Village rink.",
+"dates": [
+"2026-12-19"
+],
+"u": "https://www.northstarcalifornia.com/explore-the-resort/activities-and-events/events-calendar.aspx"
+},
+{
+"r": "northstar",
+"n": "Winter Wonders",
+"k": "fest",
+"d": "Daily live music and holiday activities in the Village.",
+"from": "2026-12-20",
+"to": "2027-01-03",
+"u": "https://www.northstarcalifornia.com/explore-the-resort/activities-and-events/events-calendar.aspx"
+},
+{
+"r": "northstar",
+"n": "NYE celebration",
+"k": "party",
+"d": "Fireworks and a live band on the Village stage.",
+"dates": [
+"2026-12-31"
+],
+"u": "https://www.northstarcalifornia.com/explore-the-resort/activities-and-events/events-calendar.aspx"
+},
+{
+"r": "northstar",
+"n": "Lunar New Year celebration",
+"k": "fest",
+"d": "Cultural performances, live music and activities.",
+"dates": [
+"2027-02-06"
+],
+"u": "https://www.northstarcalifornia.com/explore-the-resort/activities-and-events/events-calendar.aspx"
+},
+{
+"r": "northstar",
+"n": "Women's Weekend",
+"k": "family",
+"d": "Clinics and social events.",
+"from": "2027-03-05",
+"to": "2027-03-07",
+"u": "https://www.northstarcalifornia.com/explore-the-resort/activities-and-events/events-calendar.aspx"
+},
+{
+"r": "northstar",
+"n": "Northstar Pride",
+"k": "party",
+"d": "Annual Pride celebration.",
+"dates": [
+"2027-03-13"
+],
+"u": "https://www.northstarcalifornia.com/explore-the-resort/activities-and-events/events-calendar.aspx"
+},
+{
+"r": "northstar",
+"n": "Spring It On pond skim",
+"k": "comp",
+"d": "Annual pond skim.",
+"dates": [
+"2027-04-03",
+"2027-04-04"
+],
+"u": "https://www.northstarcalifornia.com/explore-the-resort/activities-and-events/events-calendar.aspx"
+},
+{
+"r": "heavenly",
+"n": "DJ Cat",
+"k": "apres",
+"d": "Heavenly's après DJ, every weekend all season.",
+"days": [
+6,
+0
+],
+"from": "2026-12-05",
+"to": "2027-04-18",
+"u": "https://www.skiheavenly.com/explore-the-resort/experience-heavenly/events-calendar.aspx"
+},
+{
+"r": "heavenly",
+"n": "Season Kick Off Party",
+"k": "party",
+"d": "Dancing in the snow to open the season.",
+"dates": [
+"2026-12-19"
+],
+"u": "https://www.skiheavenly.com/explore-the-resort/experience-heavenly/events-calendar.aspx"
+},
+{
+"r": "heavenly",
+"n": "Vandelux",
+"k": "music",
+"d": "Headline DJ après set.",
+"dates": [
+"2027-01-23"
+],
+"u": "https://www.skiheavenly.com/explore-the-resort/experience-heavenly/events-calendar.aspx"
+},
+{
+"r": "heavenly",
+"n": "Gun Barrel 25",
+"k": "comp",
+"d": "How many laps of Gun Barrel can you do? Spectators welcome.",
+"dates": [
+"2027-02-28"
+],
+"u": "https://www.skiheavenly.com/explore-the-resort/experience-heavenly/events-calendar.aspx"
+},
+{
+"r": "heavenly",
+"n": "Air & Après",
+"k": "fest",
+"d": "Free 3-day event: pros on a 45-ft jump at World Cup base, plus night concerts.",
+"from": "2027-03-05",
+"to": "2027-03-07",
+"u": "https://www.skiheavenly.com/explore-the-resort/experience-heavenly/events-calendar.aspx"
+},
+{
+"r": "heavenly",
+"n": "Women in Powder",
+"k": "family",
+"d": "Women's day presented by Helly Hansen (date may change).",
+"dates": [
+"2027-03-13"
+],
+"u": "https://www.skiheavenly.com/explore-the-resort/experience-heavenly/events-calendar.aspx"
+},
+{
+"r": "heavenly",
+"n": "Spring Break College Week",
+"k": "party",
+"d": "DJs, food and events for college spring break.",
+"from": "2027-03-15",
+"to": "2027-03-20",
+"u": "https://www.skiheavenly.com/explore-the-resort/experience-heavenly/events-calendar.aspx"
+},
+{
+"r": "heavenly",
+"n": "Pond Skim",
+"k": "comp",
+"d": "Spring pond skim.",
+"dates": [
+"2027-04-03"
+],
+"u": "https://www.skiheavenly.com/explore-the-resort/experience-heavenly/events-calendar.aspx"
+},
+{
+"r": "heavenly",
+"n": "Brews & Views",
+"k": "apres",
+"t": "Lakeview Lodge",
+"d": "Monthly craft-brewery tastings + live music at Lakeview Lodge (dates not posted).",
+"days": [
+6
+],
+"sel": true,
+"est": true,
+"from": "2026-12-19",
+"to": "2027-03-27",
+"u": "https://www.skiheavenly.com/explore-the-resort/experience-heavenly/events-calendar.aspx"
+},
+{
+"r": "mammoth",
+"n": "Holiday tree lighting",
+"k": "party",
+"d": "Tree lighting in The Village.",
+"dates": [
+"2026-11-27"
+],
+"u": "https://www.mammothmountain.com/things-to-do/events"
+},
+{
+"r": "mammoth",
+"n": "Woolly's After Hours",
+"k": "family",
+"t": "4–6pm",
+"d": "Two extra hours of Mountain Coaster laps at Woolly's Adventure Summit.",
+"dates": [
+"2026-11-27",
+"2026-12-29",
+"2027-01-16",
+"2027-02-14"
+],
+"u": "https://www.mammothmountain.com/things-to-do/events"
+},
+{
+"r": "mammoth",
+"n": "Unbound Rail Jam",
+"k": "comp",
+"d": "Unbound terrain parks' 30th season series.",
+"dates": [
+"2026-11-29",
+"2026-12-28",
+"2026-12-30"
+],
+"u": "https://www.mammothmountain.com/things-to-do/events"
+},
+{
+"r": "mammoth",
+"n": "Kids Ski Free Week",
+"k": "family",
+"d": "Kids 12 and under ski free each day.",
+"from": "2026-12-05",
+"to": "2026-12-11",
+"u": "https://www.mammothmountain.com/things-to-do/events"
+},
+{
+"r": "mammoth",
+"n": "Night of Lights",
+"k": "party",
+"d": "Evening celebration in The Village.",
+"dates": [
+"2026-12-12"
+],
+"u": "https://www.mammothmountain.com/things-to-do/events"
+},
+{
+"r": "mammoth",
+"n": "New Year's celebration",
+"k": "party",
+"d": "NYE on the mountain and in The Village.",
+"dates": [
+"2026-12-31"
+],
+"u": "https://www.mammothmountain.com/things-to-do/events"
+},
+{
+"r": "mammoth",
+"n": "Unbound Slopestyle",
+"k": "comp",
+"d": "Unbound Series slopestyle.",
+"dates": [
+"2027-01-03",
+"2027-01-16",
+"2027-02-06"
+],
+"u": "https://www.mammothmountain.com/things-to-do/events"
+},
+{
+"r": "mammoth",
+"n": "Unbound Halfpipe",
+"k": "comp",
+"d": "Unbound Series halfpipe.",
+"dates": [
+"2027-01-31",
+"2027-02-14",
+"2027-02-20"
+],
+"u": "https://www.mammothmountain.com/things-to-do/events"
+},
+{
+"r": "mammoth",
+"n": "JLA Banked Slalom",
+"k": "comp",
+"d": "Annual banked slalom for snowboard legend Jeff Anderson.",
+"from": "2027-03-05",
+"to": "2027-03-07",
+"u": "https://www.mammothmountain.com/things-to-do/events"
+},
+{
+"r": "mammoth",
+"n": "Canyon Après party",
+"k": "apres",
+"t": "2:30–5pm, Canyon Lodge",
+"d": "DJ in a gondola car on the Canyon Lodge sundeck. Free, 21+. Ranked one of the best après parties in the US. 26/27 dates not posted; ran Jan 2–Apr 18 last season.",
+"days": [
+5,
+6
+],
+"est": true,
+"from": "2027-01-01",
+"to": "2027-04-17",
+"u": "https://www.mammothmountain.com/things-to-do/events"
+},
+{
+"r": "parkcity",
+"n": "Après at the Airstream",
+"k": "apres",
+"d": "Weekend après at the Airstream bar.",
+"days": [
+5,
+6,
+0
+],
+"from": "2026-11-27",
+"to": "2027-04-18",
+"u": "https://www.parkcitymountain.com/explore-the-resort/during-your-stay/park-city-events.aspx"
+},
+{
+"r": "parkcity",
+"n": "Canyons Village tree lighting",
+"k": "party",
+"d": "10th annual tree lighting.",
+"dates": [
+"2026-11-27"
+],
+"u": "https://www.parkcitymountain.com/explore-the-resort/during-your-stay/park-city-events.aspx"
+},
+{
+"r": "parkcity",
+"n": "Celsius Sessions",
+"k": "music",
+"d": "Skiing, music and après energy on the mountain.",
+"dates": [
+"2026-12-05"
+],
+"u": "https://www.parkcitymountain.com/explore-the-resort/during-your-stay/park-city-events.aspx"
+},
+{
+"r": "parkcity",
+"n": "Silver Sky Nights",
+"k": "party",
+"d": "Live music + fireworks in Canyons Village.",
+"dates": [
+"2026-12-18",
+"2027-01-16",
+"2027-02-06",
+"2027-02-13"
+],
+"u": "https://www.parkcitymountain.com/explore-the-resort/during-your-stay/park-city-events.aspx"
+},
+{
+"r": "parkcity",
+"n": "Holiday Happenings",
+"k": "fest",
+"d": "Daily holiday activities; Santa rides the lift Sat Dec 19.",
+"from": "2026-12-19",
+"to": "2027-01-03",
+"u": "https://www.parkcitymountain.com/explore-the-resort/during-your-stay/park-city-events.aspx"
+},
+{
+"r": "parkcity",
+"n": "NYE at Canyons Village",
+"k": "party",
+"d": "Live music and fireworks.",
+"dates": [
+"2026-12-31"
+],
+"u": "https://www.parkcitymountain.com/explore-the-resort/during-your-stay/park-city-events.aspx"
+},
+{
+"r": "parkcity",
+"n": "The Snow League",
+"k": "comp",
+"d": "Shaun White's league: the world's best snowboarders head-to-head.",
+"from": "2027-01-21",
+"to": "2027-01-23",
+"u": "https://www.parkcitymountain.com/explore-the-resort/during-your-stay/park-city-events.aspx"
+},
+{
+"r": "parkcity",
+"n": "Passholder Appreciation Party",
+"k": "apres",
+"d": "Après party for Epic Pass holders.",
+"dates": [
+"2027-01-29"
+],
+"u": "https://www.parkcitymountain.com/explore-the-resort/during-your-stay/park-city-events.aspx"
+},
+{
+"r": "parkcity",
+"n": "Winter Pride Parade",
+"k": "party",
+"d": "Pride parade down the mountain.",
+"dates": [
+"2027-02-27"
+],
+"u": "https://www.parkcitymountain.com/explore-the-resort/during-your-stay/park-city-events.aspx"
+},
+{
+"r": "parkcity",
+"n": "Women's Weekend",
+"k": "family",
+"d": "Clinics and social events.",
+"from": "2027-03-05",
+"to": "2027-03-07",
+"u": "https://www.parkcitymountain.com/explore-the-resort/during-your-stay/park-city-events.aspx"
+},
+{
+"r": "parkcity",
+"n": "Party at the Pipe",
+"k": "fest",
+"d": "Elite athletes, entertainment and après at the halfpipe.",
+"dates": [
+"2027-03-20"
+],
+"u": "https://www.parkcitymountain.com/explore-the-resort/during-your-stay/park-city-events.aspx"
+},
+{
+"r": "snowbird",
+"n": "Live music at The Tram Club",
+"k": "apres",
+"t": "3–6pm, Snowbird Center",
+"d": "Friday après with local bands, cheesy fries and drink deals.",
+"dates": [
+"2026-11-27",
+"2026-12-11",
+"2026-12-18",
+"2027-01-15",
+"2027-01-22",
+"2027-01-29",
+"2027-02-12",
+"2027-02-19",
+"2027-02-26"
+],
+"u": "https://www.snowbird.com/activities-events/events/events-calendar/"
+},
+{
+"r": "snowbird",
+"n": "NYE torchlight + fireworks",
+"k": "party",
+"d": "Torchlight parade and fireworks.",
+"dates": [
+"2026-12-31"
+],
+"u": "https://www.snowbird.com/activities-events/events/events-calendar/"
+},
+{
+"r": "snowbird",
+"n": "Ski Like a Girl pop-up",
+"k": "family",
+"d": "Women's pop-up day.",
+"dates": [
+"2027-01-30"
+],
+"u": "https://www.snowbird.com/activities-events/events/events-calendar/"
+},
+{
+"r": "snowbird",
+"n": "Freeride World Tour Finals: Snowbird Pro",
+"k": "comp",
+"d": "First FWT stop at Snowbird since 2014; watch from the base of Baldy. Weather window Mar 16–22.",
+"from": "2027-03-16",
+"to": "2027-03-22",
+"u": "https://www.snowbird.com/activities-events/events/events-calendar/"
+},
+{
+"r": "snowbird",
+"n": "Plazapalooza",
+"k": "apres",
+"t": "2–5pm, Plaza Deck",
+"d": "Free spring music on the Plaza Deck, Fri–Sun (started Mar 27 last season).",
+"days": [
+5,
+6,
+0
+],
+"est": true,
+"from": "2027-03-26",
+"to": "2027-04-25",
+"u": "https://www.snowbird.com/activities-events/events/events-calendar/"
+},
+{
+"r": "deervalley",
+"n": "Torchlight parade",
+"k": "party",
+"d": "Holiday torchlight parade.",
+"dates": [
+"2026-12-30"
+],
+"u": "https://www.deervalley.com/things-to-do/events"
+},
+{
+"r": "deervalley",
+"n": "FIS Freestyle World Cup",
+"k": "comp",
+"d": "Moguls Thu Jan 28, aerials Fri Jan 29, dual moguls Sat Jan 30.",
+"from": "2027-01-28",
+"to": "2027-01-30",
+"u": "https://www.deervalley.com/things-to-do/events"
+},
+{
+"r": "deervalley",
+"n": "Slopeside Sets at Chute Eleven",
+"k": "apres",
+"t": "Empire Canyon Lodge",
+"d": "21+ champagne-yurt DJ après with touring DJs, limited capacity. 26/27 lineup not posted.",
+"days": [
+5,
+6
+],
+"sel": true,
+"est": true,
+"from": "2027-01-08",
+"to": "2027-03-27",
+"u": "https://www.deervalley.com/things-to-do/events"
+},
+{
+"r": "vail",
+"n": "Stoke Sessions",
+"k": "music",
+"d": "Free concert at Checkpoint Charlie, Vail Village.",
+"dates": [
+"2026-11-20",
+"2026-12-04"
+],
+"u": "https://www.vail.com/explore-the-resort/activities-and-events/vail-events.aspx"
+},
+{
+"r": "vail",
+"n": "Dobson re-opening concert",
+"k": "music",
+"d": "Concert for the reopened Dobson Arena.",
+"dates": [
+"2026-11-28"
+],
+"u": "https://www.vail.com/explore-the-resort/activities-and-events/vail-events.aspx"
+},
+{
+"r": "vail",
+"n": "Après All Day",
+"k": "apres",
+"d": "Live music at the base of Gondola One, presented by Outer Range Brewing.",
+"days": [
+5,
+6,
+0
+],
+"from": "2026-12-11",
+"to": "2027-04-11",
+"u": "https://www.vail.com/explore-the-resort/activities-and-events/vail-events.aspx"
+},
+{
+"r": "vail",
+"n": "Illenium @ Vail",
+"k": "music",
+"d": "Illenium headlines at Dobson.",
+"dates": [
+"2026-12-11"
+],
+"u": "https://www.vail.com/explore-the-resort/activities-and-events/vail-events.aspx"
+},
+{
+"r": "vail",
+"n": "Après Unlimited",
+"k": "apres",
+"d": "Roaming DJ series around the villages.",
+"days": [
+6
+],
+"from": "2027-01-02",
+"to": "2027-03-27",
+"u": "https://www.vail.com/explore-the-resort/activities-and-events/vail-events.aspx"
+},
+{
+"r": "vail",
+"n": "Vail Legacy Weekend",
+"k": "fest",
+"d": "10th Mountain Division parade and Vail heritage events.",
+"dates": [
+"2027-02-27",
+"2027-02-28"
+],
+"u": "https://www.vail.com/explore-the-resort/activities-and-events/vail-events.aspx"
+},
+{
+"r": "vail",
+"n": "Taste of Vail",
+"k": "fest",
+"d": "Food and wine festival.",
+"from": "2027-03-31",
+"to": "2027-04-03",
+"u": "https://www.vail.com/explore-the-resort/activities-and-events/vail-events.aspx"
+},
+{
+"r": "breck",
+"n": "TBAR Après",
+"k": "apres",
+"d": "Breck's après bar, Fridays & Saturdays all season.",
+"days": [
+5,
+6
+],
+"from": "2026-11-21",
+"to": "2027-04-17",
+"u": "https://www.breckenridge.com/explore-the-resort/activities-and-events/events-activities.aspx"
+},
+{
+"r": "breck",
+"n": "Lighting of Breck & Race of the Santas",
+"k": "party",
+"d": "Holiday kickoff in town.",
+"dates": [
+"2026-12-05"
+],
+"u": "https://www.breckenridge.com/explore-the-resort/activities-and-events/events-activities.aspx"
+},
+{
+"r": "breck",
+"n": "U.S. Grand Prix",
+"k": "comp",
+"d": "World Cup freestyle.",
+"from": "2026-12-08",
+"to": "2026-12-13",
+"u": "https://www.breckenridge.com/explore-the-resort/activities-and-events/events-activities.aspx"
+},
+{
+"r": "breck",
+"n": "Rockstar Energy Open",
+"k": "comp",
+"d": "Pro snowboard and ski contest.",
+"from": "2026-12-18",
+"to": "2026-12-20",
+"u": "https://www.breckenridge.com/explore-the-resort/activities-and-events/events-activities.aspx"
+},
+{
+"r": "breck",
+"n": "Climb & Dine at TenMile Station",
+"k": "family",
+"d": "Uphill skin + dinner at TenMile Station.",
+"dates": [
+"2027-01-22",
+"2027-02-19",
+"2027-03-19"
+],
+"u": "https://www.breckenridge.com/explore-the-resort/activities-and-events/events-activities.aspx"
+},
+{
+"r": "breck",
+"n": "Overlook Après",
+"k": "music",
+"d": "Headline concert after lifts close.",
+"dates": [
+"2027-01-02",
+"2027-02-06",
+"2027-03-20"
+],
+"u": "https://www.breckenridge.com/explore-the-resort/activities-and-events/events-activities.aspx"
+},
+{
+"r": "breck",
+"n": "Snow Sculpture Championships",
+"k": "fest",
+"d": "International teams carve 25-ton snow blocks in town.",
+"from": "2027-01-23",
+"to": "2027-02-02",
+"u": "https://www.breckenridge.com/explore-the-resort/activities-and-events/events-activities.aspx"
+},
+{
+"r": "aspen",
+"n": "Wintersköl",
+"k": "fest",
+"d": "Aspen's annual 'toast to winter' (Dec 11–14 last season).",
+"from": "2026-12-11",
+"to": "2026-12-13",
+"est": true,
+"u": "https://www.aspensnowmass.com/visit/events"
+},
+{
+"r": "aspen",
+"n": "The Snow League",
+"k": "comp",
+"d": "Shaun White's league opens season two at Buttermilk.",
+"from": "2027-01-07",
+"to": "2027-01-09",
+"u": "https://www.aspensnowmass.com/visit/events"
+},
+{
+"r": "aspen",
+"n": "X Games Aspen",
+"k": "fest",
+"d": "First stop of the new X Games League at Buttermilk. Night concerts: Zhu Fri Jan 29, Marshmello Sat Jan 30.",
+"from": "2027-01-29",
+"to": "2027-01-31",
+"u": "https://snowbrains.com/x-games-league-winter-season-2027-schedule/"
+},
+{
+"r": "aspen",
+"n": "Toyota U.S. Grand Prix",
+"k": "comp",
+"d": "World Cup slopestyle and halfpipe.",
+"from": "2027-02-27",
+"to": "2027-02-28",
+"u": "https://www.aspensnowmass.com/visit/events"
+},
+{
+"r": "aspen",
+"n": "Après DJs at Ajax Tavern",
+"k": "apres",
+"t": "Ajax Tavern",
+"d": "Slopeside DJ après at the base of Aspen Mountain.",
+"days": [
+5,
+6
+],
+"sel": true,
+"est": true,
+"from": "2026-12-11",
+"to": "2027-04-10",
+"u": "https://www.aspensnowmass.com/visit/events"
+}
+]
+}

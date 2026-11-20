@@ -162,6 +162,25 @@ td.c.hol{background:var(--holiday-soft)}
 .tile.sel{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent)}
 .tile.pow{border-color:var(--sun);box-shadow:0 0 0 1px var(--sun)}
 .tile.clim{background:transparent;border-style:dashed;box-shadow:none}
+/* events & après: shown only when the Events toggle is on */
+.g.ev-on .tile{height:auto}
+.evs{width:0;min-width:100%;display:flex;flex-direction:column;gap:3px;margin-top:4px}
+.ev{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;min-width:0;font-size:11px;font-weight:600;line-height:1.3;color:var(--ink);text-decoration:none;background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--evc,var(--accent));border-radius:6px;padding:2px 6px;overflow-wrap:anywhere}
+.ev:hover{border-color:var(--evc,var(--accent))}
+.ev .ei{font-size:10.5px;margin-right:3px}
+.ev .ed{font-size:9.5px;font-weight:800;color:var(--muted);letter-spacing:.02em;margin-left:4px;white-space:nowrap}
+.ev.est{border-style:dashed;border-left-style:solid;background:transparent;color:var(--muted)}
+.k-apres{--evc:#D97706}.k-music{--evc:#7C3AED}.k-party{--evc:var(--holiday)}.k-comp{--evc:var(--snow)}.k-fest{--evc:#059669}.k-family{--evc:var(--faint)}
+.evmore{all:unset;cursor:pointer;font-size:10.5px;font-weight:800;color:var(--accent);padding:0 6px}
+.evmore:focus-visible{outline:2px solid var(--accent);border-radius:4px}
+.evlist{display:flex;flex-direction:column;gap:8px}
+.evrow{border:1px solid var(--line);border-left:3px solid var(--evc,var(--accent));border-radius:8px;padding:7px 10px;background:var(--panel)}
+.evrow.est{border-style:dashed;border-left-style:solid}
+.evrow .et{display:flex;gap:6px;align-items:baseline;font-weight:700;font-size:13px}
+.evrow .et a{color:inherit;text-decoration:none}.evrow .et a:hover{color:var(--accent)}
+.evrow .ew{font-size:11.5px;color:var(--muted);margin-top:2px}
+.evrow .ex{font-size:12px;margin-top:3px;color:var(--ink)}
+.evtag{font-size:9.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;border-radius:5px;padding:0 5px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}
 .tile.far .wxrow{opacity:.85}
 .days{display:grid;gap:6px}
 .mode-wk .day .t{font-size:12.5px;padding-left:1px}
@@ -396,6 +415,7 @@ table.be td{text-align:right;padding:7px 6px;border-bottom:1px solid var(--line)
       <label class="tog" for="favOnly"><input type="checkbox" id="favOnly"><span class="sw"></span>Favorites only</label>
       <label class="tog" for="showHidden"><input type="checkbox" id="showHidden"><span class="sw"></span>Show hidden<span class="hcount" id="hcount"></span></label>
       <label class="tog" for="gearAll"><input type="checkbox" id="gearAll"><span class="sw"></span>Board rental</label>
+      <label class="tog" for="evOn" id="evLbl" title="Show après-ski parties, live music and other events in the list"><input type="checkbox" id="evOn"><span class="sw"></span>Events &amp; après</label>
     </div>
     <span class="vdiv"></span>
     <div class="cg" role="group" aria-label="Temperatures"><span class="ctl-label">Temps</span>
@@ -441,6 +461,7 @@ table.be td{text-align:right;padding:7px 6px;border-bottom:1px solid var(--line)
     <span class="li"><span class="sw-box" style="border:1px dashed var(--faint)"></span>10-year average (beyond 16 days)</span>
     <span class="li"><span class="pp beg">$79<small>B</small></span>Beginner-area ticket</span>
     <span class="li">$~ estimated price</span>
+    <span class="li" id="evLegend" hidden><span class="ev k-apres" style="display:inline-flex">🍻 Après</span><span class="ev k-music" style="display:inline-flex">🎸 Music</span><span class="ev k-party" style="display:inline-flex">🎆 Party</span><span class="ev k-comp" style="display:inline-flex">🏆 Competition</span><span class="ev k-fest" style="display:inline-flex">🎪 Festival</span><span class="ev est" style="display:inline-flex">Dashed · est.</span>= not posted yet for 26/27, projected from last season</span>
   </div>
   <div class="notes" id="notes"></div>
 </div>
@@ -455,7 +476,7 @@ table.be td{text-align:right;padding:7px 6px;border-bottom:1px solid var(--line)
 (function(){
 "use strict";
 const $=s=>document.querySelector(s);
-const S={mode:"wk",cali:true,gearAll:false,gear:{},v:3,epic:false,groups:{cali:true,"pa-ca":true,tahoe:true,dest:true,"pa-far":true,"epic-tahoe":true,"epic-west":true,"epic-canada":true,"epic-mw":true},collapsed:{"pa-ca":true,dest:true,"pa-far":true,"epic-canada":true,"epic-ne":true,"epic-ma":true,"epic-mw":true},sort:"drive",view:"grid",fav:{},nope:{},dfav:{},dnope:{},showHidden:false,favOnly:false,dealRes:[],dealType:"all",dealHidden:false,dealFav:false,start:"754 The Alameda, San Jose, CA",roads:false,sio:false,nightOnly:false,showHi:true,showLo:true,unit:"F",beg:false};
+const S={mode:"wk",cali:true,gearAll:false,gear:{},v:3,epic:false,groups:{cali:true,"pa-ca":true,tahoe:true,dest:true,"pa-far":true,"epic-tahoe":true,"epic-west":true,"epic-canada":true,"epic-mw":true},collapsed:{"pa-ca":true,dest:true,"pa-far":true,"epic-canada":true,"epic-ne":true,"epic-ma":true,"epic-mw":true},sort:"drive",view:"grid",fav:{},nope:{},dfav:{},dnope:{},showHidden:false,favOnly:false,dealRes:[],dealType:"all",dealHidden:false,dealFav:false,start:"754 The Alameda, San Jose, CA",roads:false,sio:false,nightOnly:false,showHi:true,showLo:true,unit:"F",beg:false,events:false};
 try{const saved=JSON.parse(localStorage.getItem("snowplanner")||"null");if(saved){const g=Object.assign({},S.groups,saved.groups||{}),c=saved.v===3?Object.assign({},S.collapsed,saved.collapsed||{}):saved.v===2?Object.assign({},S.collapsed,saved.collapsed||{},{"epic-ne":false,"epic-ma":false}):Object.assign({},S.collapsed);if(saved.v!==3&&saved.groups){g["epic-ne"]=true;g["epic-ma"]=true;}delete saved.v;delete saved.openOnly;Object.assign(S,saved);S.groups=g;S.collapsed=c;}}catch(e){}
 function save(){try{localStorage.setItem("snowplanner",JSON.stringify(S));}catch(e){}}
 
@@ -568,6 +589,20 @@ function priceHTML(r,dates,badge){
  const gear=cs.reduce((a,c)=>a+c.g,0);
  if(gear)parts.push(`<span class="pp gear">+$${gear}</span>`);
  return`<div class="pl">${parts.join("")}${badge||""}</div>`;}
+/* ---------- events & après ---------- */
+let EV=null,evP=null,evByR={};
+const EV_ICO={apres:"🍻",music:"🎸",party:"🎆",comp:"🏆",fest:"🎪",family:"⛷️"};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function loadEvents(){if(EV||evP)return;evP=getJ("data/events.json").then(j=>{EV=j;evByR={};j.events.forEach(e=>(evByR[e.r]=evByR[e.r]||[]).push(e));render();if($("#drawer").classList.contains("on")&&curDrawer)openDrawer(curDrawer[0],curDrawer[1]);}).catch(()=>{evP=null;});}
+function evWindow(sat){const fri=addD(sat,-1),sun=addD(sat,1);return S.mode==="sat"?[fri,sat]:S.mode==="sun"?[sun]:[fri,sat,sun];}
+function evOn(e,d){if(e.dates)return e.dates.includes(d);if(d<e.from||d>e.to)return false;return!e.days||e.days.includes(pd(d).getUTCDay());}
+function eventsFor(rid,sat){if(!EV||!evByR[rid])return[];const win=evWindow(sat);
+ return evByR[rid].map(e=>({e,ds:win.filter(d=>evOn(e,d))})).filter(x=>x.ds.length)
+  .sort((a,b)=>(!!a.e.est-!!b.e.est)||(!!a.e.days-!!b.e.days)||(a.ds[0]<b.ds[0]?-1:a.ds[0]>b.ds[0]?1:0));}
+function evDays(ds,win){if(ds.length===win.length&&win.length>1)return win.length===3?"Fri–Sun":"";const n=ds.map(d=>DOW[pd(d).getUTCDay()]);return n.length===3?"Fri–Sun":n.join("+");}
+function eventsHTML(r,sat){const list=eventsFor(r.id,sat);if(!list.length)return"";const win=evWindow(sat);const MAX=3;
+ const chip=({e,ds})=>`<a class="ev k-${e.k}${e.est?" est":""}" href="${esc(e.u)}" target="_blank" rel="noopener" title="${esc(e.n+(e.t?" · "+e.t:"")+(e.d?" — "+e.d:""))}"><span class="ei" aria-hidden="true">${EV_ICO[e.k]||"•"}</span>${esc(e.n)}<span class="ed">${[e.sel?"some wknds":evDays(ds,win),e.est?"est.":""].filter(Boolean).join(" · ")}</span></a>`;
+ return`<div class="evs">${list.slice(0,MAX).map(chip).join("")}${list.length>MAX?`<button type="button" class="evmore" data-r="${r.id}" data-s="${sat}">+${list.length-MAX} more</button>`:""}</div>`;}
 function cellHTML(r,sat){
  const dates=datesFor(sat);
  const hol=holOf(sat);
@@ -582,7 +617,7 @@ function cellHTML(r,sat){
  }
  const body=(S.mode==="wk"&&!anyFc)?`<div class="days" style="grid-template-columns:1fr">${days[0].html}</div>`:`<div class="days">${days.map(d=>d.html).join("")}</div>`;
  const label=`${r.name}, ${dates.map(fmtD).join(" and ")}`;
- return`<td class="c${hol?" hol":""}"><button type="button" class="${cls}" data-r="${r.id}" data-s="${sat}" aria-label="${label}">${body}${priceHTML(r,dates,badge)}</button></td>`;
+ return`<td class="c${hol?" hol":""}"><button type="button" class="${cls}" data-r="${r.id}" data-s="${sat}" aria-label="${label}">${body}${priceHTML(r,dates,badge)}</button>${S.events&&EV?eventsHTML(r,sat):""}</td>`;
 }
 function sortVal(r){
  const sat=weekends[0];
@@ -596,7 +631,8 @@ function render(){
  document.querySelectorAll("#unitSeg button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.u===S.unit)));
  $("#tHi").setAttribute("aria-pressed",String(S.showHi));$("#tLo").setAttribute("aria-pressed",String(S.showLo));
  renderFilters();
- const cls=["g",mode==="wk"?"mode-wk":"",S.showHi?"":"no-hi",S.showLo?"":"no-lo"].join(" ");
+ const cls=["g",mode==="wk"?"mode-wk":"",S.showHi?"":"no-hi",S.showLo?"":"no-lo",S.events&&EV?"ev-on":""].join(" ");
+ $("#evOn").checked=!!S.events;$("#evLbl").hidden=S.view!=="grid";$("#evLegend").hidden=!(S.events&&EV);if(S.events)loadEvents();
  let h=`<table class="${cls}"><thead><tr><th class="corner rh"><span class="ctl-label">Resort</span><div class="small muted" style="font-weight:600;margin-top:2px">${mode==="sat"?"Saturdays":mode==="sun"?"Sundays":"Saturday + Sunday"}</div></th>`;
  weekends.forEach(sat=>{
   const hol=holOf(sat);const sun=addD(sat,1);const shown=mode==="sun"?sun:sat;
@@ -877,8 +913,9 @@ function renderFresh(){
 
 /* ---------- drawer ---------- */
 let lastFocus=null;
+let curDrawer=null;
 function openDrawer(rid,sat){
- const r=R.resorts.find(x=>x.id===rid);if(!r)return;
+ const r=R.resorts.find(x=>x.id===rid);if(!r)return;curDrawer=[rid,sat];
  lastFocus=document.activeElement;
  const dates=S.mode==="wk"?[sat,addD(sat,1)]:datesFor(sat);
  const hol=holOf(sat);
@@ -894,6 +931,10 @@ function openDrawer(rid,sat){
   b+=`</div>`;
  });
  b+=`</div>`;
+ if(S.events&&EV){const list=eventsFor(r.id,sat),win=evWindow(sat);
+  b+=`<div class="sec"><h3>Events &amp; après · ${win.map(d=>DOW[pd(d).getUTCDay()]).join("–")}</h3>`;
+  b+=list.length?`<div class="evlist">${list.map(({e,ds})=>`<div class="evrow k-${e.k}${e.est?" est":""}"><div class="et"><span aria-hidden="true">${EV_ICO[e.k]||"•"}</span><a href="${esc(e.u)}" target="_blank" rel="noopener">${esc(e.n)} ↗</a></div><div class="ew">${e.sel?"Select weekends":ds.map(d=>DOW[pd(d).getUTCDay()]+" "+fmtD(d)).join(", ")}${e.t?" · "+esc(e.t):""} · <span class="evtag">${esc(EV.kinds[e.k]||e.k)}</span>${e.est?' <span class="evtag">Est. date</span>':""}</div>${e.d?`<div class="ex">${esc(e.d)}</div>`:""}</div>`).join("")}</div>`:`<p class="small muted" style="margin:0">Nothing posted for this weekend yet.</p>`;
+  b+=`<p class="small muted" style="margin:8px 0 0">${esc(EV.note)}</p></div>`;}
  b+=`<div class="sec"><h3>What it costs you${S.cali?" · Cali Pass":" · no pass"}</h3><div class="cost">`;
  let tot=0;
  dates.forEach(d=>{const c=dayCost(r,d);tot+=c.t.amt;
@@ -934,7 +975,7 @@ document.addEventListener("click",e=>{
  const f=e.target.closest(".fchip[data-f]");if(f){const k=f.dataset.f;if(S.groups[k]&&!S.collapsed[k])S.groups[k]=false;else{S.groups[k]=true;S.collapsed[k]=false;}render();return;}
  const g=e.target.closest("tr.group button");if(g){S.collapsed[g.dataset.g]=!S.collapsed[g.dataset.g];render();return;}
  const gb=e.target.closest(".gearbtn");if(gb){const id=gb.dataset.gear;if(S.gearAll){S.gearAll=false;R.resorts.forEach(x=>S.gear[x.id]=x.id!==id);}else S.gear[id]=!S.gear[id];render();return;}
- const t=e.target.closest(".tile,.sum[data-r]");if(t){openDrawer(t.dataset.r,t.dataset.s);return;}
+ const t=e.target.closest(".tile,.sum[data-r],.evmore");if(t){openDrawer(t.dataset.r,t.dataset.s);return;}
 });
 $("#cali").addEventListener("change",e=>{S.cali=e.target.checked;
  if(!S.cali){S.gearPrev=S.gearAll;S.gearAll=true;S.begPrev=S.beg;S.beg=true;}
@@ -942,6 +983,7 @@ $("#cali").addEventListener("change",e=>{S.cali=e.target.checked;
   if(S.gearPrev!==undefined){S.gearAll=S.gearPrev;if(!S.gearAll)S.gear={};delete S.gearPrev;}}
  render();});
 $("#sio").addEventListener("change",e=>{S.sio=e.target.checked;render();});
+$("#evOn").addEventListener("change",e=>{S.events=e.target.checked;render();});
 $("#nightOnly").addEventListener("change",e=>{S.nightOnly=e.target.checked;render();});
 $("#favOnly").addEventListener("change",e=>{S.favOnly=e.target.checked;render();});
 $("#showHidden").addEventListener("change",e=>{S.showHidden=e.target.checked;render();});

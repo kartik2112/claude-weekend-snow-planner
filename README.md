@@ -21,6 +21,7 @@ A weekend ski and snowboard planner for **Cali Pass** holders (home resort: Dodg
 - A Cali Pass break-even calculator ("Pass value" tab): pass cost, day-ticket prices, Dodge Ridge and Bear Valley multi-day packs, and your planned days
 - Live forecasts are fetched only for resort groups that are open, cached for 30 minutes
 - A ski-in/ski-out filter
+- An **Events & après** switch (List view, off by default): après-ski parties, live music, festivals and competitions for the weekend appear under each resort's cell, with the full list in the resort drawer. Covers the 16 California, Tahoe and destination resorts. Dashed items marked *est.* aren't posted for 26/27 yet and are projected from last season.
 - Switches for "I have a Cali Pass", high/low temperatures, and °F/°C
 
 ## Data
@@ -29,6 +30,7 @@ A weekend ski and snowboard planner for **Cali Pass** holders (home resort: Dodg
 |---|---|---|
 | `data/resorts.json` | Resorts, coordinates, pass rules, holiday/blackout dates, ticket and rental prices | Prices checked Nov 12, 2026. Many are estimates (shown as `$~`); confirm on the resort's site. |
 | `data/climate.json` | Weekly averages from the Open-Meteo archive, 2015–2025 | Static |
+| `data/events.json` | Events, après and live music by resort (dated, ranges, or weekly) | Checked Nov 19, 2026 from each resort's events calendar |
 | `data/forecast.json` | Fallback forecast, used only if the live Open-Meteo request fails | Snapshot |
 
 Prices are adult single-day weekend rates. Palisades, Northstar and Heavenly price by date, so the planner shows a typical advance-online price; window rates run higher.
